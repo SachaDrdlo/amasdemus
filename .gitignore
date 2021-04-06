@@ -32,3 +32,16 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+### Admin ###
+*/.DS_Store
+*/node_modules
+*.sass-cache/
+
+

@@ -1,0 +1,14 @@
+.btn{
+    background-color: $clr-green;
+    color: $clr-pale-brown;
+    padding: .8rem 2.4rem;
+    text-decoration: none;
+    display: block;
+    transition: background-color .4s ease;
+
+    &:hover,
+    &:focus{
+        background-color: $clr-orange;
+    }
+}
+

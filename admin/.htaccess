@@ -1,0 +1,6 @@
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+# Règles de réécriture d'URL :
+# RewriteRule ^add-account$   ./index.php?page=add-account
+# RewriteRule ^new-password/([a-z0-9]+)$   ./index.php?page=new-password&token=$1

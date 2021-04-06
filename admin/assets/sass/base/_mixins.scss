@@ -1,0 +1,123 @@
+// PROJECT MIXINS
+// ________________________________________________________________________________________
+
+
+// Create a box
+// ________________________________________________________________________________________
+
+@mixin box($width, $height:$width) {
+    width: $width;
+    height: $height;
+}
+
+
+// Create a pseudo element base structure 
+// ________________________________________________________________________________________
+
+@mixin pseudo-el($display: block, $position: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $position;
+    // @include pseudo-el() on ::before & ::after.
+}
+
+
+// Responsive ratio
+// ________________________________________________________________________________________
+
+@mixin resp-ratio($x, $y, $pseudo-el: false, $pseudo: before) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo-el{
+        @if $pseudo == 'before' or $pseudo == 'after'{
+            &::#{$pseudo} {
+                @include pseudo-el();
+                width: 100%;
+                padding-top: $padding;
+            }
+        } 
+    } @else {
+        padding-top: $padding;
+    }
+    // @include resp-ratio(16, 9, true);
+}
+
+
+// Allow truncation and add ellipsis
+// ________________________________________________________________________________________
+
+@mixin trunc-etc($truncation-limit) {
+    max-width: $truncation-limit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // @include trunc-etc(6ch);
+}
+
+
+
+// Mixin test for spacings
+// ________________________________________________________________________________________
+
+@mixin reset-spacing($value : 0){
+    margin: $value;
+    padding: $value;
+}
+
+// Reset link basic style exemple
+@mixin reset-link(){
+    text-decoration: none;
+    display: block;
+}
+
+// Reset button style and apply default style
+@mixin button($bgclr, $fontclr, $radius: false){
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 2.2rem;
+    margin-top: 2rem;
+    font-weight: bold;
+    background-color: $bgclr;
+    border: 2px solid $fontclr;
+    color: $fontclr;
+    transition: background-color .4s ease,
+                color .4s ease;
+
+    // Condition
+    @if $radius {
+        border-radius: $radius;       
+    }
+
+    &:hover{
+        background-color: $fontclr; 
+        color: $bgclr;
+    }
+}
+
+
+// Boucles
+@for $i from 1 through 3 {
+    .margin-#{$i}{
+        margin: 1rem * $i;
+    }
+}
+
+@for $i from 6 through 1 {
+    h#{$i}{
+        font-size: 6rem * (1 / $i);
+    }
+}
+
+
+// Avec une collection
+$text-transform: (
+    text-uppercase: uppercase,
+    text-lowercase: lowercase,
+    text-capitalize: capitalize
+);
+
+@each $classname, $style in $text-transform {
+    .#{$classname}{
+        text-transform: $style;
+    }
+}
