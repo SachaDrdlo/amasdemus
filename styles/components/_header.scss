@@ -31,23 +31,23 @@
         align-items: center;
         transform: translateX(calc(100% - 24px));
         transition: transform 0.5s ease;
-        
+
         img {
             width: 2.4rem;
         }
 
-        &_inputcontainer{
+        &_inputcontainer {
             display: flex;
             align-items: center;
             flex-grow: 1;
-            
+
             input {
                 margin: 0 1.6rem;
                 padding: 0 0 .4rem;
                 font-size: 1.6rem;
                 border: none;
                 border-bottom: 2px solid $clr-green;
-                flex-grow: 1; 
+                flex-grow: 1;
                 outline: none;
                 background-color: transparent;
             }
@@ -58,6 +58,10 @@
 .active {
     transform: translateX(0);
     transition: transform 0.5s ease;
+}
+
+.none {
+    transform: translateX(calc(100% - 24px));
 }
 
 .size {
