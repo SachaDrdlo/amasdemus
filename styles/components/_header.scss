@@ -2,8 +2,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 32px 0;
+    display: flex;
+    justify-content: space-between;
 
     &_left {
+        width: 160px;
+        height: 32px;
+
         img {
             width: auto;
             height: 32px;
@@ -11,21 +16,41 @@
     }
 
     &_right {
-        display: flex;
-        justify-content: flex-end;
+        padding: 0;
+        overflow: hidden;
 
-        img {
-            width: 20px;
-        }
+        &_inputcontainer {
+            position: relative;
+            width: 100%;
+            transform: translateX(calc(100% - 20px));
+            transition: transform 0.5s ease;
 
-        input {
-            border-top: none;
-            border-right: none;
-            border-left: none;
-            border-color: $clr-green;
-            width: 130px;
-            outline: none;
-            background-color: transparent;
+            img {
+                width: 20px;
+                margin-right: 10px;
+            }
+
+            input {
+                position: absolute;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                border-color: $clr-green;
+                width: 130px;
+                outline: none;
+                background-color: transparent;
+            }
+
         }
     }
+}
+
+.active {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+}
+
+.size {
+    height: auto;
+    width: 20px;
 }
