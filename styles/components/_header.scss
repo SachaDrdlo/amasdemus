@@ -1,0 +1,31 @@
+.header_container {
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+
+    &_left {
+        img {
+            width: auto;
+            height: 32px;
+        }
+    }
+
+    &_right {
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            width: 20px;
+        }
+
+        input {
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-color: $clr-green;
+            width: 130px;
+            outline: none;
+            background-color: transparent;
+        }
+    }
+}
