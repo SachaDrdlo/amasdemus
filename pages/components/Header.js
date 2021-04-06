@@ -9,7 +9,8 @@ const Header = () => {
     const breakpoint = 992;
 
     const getSearch = () => {
-        setOpened(!opened);
+        // TODO : conditionner
+        setOpened(true);
     }
 
     return (
@@ -20,11 +21,12 @@ const Header = () => {
                         <Image src="/img/logos/horizontal-green.png" width={164} height={32} layout="responsive" alt="" />
                     </div>
                 </div>
-                <div xs={6} className={styles.header_container_right}>
-                    <div className={`${styles.header_container_right_inputcontainer} ${opened ? styles.active : null}`}>
+                <div className={`${styles.header_container_search} ${opened ? styles.active : null}`}>
+                    <div className={styles.header_container_search_inputcontainer}>
                         <img src="/img/icons/search-icon.svg" alt="" onClick={() => getSearch()} />
-                        <input type="text" placeholder="rechercher une bière" />
+                        <input type="text" placeholder="Rechercher une bière..." />
                     </div>
+                    <img className={styles.header_container_search_close} src="/img/icons/close-icon.svg" alt="" onClick={() => getSearch()} />
                 </div>
             </div>
         </div>
