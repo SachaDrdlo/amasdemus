@@ -1,6 +1,7 @@
-@import 'variables',
-'mixins',
-'reset';
+@import 'reset',
+        'variables',
+        'mixins';
+        
 
 // IMPORT FONTS
 // Germania One
@@ -17,6 +18,8 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-family: 'Germania One', cursive;
+  font-size: 1.6rem;
+  line-height: 1.6;
 }
 
 .container {
