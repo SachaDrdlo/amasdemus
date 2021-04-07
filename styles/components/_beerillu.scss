@@ -1,0 +1,47 @@
+.container_grid {
+    margin-top: 200px;
+    height: 100%;
+    &_illu {
+        position: relative;
+        width: 100%;
+
+        &_beer {
+            z-index: 0;
+            width: 100%;
+            height: 30rem;
+            display: flex;
+            justify-content: center;
+
+            img {
+                transform: rotate(10deg);
+            }
+        }
+
+        &_blob {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+
+            img {
+                height: 220px;
+                width: 225px;
+            }
+        }
+    }
+
+    &_content {
+        padding-top: 40px;
+
+        hr {
+            width: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            color: $clr-grey;
+            font-size: 5.6rem;
+        }
+    }
+}
