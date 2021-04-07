@@ -1,6 +1,6 @@
-{
-    "beers":[    
-        { 
+    [
+        {
+            "id": 1,
             "name":"Tripel Karmeliet",
             "type":"Triple",
             "level":"8.4",
@@ -10,9 +10,10 @@
             "brewery":"Brouwerij Bosteels",
             "title": "Un classique belge",
             "introduction": "La bière Tripel Karmeliet est l'un des grands classiques des bières belges. Selon la brasserie Bosteels, la recette utilisée serait la même depuis 1679. A l'époque, la Karmeliet était alors produite au sein de l'abbaye carmélite de Dendermonde. Bière de fermentation haute et refermentée en bouteille, elle présentait déjà à l'époque la particularité d'être produite à partir de trois céréales : l'orge, le froment et l'avoine. C'est d'ailleurs de ces ingrédients qu'elle tire son nom.",
-            "image": "karmeliet.jpg"
+            "image": "tripel.webp"
         },
-        { 
+        {
+            "id": 2,
             "name":"Anosteké",
             "type":"Blonde",
             "level":"8",
@@ -25,7 +26,8 @@
             "description": "Cette Anosteké Blonde libère dans le verre un corps au blond pale légèrement doré. Elle se pare d'une belle mousse blanche et épaisse à la longue persistance dans le verre. De celui-ci s'échappent des arômes fleuris et fruités des plus agréables et qui évoquent notamment les agrumes. Pour information, Anosteké est la traduction phonétique de &laquo;tot anoste keer&raquo;, expression flamande signifiant &laquo;à la prochaine&raquo;. Et on ne pouvait rêver meilleur nom pour cette bière dont chaque fin de bouteille sonne comme un appel à la prochaine ! Particularité de cette bière, Anosteké est la première bière française dont les émissions de CO2 liées à sa fabrication et son transport sont compensées. Découvrez également sa petite soeur, l'Anosteké brune imperial stout.",
             "image": "anosteke.jpg"
         },
-        { 
+        {
+            "id": 3,
             "name":"Hercule Stout",
             "type":"Noire",
             "level":"9",
@@ -39,5 +41,4 @@
             "image": "hercule.jpg"
         }
     ]
-}
 

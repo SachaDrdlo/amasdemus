@@ -38,7 +38,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/beer">
+                            <Link href="/beers">
                                 <img src="../img/icons/beer.svg" alt="" />
                             </Link>
                         </li>
