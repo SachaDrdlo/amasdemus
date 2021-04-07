@@ -1,6 +1,8 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
 import styles from '../../styles/components/Home.module.scss';
+// import du fichier '../../styles/components/Header.module.scss'
+// Enlever l'import du fichier '../../styles/components/Home.module.scss'
 
 
 const Header = () => {
