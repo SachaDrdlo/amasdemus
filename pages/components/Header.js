@@ -5,32 +5,8 @@ import styles from '../../styles/components/Home.module.scss';
 
 const Header = () => {
 
-    // CONTRE LE "WINDOW IS NOT DEFINED"
-
-    // if (typeof window === 'undefined') {
-    //     global.window = {}
-    // }
-
     const [opened, setOpened] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth)
     const breakpoint = 992;
-
-    // CHECK LA LARGEUR DE LA PAGE
-
-    // const getSearch = () => {
-    //     setOpened(!opened);
-    // }
-    // const useWidth = () => {
-    //     const handleResize = () => {
-    //         setIsDesktop(window.innerWidth)
-    //     }
-    //     useEffect(() => {
-    //         window.addEventListener('resize', handleResize);
-    //         return () => {
-    //             window.removeEventListener('resize', handleResize)
-    //         }
-    //     }, [handleResize])
-    // }
 
     const getSearch = (e) => {
         e.currentTarget.id === 'search' ? setOpened(true) : e.currentTarget.id === 'cross' ? setOpened(false) : null
