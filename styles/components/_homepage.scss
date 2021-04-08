@@ -1,8 +1,30 @@
+.hero {
+    position: relative;
+    padding: 80px 0;
+    width: 100%;
+    height: auto;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: .3;
+        background-image: url('../../public/img/illus/hero.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+}
+
 .hero_container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    // padding: 30px;
 
     &_logo {
         img {
@@ -15,20 +37,79 @@
         text-align: center;
 
         h1 {
-            font-size: 6.4rem;
             color: $clr-green;
             margin-bottom: 0;
-        }
-
-        hr {
-            width: 47px;
-            margin: auto;
-            color: $clr-grey;
-            border: $clr-grey 1px solid;
         }
 
         p {
             font-size: 2rem;
         }
     }
+}
+
+.discover {
+    background-color: $clr-green;
+    margin-top: 200px;
+    padding: 60px 0;
+    position: relative;
+
+    &_container {
+        @media only screen and (min-width: 760px) {
+            text-align: center;
+            margin: auto;
+            max-width: 50%;
+        }
+
+        &_content {
+            color: $clr-beige;
+
+            span {
+                p {
+                    opacity: .7;
+                }
+            }
+
+            &_btn {
+                margin-top: 50px;
+            }
+        }
+
+        &_img {
+            position: relative;
+            bottom: 0;
+            left: -50px;
+
+            @media only screen and (min-width: 760px) {
+                position: absolute;
+                top: 0;
+                left: -20px;
+            }
+        }
+    }
+}
+
+.breweries {
+    margin-top: 200px;
+}
+
+.about {
+    position: relative;
+    margin-top: 200px;
+
+    &_container {
+        &_text {
+            max-width: 50%;
+        }
+
+        figure {
+            margin: 0;
+
+            img {
+                width: 100%;
+                // height: auto;
+            }
+        }
+    }
+
+
 }

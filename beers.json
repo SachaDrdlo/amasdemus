@@ -8,6 +8,7 @@
             "format":["25cl", "33cl", "50cl", "75cl"],
             "flavours": ["houblon", "fruits", "céréales"],
             "brewery":"Brouwerij Bosteels",
+            "brewery_img":"brasserie-castelain.png",
             "title": "Un classique belge",
             "introduction": "La bière Tripel Karmeliet est l'un des grands classiques des bières belges. Selon la brasserie Bosteels, la recette utilisée serait la même depuis 1679. A l'époque, la Karmeliet était alors produite au sein de l'abbaye carmélite de Dendermonde. Bière de fermentation haute et refermentée en bouteille, elle présentait déjà à l'époque la particularité d'être produite à partir de trois céréales : l'orge, le froment et l'avoine. C'est d'ailleurs de ces ingrédients qu'elle tire son nom.",
             "image": "tripel.webp"
@@ -21,6 +22,7 @@
             "format":["25cl", "33cl", "50cl"],
             "flavours": ["fruits", "floral"],
             "brewery":"Brasserie du pays Flamand",
+            "brewery_img":"bosteels.png",
             "title": "La classique",
             "introduction": "Lancée en 2010, cette bière blonde de fabrication artisanale a rapidement conquis les amateurs de bière de la région lilloise grâce à ses excellentes qualités olfactives et gustatives. Brassée en suivant les tendances brassicoles du moment cette bière s'apparente au style de bière IPA. C'est un style de bière où le houblon joue un rôle prédominant car il est utilisé en plus grandes quantités qu'à l'habitude. Cela va donner des bières à l'amertume plus prononcée, mais qui dégage en contrepartie des saveurs plus fleuries et fruitées.",
             "description": "Cette Anosteké Blonde libère dans le verre un corps au blond pale légèrement doré. Elle se pare d'une belle mousse blanche et épaisse à la longue persistance dans le verre. De celui-ci s'échappent des arômes fleuris et fruités des plus agréables et qui évoquent notamment les agrumes. Pour information, Anosteké est la traduction phonétique de &laquo;tot anoste keer&raquo;, expression flamande signifiant &laquo;à la prochaine&raquo;. Et on ne pouvait rêver meilleur nom pour cette bière dont chaque fin de bouteille sonne comme un appel à la prochaine ! Particularité de cette bière, Anosteké est la première bière française dont les émissions de CO2 liées à sa fabrication et son transport sont compensées. Découvrez également sa petite soeur, l'Anosteké brune imperial stout.",
@@ -35,6 +37,7 @@
             "format":["25cl", "50cl"],
             "flavours": ["cacao", "café"],
             "brewery":"Brasserie des légendes",
+            "brewery_img":"3monts.png",
             "title": "Une force incroyable",
             "introduction": "Première bière à revendiquer le titre de &laquo;Belgian Stout&raquo;, cette bière belge artisanale a en effet un bel argumentaire pour vous convaincre de sa grande qualité. Brassée sans aucun ajout d'épice ou de sucre, elle peut être considérée comme l'un des meilleurs stouts de Belgique !",
             "description": "Doté d'une magnifique robe d'un noir impénétrable, cet Hercule Stout développe une fois dans le verre une mousse beige et crémeuse à la tenue appréciable. Il propose ensuite au nez des arômes légers mais très agréables qui oscillent entre des senteurs torréfiées de cacao, de café et des odeurs fruitées de liqueurs. Aussi complexe dans le nez qu'en bouche, la Hercule Stout présente une fois sur le palais des saveurs exceptionnelles et loin des Stouts extrêmement sucrés et souvent très lourds que l'on trouve généralement en Belgique.",

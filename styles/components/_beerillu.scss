@@ -1,6 +1,7 @@
 .container_grid {
     margin-top: 200px;
     height: 100%;
+
     &_illu {
         position: relative;
         width: 100%;
@@ -34,14 +35,13 @@
     &_content {
         padding-top: 40px;
 
-        hr {
-            width: 20px;
-            margin: 0;
-        }
-
         h1 {
             color: $clr-grey;
             font-size: 5.6rem;
+        }
+
+        &_button {
+            margin-top: 50px;
         }
     }
 }

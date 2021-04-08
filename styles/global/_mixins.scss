@@ -1,0 +1,12 @@
+@mixin button($clr-bcg, $clr-txt) {
+    text-decoration: none;
+    background-color: $clr-bcg;
+    color: $clr-txt;
+    padding: 15px 40px;
+    border: none;
+}
+
+@mixin hr($clr) {
+    width: 47px;
+    border: $clr 1px solid;
+}

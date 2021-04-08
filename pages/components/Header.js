@@ -19,7 +19,7 @@ const Header = () => {
             <div className={styles.header_container}>
                 <div className={styles.header_container_left}>
                     <div className={styles.header_container_left_logo}>
-                        <Image src="/img/logos/horizontal-green.png" width={164} height={32} layout="responsive" alt="" />
+                        <Image src="/img/logos/logo-horizontal-green.svg" width={164} height={32} layout="responsive" alt="" />
                     </div>
                 </div>
                 <div className={`${styles.header_container_search} ${opened ? styles.active : null}`}>

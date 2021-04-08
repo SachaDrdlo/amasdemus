@@ -1,0 +1,56 @@
+.footer {
+    position: relative;
+    color: $clr-grey;
+    padding-top: 360px;
+    overflow-x: hidden;
+
+    &_container {
+
+        &_logo {
+
+            figure {
+                margin: 0;
+
+                @media screen and (max-width: 992px) {
+                    width: 40%;
+                }
+
+                img {
+                    display: block;
+                    width: 60%;
+                }
+            }
+        }
+
+        &_text {
+
+            p {
+                font-size: 1.6rem;
+            }
+
+            span {
+                p {
+                    margin-top: 20px;
+                }
+            }
+
+        }
+
+        &_navigation {
+            a {
+                color: $clr-grey;
+            }
+        }
+        &_hop {
+            position: absolute;
+            top: -70px;
+            right: -60px;
+
+            img {
+                opacity: .7;
+                transform: rotate(-35deg);
+            }
+        }
+    }
+
+}
