@@ -146,3 +146,14 @@ values
 (1, 2),
 (1, 4),
 (1, 16);
+
+
+-- Requête de selection des bières et les saveurs associées
+SELECT beers.name AS "Bière", GROUP_CONCAT(flavours.flavour SEPARATOR " - ") AS "Liste des saveurs"
+FROM beers
+INNER JOIN beers_flavours
+ON beers.id = beers_flavours.id_beer
+INNER JOIN flavours
+ON beers_flavours.id_flavour = flavours.id
+GROUP BY beers.name
+ORDER BY beers.name;

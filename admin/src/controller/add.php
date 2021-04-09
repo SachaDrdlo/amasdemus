@@ -22,6 +22,7 @@ class AddController
             "location" =>$this->model->location,
             "image" =>$this->model->image,
             "type" =>$this->model->type,
+            "flavour" =>$this->model->flavour
         );
     }
 
@@ -73,25 +74,51 @@ class AddController
     }
 
     public function add(): bool
-    {
-        $query = $this->model->db->prepare("INSERT INTO beers (name, image, title, description, description2, level,id_sort, id_brewery, id_location, id_glass) VALUES(:name, :image, :title, :description, :description2, :level, :sort, :brewery, :location, :glass)");
+    {   
+        $query = $this->model->db->prepare("INSERT INTO beers (name, image, title, description, description2, level, id_type, id_brewery, id_location, id_glass)
+        VALUES (:name, :image, :title, :description, :description2, :level, :type, :brewery, :location, :glass)");
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
         $query->bindParam(":title", $this->model->title);
         $query->bindParam(":description", $this->model->description);
         $query->bindParam(":description2", $this->model->description2);
         $query->bindParam(":level", $this->model->level);
+        $query->bindParam(":type", $this->model->type);
         $query->bindParam(":brewery", $this->model->brewery);
         $query->bindParam(":location", $this->model->location);
         $query->bindParam(":glass", $this->model->glass);
-        $query->bindParam(":type", $this->model->type);
-
-        if ($query->execute()) {
+        
+        
+        
+        if ($query->execute()) {  
             return true;
         } else {
+            // var_dump($query->errorinfo());
             return false;
         }
     }
+
+    
+    public function addFlavours()
+    {
+        if($this->model->idBeer){
+            var_dump($this->model->idBeer);
+        }
+        // $query = $this->model->db->prepare("INSERT INTO beers_flavours 
+        // (id_beer, id_flavour)
+        // VALUES 
+        // (:id_beer, :id_flavour)");
+        // $query->bindParam(":id_beer", $this->model->id);
+        // $query->bindParam(":id_flavour", $this->model->flavour);
+
+        // if ($query->execute()) {
+        //     return true;
+        // } else {
+        //     var_dump($query->errorinfo());
+        //     return false;
+        // }
+    }
+
     public function edit(): bool
     {
         if(empty($this->model->image)) {
@@ -135,6 +162,18 @@ class AddController
         }
     }
 
+    public function getBeerId()
+    {
+        $query = $this->model->db->prepare("SELECT beers.id FROM beers WHERE name=:name");
+        $query->bindParam(":name", $this->model->name);
+
+        if ($query->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getBreweries()
     {
         $res = $this->model->db->query("SELECT * FROM breweries;");
@@ -164,10 +203,4 @@ class AddController
         $res = $this->model->db->query("SELECT * FROM flavours;");
         return $res;
     }
-
-
-
-
-
-
 }

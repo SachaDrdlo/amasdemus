@@ -1,5 +1,5 @@
 <?php
-define("HOST", "http://localhost/amasdemus/admin");
+define("HOST", "http://localhost:8888/php-m2i/amasdemus/admin");
 
 // DIR
 define('DIR_APPLICATION', 'src/');
@@ -11,7 +11,7 @@ define('DIR_TEMPLATE', 'tpl/');
 // DB
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'root');
 define('DB_DATABASE', 'amasdemus');
-define('DB_PORT', '3306');
+define('DB_PORT', '8889');
 ?>

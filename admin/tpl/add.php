@@ -47,18 +47,18 @@
                     </div>
                     <div class="form-group">
                         <label for="inputLevel">Le degré d'alcool dans la bière</label>
-                        <input type="text" name="level" id="inputLevel" value="<?= isset($data["level"]) ? $data["level"] : "" ?>" />
+                        <input type="number" step="any" name="level" id="inputLevel" value="<?= isset($data["level"]) ? $data["level"] : "" ?>" />
                     </div>
                     <div class="form-group">
                         <fieldset>
-                            <label>Veuillez sélectionner les saveurs associées a cette bière</label>
+                            <legend>Veuillez sélectionner les saveurs associées a cette bière</legend>
                             <?php
                                 foreach ($flavours as $flavour)
                                 {
                                 ?>
                                     <div>
-                                        <input type="checkbox" id="<?= $flavour["id"] ?>" name="flavour" value=<?= $flavour["flavour"]?>>
-                                        <label for="<?= $flavour["id"] ?>"><?= $flavour["flavour"]?></label>
+                                        <input type="checkbox" id="<?= $flavour["id"] ?>" name="flavour[<?= $flavour["id"]?>]" value=<?= $flavour["flavour"]?>>
+                                        <label for="flavour[<?= $flavour["id"]?>]"><?= $flavour["flavour"]?></label>
                                     </div>
                                 <?php
                                 }

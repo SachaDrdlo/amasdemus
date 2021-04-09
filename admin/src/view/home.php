@@ -8,6 +8,7 @@ class HomeView
 
     public function render(){
         $beers = $this->controller->getBeers();
+        $flavours = $this->controller->getFlavours();
         
         require($this->template);
     }

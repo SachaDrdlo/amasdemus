@@ -9,6 +9,7 @@ class AddView
 
     public function render()
     {
+        // $this->controller->addFlavours();
         $message = "";
         $detailPage = "Ajouter une bière";
         if (!empty($_POST)){
@@ -32,9 +33,18 @@ class AddView
                         $message = "Erreur de bdd";
                     }
                     
-                } else {
+                } else { 
                     if ($this->controller->add()){
-                        header("Location:  ".HOST);
+                        if ($this->controller->getBeerId()){
+                            echo 'Oui';
+                        } else{
+                            echo 'Non';
+                        }
+                        // if ($this->controller->addFlavours()){
+                        //     header("Location:  ".HOST);
+                        // } else {
+                        //     $message = "Erreur de bdd au niveau des saveurs";
+                        // }
                     } else {
                         $message = "Erreur de bdd";
                     }
@@ -44,7 +54,7 @@ class AddView
             }
         } else if (isset($_GET["id"])) {
             if(isset($_GET["operation"]) && $_GET["operation"]== "delete") {
-                if ($this-controller->delete()){
+                if ($this->controller->delete()){
                     header("Location:".HOST);
                 } else {
                     $message ="Erreur de bdd";

@@ -488,4 +488,23 @@ body {
   background-color: #FEA443;
 }
 
+.beer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  flex-basis: 30%;
+}
+.beer-container {
+  display: flex;
+  justify-content: space-between;
+}
+.beer-infos {
+  width: 70%;
+}
+.beer-img {
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+
 /*# sourceMappingURL=main.css.map */
