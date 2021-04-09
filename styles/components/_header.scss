@@ -1,33 +1,72 @@
 // Devient Header.module.scss appelé dans le composant Header.js
 
 .header_container {
-    justify-content: space-between;
     align-items: center;
-    padding: 32px 0;
+    padding: 32px 0 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
 
     &_left {
+        width: 160px;
+        height: 32px;
+
         img {
             width: auto;
             height: 32px;
         }
     }
 
-    &_right {
+    &_search {
+        position: absolute;
+        left: 0;
+        padding: .4rem 0;
+        width: 100%;
+        overflow: hidden;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        background-color: $clr-beige;
+        align-items: center;
+        padding: .4rem 0;
+        display: flex;
+        align-items: center;
+        transform: translateX(calc(100% - 24px));
+        transition: transform 0.5s ease;
 
         img {
-            width: 20px;
+            width: 2.4rem;
         }
 
-        input {
-            border-top: none;
-            border-right: none;
-            border-left: none;
-            border-color: $clr-green;
-            width: 130px;
-            outline: none;
-            background-color: transparent;
+        &_inputcontainer {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+
+            input {
+                margin: 0 1.6rem;
+                padding: 0 0 .4rem;
+                font-size: 1.6rem;
+                border: none;
+                border-bottom: 2px solid $clr-green;
+                flex-grow: 1;
+                outline: none;
+                background-color: transparent;
+            }
         }
     }
+}
+
+.active {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+}
+
+.none {
+    transform: translateX(calc(100% - 24px));
+}
+
+.size {
+    height: auto;
+    width: 20px;
 }
