@@ -1,0 +1,50 @@
+.beerPresentation {
+    &_container {
+        padding-top: 200px;
+
+        &_img {
+
+            &_beer {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+
+                figure {
+                    margin: 0;
+                }
+            }
+
+            &_brewery {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+
+                figure {
+                    margin: 0;
+                }
+            }
+        }
+
+        &_text {
+            &_list {
+
+                ul {
+                    margin: 10px 0;
+                }
+
+                &_flex {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &_glass {
+                        border-left: 2px $clr-green solid;
+                        padding-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

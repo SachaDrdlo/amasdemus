@@ -10,3 +10,8 @@
     width: 47px;
     border: $clr 1px solid;
 }
+
+@mixin hrMaxWidth($clr) {
+    width: 100%;
+    border: $clr 1px solid;
+}

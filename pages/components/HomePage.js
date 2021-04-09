@@ -11,6 +11,7 @@ const HomePage = () => {
     const randomBeerImg = beers.map((beer) => {
         return (
             <BeerIllu
+                id={beer.id}
                 key={beer.id}
                 image={beer.image}
                 name={beer.name}
@@ -19,7 +20,7 @@ const HomePage = () => {
             />
         )
 
-    }).slice(0, 1)
+    }).slice(1, 2)
 
     const breweries = beers.map((beer) => {
         return (

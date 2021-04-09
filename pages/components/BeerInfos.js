@@ -1,0 +1,70 @@
+import React from 'react'
+import styles from '../../styles/components/Home.module.scss';
+import { Grid } from '@material-ui/core';
+import BeerIllu from './BeerIllu'
+
+const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, brewery_img, image, title, }) => {
+
+
+
+    return (
+        <div className={styles.beerPresentation}>
+            <div className="container">
+                <Grid container justify="space-between" className={styles.beerPresentation_container}>
+                    <Grid item xs={12} sm={5} className={styles.beerPresentation_container_img}>
+                        <div className={styles.beerPresentation_container_img_beer}>
+                            <figure>
+                                <img src={`../img/beers/redimensionedGrand/${image}`} alt="" />
+                            </figure>
+                        </div>
+                        <div className={styles.beerPresentation_container_img_brewery}>
+                            <figure>
+                                <img src={`../img/breweries/logo-redimensionedGrand/${brewery_img}`} alt="" />
+                            </figure>
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} sm={5} className={styles.beerPresentation_container_text}>
+                        <p>Bière {type}</p>
+                        <hr className="green" />
+                        <h3>{name}</h3>
+                        <hr className="greenMaxWidth" />
+                        <div className={styles.beerPresentation_container_text_list}>
+                            <ul>
+                                <h5>Degré</h5>
+                                <li>{level}</li>
+                            </ul>
+                            <ul>
+                                <h5>Provenance</h5>
+                                <li>{brewery}</li>
+                            </ul>
+                            <ul>
+                                <h5>Notes</h5>
+                                <li>{flavours.join(', ')}</li>
+                            </ul>
+                            <div className={styles.beerPresentation_container_text_list_flex}>
+                                <div className={styles.beerPresentation_container_text_list_flex_format}>
+                                    <ul>
+                                        <h5>Formats</h5>
+                                        <li>{format.join(', ')}</li>
+                                    </ul>
+                                </div>
+                                <div className={styles.beerPresentation_container_text_list_flex_glass}>
+                                    <ul >
+                                        <h5>Verre</h5>
+                                        <li>{glass}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr className="greenMaxWidth" />
+                    </Grid>
+                </Grid>
+            </div>
+            <BeerIllu
+                image={image}
+            />
+        </div>
+    )
+}
+
+export default BeerInfos
