@@ -1,8 +1,12 @@
 // filter.module appelé dans Filter.js
 
+
 .filters{
-    background-color: coral;
-    width: 100%;
+    position: absolute;
+
+    &_btn{
+        display: flex;
+    }
 
     &_col{
         background-color: teal;
