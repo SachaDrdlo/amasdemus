@@ -1,29 +1,35 @@
 .beerPresentation {
     &_container {
-        padding-top: 200px;
+        padding-top: 150px;
 
         &_img {
+            height: 100%;
 
-            &_beer {
+            figure {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin: 0;
                 position: relative;
-                left: 50%;
-                transform: translateX(-50%);
 
-                figure {
-                    margin: 0;
+                @media screen and (max-width: 992px) {
+                    margin-bottom: 48px;
                 }
             }
 
             &_brewery {
                 position: absolute;
+                z-index: -1;
+                width: 70%;
                 top: 50%;
                 left: 50%;
+                opacity: .3;
                 transform: translate(-50%, -50%);
-                z-index: -1;
+            }
 
-                figure {
-                    margin: 0;
-                }
+            &_beer {
+                width: 35%;
+                z-index: 0;
             }
         }
 
@@ -43,6 +49,33 @@
                         border-left: 2px $clr-green solid;
                         padding-left: 15px;
                     }
+                }
+            }
+        }
+    }
+
+    .beerPresentation_brewery {
+        background-color: $clr-green;
+        padding: 60px 0;
+        margin-top: 150px;
+
+        &_container {
+            &_logo {
+
+                figure {
+                    display: flex;
+                    justify-content: center;
+                    margin: 0;
+
+                    img {
+                        width: 50%;
+                    }
+                }
+            }
+
+            &_text {
+                &_btn {
+                   padding-top: 20px;
                 }
             }
         }

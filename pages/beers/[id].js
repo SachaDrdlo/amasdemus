@@ -22,11 +22,15 @@ const beer = () => {
                 type={result.type}
                 level={result.level}
                 brewery={result.brewery}
+                brewery_txt={result.brewery_txt}
                 flavours={result.flavours}
                 format={result.format}
                 glass={result.glass}
                 image={result.image}
                 brewery_img={result.brewery_img}
+                title={result.title}
+                description={result.description}
+                introduction={result.introduction}
             />
         )
     }

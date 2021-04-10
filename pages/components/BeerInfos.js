@@ -2,8 +2,9 @@ import React from 'react'
 import styles from '../../styles/components/Home.module.scss';
 import { Grid } from '@material-ui/core';
 import BeerIllu from './BeerIllu'
+import Link from 'next/link'
 
-const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, brewery_img, image, title, }) => {
+const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, brewery_img, brewery_txt, image, title, description, introduction }, props) => {
 
 
 
@@ -12,16 +13,10 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, br
             <div className="container">
                 <Grid container justify="space-between" className={styles.beerPresentation_container}>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_img}>
-                        <div className={styles.beerPresentation_container_img_beer}>
-                            <figure>
-                                <img src={`../img/beers/redimensionedGrand/${image}`} alt="" />
-                            </figure>
-                        </div>
-                        <div className={styles.beerPresentation_container_img_brewery}>
-                            <figure>
-                                <img src={`../img/breweries/logo-redimensionedGrand/${brewery_img}`} alt="" />
-                            </figure>
-                        </div>
+                        <figure>
+                            <img className={styles.beerPresentation_container_img_beer} src={`../img/beers/redimensionedGrand/${image}`} alt="" />
+                            <img className={styles.beerPresentation_container_img_brewery} src={`../img/breweries/logo-redimensionedGrand/${brewery_img}`} alt="" />
+                        </figure>
                     </Grid>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_text}>
                         <p>Bière {type}</p>
@@ -60,9 +55,40 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, br
                     </Grid>
                 </Grid>
             </div>
+            {/* Appel au composant BeerIllu en utilisant les props pour wrap la grid item */}
             <BeerIllu
                 image={image}
-            />
+            >
+                <Grid item xs={12} sm={6} className={styles.beerPresentation_container_infos_content}>
+                    <p>{type}</p>
+                    <h1>{title}</h1>
+                    <span><p>{introduction}</p></span>
+                </Grid>
+                {props.children}
+            </BeerIllu>
+
+            <div className={styles.beerPresentation_brewery}>
+                <div className="container">
+                    <Grid container className={styles.beerPresentation_brewery_container} alignItems="center">
+                        <Grid item xs={12} sm={5} className={styles.beerPresentation_brewery_container_logo}>
+                            <figure>
+                                <img src={`../img/breweries/logo-redimensionedPetit/${brewery_img}`} alt="" />
+                            </figure>
+                        </Grid>
+                        <Grid item xs={12} sm={7} className={styles.beerPresentation_brewery_container_text}>
+                            <p>Le lieu de brassage</p>
+                            <hr className="beige" />
+                            <h1>{brewery}</h1>
+                            <span><p>{brewery_txt}</p></span>
+                            <div className={styles.beerPresentation_brewery_container_text_btn}>
+                                <Link href="/">
+                                    <a className={`beigeButton ${styles.beigeButton}`}>Découvrir cette brasserie</a>
+                                </Link>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </div>
+            </div>
         </div>
     )
 }
