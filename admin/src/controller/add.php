@@ -22,7 +22,7 @@ class AddController
             "location" =>$this->model->location,
             "image" =>$this->model->image,
             "type" =>$this->model->type,
-            "flavour" =>$this->model->flavour
+            // "flavour" =>$this->model->flavour
         );
     }
 
@@ -90,34 +90,36 @@ class AddController
         
         
         
-        if ($query->execute()) {  
+        if ($query->execute()) {
+              
+            $this->getBeerId();
             return true;
         } else {
-            // var_dump($query->errorinfo());
+            var_dump('add -' . $query->errorinfo());
             return false;
         }
     }
 
     
-    public function addFlavours()
-    {
-        if($this->model->idBeer){
-            var_dump($this->model->idBeer);
-        }
-        // $query = $this->model->db->prepare("INSERT INTO beers_flavours 
-        // (id_beer, id_flavour)
-        // VALUES 
-        // (:id_beer, :id_flavour)");
-        // $query->bindParam(":id_beer", $this->model->id);
-        // $query->bindParam(":id_flavour", $this->model->flavour);
+    // public function addFlavours()
+    // {
+    //     if($this->model->idBeer){
+    //         var_dump($this->model->idBeer);
+    //     }
+    //     // $query = $this->model->db->prepare("INSERT INTO beers_flavours 
+    //     // (id_beer, id_flavour)
+    //     // VALUES 
+    //     // (:id_beer, :id_flavour)");
+    //     // $query->bindParam(":id_beer", $this->model->id);
+    //     // $query->bindParam(":id_flavour", $this->model->flavour);
 
-        // if ($query->execute()) {
-        //     return true;
-        // } else {
-        //     var_dump($query->errorinfo());
-        //     return false;
-        // }
-    }
+    //     // if ($query->execute()) {
+    //     //     return true;
+    //     // } else {
+    //     //     var_dump($query->errorinfo());
+    //     //     return false;
+    //     // }
+    // }
 
     public function edit(): bool
     {
@@ -164,14 +166,18 @@ class AddController
 
     public function getBeerId()
     {
-        $query = $this->model->db->prepare("SELECT beers.id FROM beers WHERE name=:name");
-        $query->bindParam(":name", $this->model->name);
+        $beerId = $this->model->db->query("SELECT LAST_INSERT_ID()");
+        return $beerId;
 
-        if ($query->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+        // $query = $this->model->db->prepare("SELECT beers.id FROM beers WHERE name=:name");
+        // $query->bindParam(":name", $this->model->name);
+
+        // if ($query) {
+        //     return true;
+        // } else {
+        //     var_dump($query->errorinfo());
+        //     return false;
+        // }
     }
 
     public function getBreweries()

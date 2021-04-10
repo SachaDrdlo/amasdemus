@@ -35,11 +35,9 @@ class AddView
                     
                 } else { 
                     if ($this->controller->add()){
-                        if ($this->controller->getBeerId()){
-                            echo 'Oui';
-                        } else{
-                            echo 'Non';
-                        }
+                        $this->controller->getBeerId();
+                        
+                        
                         // if ($this->controller->addFlavours()){
                         //     header("Location:  ".HOST);
                         // } else {

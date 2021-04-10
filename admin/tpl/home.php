@@ -19,6 +19,9 @@ require_once("header.php");
                 <div class="beer-img">
                     <img src="./assets/img/beers/<?= $beer["image"] ?>" alt="">
                 </div>
+                <div class="beer-btns">
+                    
+                </div>
                 <!-- <p>
                     <?php
                         foreach ($flavours as $flavour) {
