@@ -1,0 +1,23 @@
+.navbar_container {
+    @media only screen and (min-width: 760px) {
+        display: none;
+    }
+
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: $clr-green;
+
+    &_icons {
+        nav {
+            ul {
+                margin: 16px 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+    }
+}

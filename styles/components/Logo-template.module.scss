@@ -1,0 +1,13 @@
+.breweries_container_content {
+    figure {
+        width: 50%;
+        img {
+            width: 100%;
+            // height: auto;
+        }
+    }
+
+    &_btn {
+        margin-top: 30px;
+    }
+}
