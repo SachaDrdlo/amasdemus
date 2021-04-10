@@ -1,4 +1,5 @@
-@import 'reset',
+@import 'normalize',
+        'reset',
         'variables',
         'mixins';
         
@@ -20,4 +21,25 @@ title {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.filters{
+
+  &-lateralblock{
+    background-color: $clr-green;
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 9.6rem;
+    bottom: 0;
+    transform: translateX(100%);
+    transition: transform .8s ease;
+  }
+
+  &__active{
+    .filters-lateralblock{
+      transform: translatex(0);
+    }
+  }
+
 }
