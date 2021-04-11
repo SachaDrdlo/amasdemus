@@ -21,8 +21,6 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
     }, [])
 
 
-    console.log(isHome);
-
     return (
         <div className="container">
             <Grid container className={styles.container_grid} alignItems="center" justify="space-between" direction="row-reverse">

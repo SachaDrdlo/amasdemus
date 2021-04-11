@@ -3,6 +3,8 @@ import styles from '../../styles/components/Home.module.scss';
 import { Grid } from '@material-ui/core';
 import BeerIllu from './BeerIllu'
 import Link from 'next/link'
+import BeerSuggestion from './BeerSuggestion';
+import Footer from './Footer'
 
 const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, brewery_img, brewery_txt, image, title, description, introduction }, props) => {
 
@@ -89,6 +91,8 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, br
                     </Grid>
                 </div>
             </div>
+            {/* <BeerSuggestion/> */}
+            <Footer/>
         </div>
     )
 }

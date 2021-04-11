@@ -12,7 +12,6 @@ const beer = () => {
         return item.id == beerId
     })
 
-    console.log(beerId);
 
     const beerDisplay = () => {
         return (
