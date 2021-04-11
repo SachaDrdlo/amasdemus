@@ -1,45 +1,19 @@
 @import '../global/variables.scss';
 
-// .beerspage{
-//     background-color: teal;
-// }
-
 .filters{
-    
-    // &_active{
-    //     background-color: lightsalmon;
-
-    //     .filters_lateralblock{
-    //         transform: translatex(0);
-    //     }
-    // }
-
-    // &_lateralblock{
-    //     background-color: teal;
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 100%;
-    //     right: 0;
-    //     top: 0;
-    //     transform: translateX(100%);
-    //     transition: transform .8s ease;
-    // }
-
     &_container{
         position: relative;
-        width: 100%;
         margin-top: 3.2rem;
+        height: 7.2rem;
+        border-top: 2px solid $clr-green;
     }
 
     &_btn{
-        text-decoration: none;
-        background-color: transparent;
-        border:none;
         position: absolute;
         display: flex;
         align-items: center;
         right: 0;
-        padding: 1.6rem 0 0;
+        padding: 2.4rem;
         outline: none;
         cursor: pointer;
 

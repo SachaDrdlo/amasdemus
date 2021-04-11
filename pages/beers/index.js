@@ -7,7 +7,7 @@ import Filters from '../components/Filters'
 
 export default function Beers(){
 
-    const [opened, setOpened] = useState(true);
+    const [opened, setOpened] = useState(false);
     const breakpoint = 992;
 
     const getFilters = (e) => {
@@ -23,12 +23,14 @@ export default function Beers(){
     return (
         <div className={styles.beerspage}>
             <Header />
-            <main className="container">
+            <main>
                 <div className={`${styles.filters_container} ${opened ? styles.filters_container_active : null}`}>
-                    <button id="filter" className={styles.filters_btn} onClick={(e) => getFilters(e)}>
-                        <img src="/img/icons/filter-icon.svg" alt=""/>
-                        <p>Filtres</p>
-                    </button>
+                    <div className="container">
+                        <button id="filter" className={styles.filters_btn} onClick={(e) => getFilters(e)}>
+                            <img src="/img/icons/filter-icon.svg" alt=""/>
+                            <p>Filtres</p>
+                        </button>
+                    </div>
                 </div>
                 <Filters />
             </main>

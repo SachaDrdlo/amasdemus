@@ -5,65 +5,150 @@
 
 
 .filters{
-    // position: relative;
-
+    position: relative;
+    
     &_list{
-        margin-top: 6.4rem;
+        margin: 6.4rem 0 8.8rem;
         border-bottom: 2px solid $clr-beige;
+        
         &_el{
-            font-size: 2rem;
             color: $clr-beige;
-            padding: 2.2rem;
             border-top: 2px solid $clr-beige;
-            cursor: pointer;
+            
+            & .filter{
+                padding: 0 2.2rem;
+                
+                & button{
+                    display: flex;
+                    position: relative;
+                    color: $clr-beige;
+                    padding: 2.2rem 0;
+                    font-size: 2rem;
+                    width: 100%;
+                    
+                    &::after{
+                        position: absolute; 
+                        display: block;
+                        content: url("/img/icons/chevron-icon.svg");
+                        height: 2.4rem;
+                        width: 2.4rem;
+                        top: 50%;
+                        right: 0;
+                        transform: translateY(-50%) rotate(90deg);
+                        transition: all .2s ease;
+                    }
+                }
 
-        }
+                & p{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    height: 0;
+                    overflow: hidden;
+                    transition: all 200ms ease-out; 
+                }
+
+                &_showfilters{
+
+                    & button{
+                        &::after{ 
+                            transform: translateY(-50%) rotate(-90deg);
+                        }
+                    }
+                    & p{
+                        height: 2rem;
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }        
     }
 
     &_container{
         box-sizing: content-box;
-        padding: 0 0 1.6rem;
+        position: relative;
         width: 100%;
+        flex-grow: 1;
+
     }
 
-    &_close{
+    &_header{
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.2rem;
 
-        &_btn{
-            text-decoration: none;
-            background: none;
-            border: none;
-            outline: none;
-            cursor: pointer;
+        &_resetbtn{
             box-sizing: content-box;
-            padding: 1.6rem 0;
+            padding: 2.4rem 0;
+            height: 2.4rem;
+            display: flex;
+            align-items: flex-end;
+
+            & p{
+                margin: 0 0 0 1.6rem;
+                font-size: 2rem;
+                color:$clr-beige;
+            }
+            
+            & svg{
+                width: 2.4rem;
+                height: 2.4rem;
+                
+                & path{
+                    stroke: white;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+            }
+        }
+
+        &_closebtn{
+            box-sizing: content-box;
+            padding: 2.4rem 0;
             width: 2.4rem;
             height: 2.4rem;
-        }
-
-        &_img{
-            & path{
-                stroke: white;
-                stroke-width: 2;
-                stroke-linecap: round;
-                stroke-linejoin: round;
+            
+            & svg{
+                width: 2.4rem;
+                height: 2.4rem;
+                
+                & path{
+                    stroke: white;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
             }
-
-        
         }
+
     }
 
-    // &_btn{
-    //     display: flex;
-    // }
-
-    // &_col{
-    //     background-color: teal;
-    //     width: 50%;
-    // }
-
-    // &_title{
-    //     font-size: 2.4rem;
-    // }
+    &_applybtn{
+        position: sticky;
+        width: 100%;
+        margin: 0 auto;
+        bottom: 0;
+        font-size: 2rem;
+        color: $clr-green;
+        padding: 1.6rem 2.4rem;
+        border: 2px solid $clr-beige;
+        background-color: $clr-beige;
+    }
 }
+
+
+@media screen and(min-width: $md-bp){
+    .filters{
+        &_applybtn{
+            position: absolute;
+            width: initial;
+            margin: 0 auto;
+            left: 50%;
+            bottom: 2.4rem;
+            padding: 1.6rem 2.4rem;
+            transform: translateX(-50%)
+        }
+    }
+  }
