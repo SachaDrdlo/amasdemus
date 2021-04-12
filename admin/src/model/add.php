@@ -17,8 +17,7 @@ class AddModel
             $this->brewery = trim(strip_tags($_POST['brewery']));
             $this->location = trim(strip_tags($_POST['location']));
             $this->glass = trim(strip_tags($_POST['glass']));
-            
-            // $this->flavour = $_POST['flavour'];
+            $this->flavour = $_POST['flavour'];
             // $this->idbeer = trim(strip_tags($_POST['idbeer']));
             // $this->idflavour = trim(strip_tags($_POST['glass']));
             

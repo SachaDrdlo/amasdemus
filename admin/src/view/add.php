@@ -35,14 +35,13 @@ class AddView
                     
                 } else { 
                     if ($this->controller->add()){
-                        $this->controller->getBeerId();
+                        $idBeer = $this->controller->getBeerId();
                         
-                        
-                        // if ($this->controller->addFlavours()){
-                        //     header("Location:  ".HOST);
-                        // } else {
-                        //     $message = "Erreur de bdd au niveau des saveurs";
-                        // }
+                        if ($this->controller->addFlavours($idBeer)){
+                            // header("Location:  ".HOST);
+                        } else {
+                            $message = "Erreur de bdd au niveau des saveurs";
+                        }
                     } else {
                         $message = "Erreur de bdd";
                     }

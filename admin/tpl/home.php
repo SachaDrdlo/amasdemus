@@ -22,13 +22,14 @@ require_once("header.php");
                 <div class="beer-btns">
                     
                 </div>
-                <!-- <p>
-                    <?php
+                <p>
+                    <!-- <?php
+                    // var_dump($flavours);
                         foreach ($flavours as $flavour) {
-                            echo $flavour['flavour'] . " ";
+                            echo $flavour;
                         }
-                    ?>
-                </p> -->
+                    ?> -->
+                </p>
             </li>
             <?php
                 }
