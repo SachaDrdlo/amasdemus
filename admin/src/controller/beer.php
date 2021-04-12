@@ -1,9 +1,9 @@
 <?php
-class AddController
+class BeerController
 {
     private $model;
 
-    public function __construct(AddModel $model)
+    public function __construct(BeerModel $model)
     {
         $this->model = $model;
     }
@@ -20,8 +20,7 @@ class AddController
             "glass" =>$this->model->glass,
             "location" =>$this->model->location,
             "image" =>$this->model->image,
-            "type" =>$this->model->type,
-            // "flavour" =>$this->model->flavour
+            "type" =>$this->model->type
         );
     }
 
@@ -88,8 +87,7 @@ class AddController
         
         
         
-        if ($query->execute()) {
-              
+        if ($query->execute()) {  
             $this->getBeerId();
             return true;
         } else {

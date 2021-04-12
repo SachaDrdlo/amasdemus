@@ -24,8 +24,8 @@ require_once("header.php");
                     <img src="./assets/img/beers/<?= $beer["image"] ?>" alt="">
                 </div>
                 <div class="beer-btns">
-                    <a class="btn btn__beerhome" href="<?= HOST ?>/edit/<?= $item["id"] ?>">Editer</a>
-                    <a class="btn btn__beerhome" href="<?= HOST ?>/delete/<?= $item["id"] ?>">Supprimer</a>
+                    <a class="btn btn__beerhome" href="<?= HOST ?>/edit/<?= $beer["id"] ?>">Editer</a>
+                    <a class="btn btn__beerhome" href="<?= HOST ?>/delete/<?= $beer["id"] ?>">Supprimer</a>
                 </div>  
             </li>
             <?php
