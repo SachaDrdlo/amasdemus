@@ -11,7 +11,6 @@ class AddModel
             $this->name = trim(strip_tags($_POST['name']));
             $this->title = trim(strip_tags($_POST['title']));
             $this->description = trim(strip_tags($_POST['description']));
-            $this->description2 = trim(strip_tags($_POST['description2']));
             $this->level = trim(strip_tags($_POST['level']));
             $this->type = trim(strip_tags($_POST['type']));
             $this->brewery = trim(strip_tags($_POST['brewery']));

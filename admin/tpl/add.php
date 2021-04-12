@@ -42,10 +42,6 @@
                         <input type="text" name="description" id="inputDescription" value="<?= isset($data["description"]) ? $data["description"] : "" ?>" />
                     </div>
                     <div class="form-group">
-                        <label for="inputDescription2">Le second texte de description</label>
-                        <input type="text" name="description2" id="inputDescription2" value="<?= isset($data["description2"]) ? $data["description2"] : "" ?>" />
-                    </div>
-                    <div class="form-group">
                         <label for="inputLevel">Le degré d'alcool dans la bière</label>
                         <input type="number" step="any" name="level" id="inputLevel" value="<?= isset($data["level"]) ? $data["level"] : "" ?>" />
                     </div>

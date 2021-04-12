@@ -16,7 +16,6 @@ class AddController
             "brewery" => $this->model->brewery,
             "title" => $this->model->title,
             "description" => $this->model->description,
-            "description2"=> $this->model->description2,
             "level"=>$this->model->level,
             "glass" =>$this->model->glass,
             "location" =>$this->model->location,
@@ -63,7 +62,7 @@ class AddController
     public function get()
     {
 
-        $query = $this->model->db->prepare("SELECT name, image, title, description, description2, degre, id_type AS type, id_brewery AS brewery, id_location AS location, id_glass AS glass,
+        $query = $this->model->db->prepare("SELECT name, image, title, description, degre, id_type AS type, id_brewery AS brewery, id_location AS location, id_glass AS glass,
             FROM beers
             WHERE id=:id");
         $query->bindParam(":id", $this->model->id);
@@ -75,13 +74,12 @@ class AddController
 
     public function add(): bool
     {   
-        $query = $this->model->db->prepare("INSERT INTO beers (name, image, title, description, description2, level, id_type, id_brewery, id_location, id_glass)
-        VALUES (:name, :image, :title, :description, :description2, :level, :type, :brewery, :location, :glass)");
+        $query = $this->model->db->prepare("INSERT INTO beers (name, image, title, description, level, id_type, id_brewery, id_location, id_glass)
+        VALUES (:name, :image, :title, :description, :level, :type, :brewery, :location, :glass)");
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
         $query->bindParam(":title", $this->model->title);
         $query->bindParam(":description", $this->model->description);
-        $query->bindParam(":description2", $this->model->description2);
         $query->bindParam(":level", $this->model->level);
         $query->bindParam(":type", $this->model->type);
         $query->bindParam(":brewery", $this->model->brewery);
@@ -136,13 +134,12 @@ class AddController
         }
 
         $query = $this->model->db->prepare("UPDATE beer 
-                    SET name=:name, image=:image, title=:title, description=:description, description2=:description2, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,  
+                    SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,  
                     WHERE id=:id;");
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
         $query->bindParam(":title", $this->model->title);
         $query->bindParam(":description", $this->model->description);
-        $query->bindParam(":description2", $this->model->description2);
         $query->bindParam(":level", $this->model->level);
         $query->bindParam(":id_brewery", $this->model->brewery);
         $query->bindParam(":id_location", $this->model->location);
