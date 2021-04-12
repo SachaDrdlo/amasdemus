@@ -2,5 +2,6 @@
 RewriteEngine on
 
 # Règles de réécriture d'URL :
-# RewriteRule ^add-account$   ./index.php?page=add-account
-# RewriteRule ^new-password/([a-z0-9]+)$   ./index.php?page=new-password&token=$1
+RewriteRule ^beer$   ./index.php?page=beer
+RewriteRule ^edit/([0-9]+)$   ./index.php?page=beer&id=$1
+RewriteRule ^delete/([0-9]+)$   ./index.php?page=beer&operation=delete&id=$1

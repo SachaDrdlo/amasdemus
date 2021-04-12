@@ -17,4 +17,8 @@ class DB {
 	public function execute($sql) {
 		return $this->db->exec($sql);
 	}
+
+	public function lastInsertId() {
+		return $this->db->lastInsertId();
+	}
 }
