@@ -57,9 +57,14 @@ class BeerController
     public function get()
     {
 
-        $query = $this->model->db->prepare("SELECT name, image, title, description, degre, id_type AS type, id_brewery AS brewery, id_location AS location, id_glass AS glass,
+        $query = $this->model->db->prepare("SELECT name, title, description, level, image,  id_type, id_brewery, id_location, id_glass, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
             FROM beers
-            WHERE id=:id");
+            INNER JOIN beers_flavours
+            ON beers.id = beers_flavours.id_beer
+            INNER JOIN flavours
+            ON beers_flavours.id_flavour = flavours.id
+            WHERE beers.id=:id
+            GROUP BY beers.name");
         $query->bindParam(":id", $this->model->id);
         $query->execute();
         $res = $query->fetch();

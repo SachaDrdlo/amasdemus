@@ -49,11 +49,15 @@
                         <fieldset>
                             <legend>Veuillez sélectionner les saveurs associées a cette bière</legend>
                             <?php
+                                $saveurs = explode(", ", $data['saveurs']);
+                                
                                 foreach ($flavours as $flavour)
                                 {
+                                    
+                                    // isset($data["saveurs[\"id\"]"]) ? "checked" : "non"
                                 ?>
                                     <div>
-                                        <input type="checkbox" id="<?= $flavour["id"] ?>" name="flavour[<?= $flavour["id"]?>]" value=<?= $flavour["flavour"]?>>
+                                        <input type="checkbox" id="<?= $flavour["id"] ?>" name="flavour[<?= $flavour["id"]?>]" value="<?= $flavour["flavour"] ?>" <?= in_array($flavour["flavour"], $saveurs) ?"checked" : "none"; ?>>
                                         <label for="flavour[<?= $flavour["id"]?>]"><?= $flavour["flavour"]?></label>
                                     </div>
                                 <?php
