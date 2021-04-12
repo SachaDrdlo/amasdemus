@@ -1,5 +1,5 @@
 <?php
-class AddModel
+class BeerModel
 {
     public $id;
     public $image;

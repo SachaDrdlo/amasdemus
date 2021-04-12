@@ -1,10 +1,10 @@
 <?php
-class AddView
+class BeerView
 {
-    public function __construct(AddController $controller)
+    public function __construct(BeerController $controller)
     {
         $this->controller = $controller;
-        $this->template = DIR_TEMPLATE . "add.php";
+        $this->template = DIR_TEMPLATE . "beer.php";
     }
 
     public function render()
@@ -38,7 +38,7 @@ class AddView
                         $idBeer = $this->controller->getBeerId();
                         
                         if ($this->controller->addFlavours($idBeer)){
-                            // header("Location:  ".HOST);
+                            header("Location:  ".HOST);
                         } else {
                             $message = "Erreur de bdd au niveau des saveurs";
                         }
