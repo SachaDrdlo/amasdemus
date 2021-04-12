@@ -16,10 +16,7 @@ class BeerModel
             $this->brewery = trim(strip_tags($_POST['brewery']));
             $this->location = trim(strip_tags($_POST['location']));
             $this->glass = trim(strip_tags($_POST['glass']));
-            $this->flavour = $_POST['flavour'];
-            
-            // $this->format = trim(strip_tags($_POST['format']));
-
+            $this->flavours = $_POST['flavour'];
         }
         if(isset($_GET["id"])) {
             $this->id = trim(strip_tags($_GET["id"]));

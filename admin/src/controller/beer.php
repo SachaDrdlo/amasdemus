@@ -37,12 +37,9 @@ class BeerController
 
         $allowedTypes = array("image/jpeg", "image/png", "image/webp");
         if (in_array($fileType, $allowedTypes)) {
-            // Le type de fichier est bien valide on peut donc ajouter le fichier à notre serveur
             move_uploaded_file($fileTmpPath, $fileDestPath);
-
             $this->model->image = $newFileName;
         } else {
-            // Le type du fichier est incorrect
             return false;
         }
 
@@ -54,7 +51,6 @@ class BeerController
         if (empty($this->model->name)) {
             return false;
         }
-
         return true;
     }
 
@@ -85,27 +81,32 @@ class BeerController
         $query->bindParam(":location", $this->model->location);
         $query->bindParam(":glass", $this->model->glass);
         
-        
-        
         if ($query->execute()) {  
             $this->getBeerId();
             return true;
         } else {
-            var_dump('add -' . $query->errorinfo());
+            var_dump($query->errorinfo());
             return false;
         }
     }
 
     
-    public function addFlavours($idBeer)
+    public function addFlavours($idBeer) : bool
     {
-       foreach ($this->model->flavour as $flavour => $value) {
+        $flavourCount = 0;
+        foreach ($this->model->flavours as $flavour => $value) {
+                $this->addFlavour($idBeer, $flavour);
+                $flavourCount++;
+        }
 
-            $this->addFlavour($idBeer, $flavour);
-       }
+        if ($flavourCount === count($this->model->flavours)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public function addFlavour($idBeer, $idFlavour)
+    public function addFlavour($idBeer, $idFlavour) : bool
     { 
         $query = $this->model->db->prepare("INSERT INTO beers_flavours 
         (id_beer, id_flavour)
@@ -168,16 +169,6 @@ class BeerController
     {
         $beerId = $this->model->db->lastInsertId();
         return $beerId;
-
-        // $query = $this->model->db->prepare("SELECT beers.id FROM beers WHERE name=:name");
-        // $query->bindParam(":name", $this->model->name);
-
-        // if ($query) {
-        //     return true;
-        // } else {
-        //     var_dump($query->errorinfo());
-        //     return false;
-        // }
     }
 
     public function getBreweries()
