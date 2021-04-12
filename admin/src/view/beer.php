@@ -9,7 +9,6 @@ class BeerView
 
     public function render()
     {
-        // $this->controller->addFlavours();
         $message = "";
         $detailPage = "Ajouter une bière";
         if (!empty($_POST)){
@@ -43,7 +42,7 @@ class BeerView
                             $message = "Erreur de bdd au niveau des saveurs";
                         }
                     } else {
-                        $message = "Erreur de bdd";
+                        $message = "Erreur de bdd lors de l'ajout";
                     }
                 }
             } else {
@@ -57,7 +56,7 @@ class BeerView
                     $message ="Erreur de bdd";
                 }
             } else {
-                $detailPage = "Modifier un bière";
+                $detailPage = "Modifier une bière";
                 $data = $this->controller->get();
             }
         }
