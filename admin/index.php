@@ -16,7 +16,7 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
 
 $data = array(
 	"home" => array("model" => "HomeModel", "view" => "HomeView", "controller" => "HomeController"),
-	"add" => array("model" => "AddModel", "view" => "AddView", "controller" => "AddController")
+	"beer" => array("model" => "BeerModel", "view" => "BeerView", "controller" => "BeerController")
 );
 
 $find = false;

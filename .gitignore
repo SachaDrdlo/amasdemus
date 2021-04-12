@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 package-lock.json
+admin/src/system/config.php
 
 # debug
 npm-debug.log*

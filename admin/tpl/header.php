@@ -22,7 +22,7 @@
                 <nav>
                     <ul>
                         <li>
-                            <a class="btn" href="<?= HOST ?>/add">Ajouter une bière</a>
+                            <a class="btn" href="<?= HOST ?>/beer">Ajouter une bière</a>
                         </li>
                     </ul>
                 </nav>

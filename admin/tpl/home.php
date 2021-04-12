@@ -9,27 +9,24 @@ require_once("header.php");
         <ul class="beer-container">
             <?php
                 foreach ($beers as $beer) {
+                    // $flavours = explode(" - ", $beer['saveurs']);
             ?>
             <li class="beer">
                 <div class="beer-infos">
                     <h2><?= $beer['name'] ?></h2>
+                
                     <h3><?= $beer['nom_brasserie']?></h3>
-                    <span><?= $beer['type']?> - <?= $beer['level']?>°</span>
+                    <p><?= ucfirst($beer['type'])?> - <?= $beer['level']?>°</p>
+                    <p><?= ucfirst($beer['saveurs'])?></p>
+                    
                 </div>
                 <div class="beer-img">
                     <img src="./assets/img/beers/<?= $beer["image"] ?>" alt="">
                 </div>
                 <div class="beer-btns">
-                    
-                </div>
-                <p>
-                    <!-- <?php
-                    // var_dump($flavours);
-                        foreach ($flavours as $flavour) {
-                            echo $flavour;
-                        }
-                    ?> -->
-                </p>
+                    <a class="btn btn__beerhome" href="<?= HOST ?>/edit/<?= $beer["id"] ?>">Editer</a>
+                    <a class="btn btn__beerhome" href="<?= HOST ?>/delete/<?= $beer["id"] ?>">Supprimer</a>
+                </div>  
             </li>
             <?php
                 }

@@ -2,13 +2,28 @@
     background-color: $clr-green;
     color: $clr-pale-brown;
     padding: .8rem 2.4rem;
+    text-align: center;
     text-decoration: none;
     display: block;
     transition: background-color .4s ease;
 
     &:hover,
     &:focus{
-        background-color: $clr-orange;
+        background-color: $clr-orange;  
+    }
+
+    &__beerhome:first-child{
+        margin-bottom: .8rem;
+    }
+    
+    &__beerhome:last-child{
+        margin-bottom: .8rem;
+        background-color: $clr-danger;
+    }
+
+    &__beerhom{
+        padding: .8rem 1.6rem; 
+        
     }
 }
 
