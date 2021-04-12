@@ -16,6 +16,7 @@ const beer = () => {
     const beerDisplay = () => {
         return (
             <BeerInfos
+                id={result.id}
                 key={result.id}
                 name={result.name}
                 type={result.type}
@@ -33,8 +34,6 @@ const beer = () => {
             />
         )
     }
-
-    console.log(result.id);
 
     return (
         <div>

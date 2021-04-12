@@ -1,5 +1,4 @@
 import { Grid } from '@material-ui/core';
-import { StylesProvider } from '@material-ui/styles'
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/components/Home.module.scss';
 import Link from 'next/link'

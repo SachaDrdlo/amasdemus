@@ -63,19 +63,23 @@
             &_logo {
 
                 figure {
-                    display: flex;
-                    justify-content: center;
+                    @media screen and (max-width:992px) {
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom: 40px;
+                    }
+
                     margin: 0;
 
                     img {
-                        width: 50%;
+                        width: 60%;
                     }
                 }
             }
 
             &_text {
                 &_btn {
-                   padding-top: 20px;
+                    padding-top: 20px;
                 }
             }
         }
