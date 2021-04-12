@@ -1,25 +1,19 @@
 @import '../global/variables.scss';
 
-
-
 .filters{
-    
     &_container{
         position: relative;
-        width: 100%;
         margin-top: 3.2rem;
-        
+        height: 7.2rem;
+        border-top: 2px solid $clr-green;
     }
 
     &_btn{
-        text-decoration: none;
-        background-color: transparent;
-        border:none;
         position: absolute;
         display: flex;
         align-items: center;
         right: 0;
-        padding: 0;
+        padding: 2.4rem;
         outline: none;
         cursor: pointer;
 
@@ -35,6 +29,5 @@
             font-weight: bold;
             color: $clr-green;
         }
-
     }
 }

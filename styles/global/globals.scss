@@ -1,13 +1,13 @@
-@import 'reset',
-'variables',
-'mixins';
-
-
 // IMPORT FONTS
 // Germania One
 @import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
 // PT Sans
 @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=PT+Sans:wght@400;700&display=swap');
+@import 'normalize',
+        'reset',
+        'variables',
+        'mixins';
+        
 
 body {
   font-family: 'PT Sans', sans-serif;
