@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import styles from '../../styles/components/Beers.module.scss'
+import { Grid } from '@material-ui/core';
 import Header from '../components/Header'
 import Filters from '../components/Filters'
 
@@ -33,6 +34,20 @@ export default function Beers(){
                     </div>
                 </div>
                 <Filters />
+                <section>
+                    <div className={styles.breweries}>
+                        <div className="container">
+                            <div className={styles.breweries_text}>
+                                <p>Bières blondes</p>
+                                <hr className="green" />
+                                <h2>Belles blondes</h2>
+                            </div>
+                            <Grid container spacing={5} className={styles.breweries_container}>
+                                
+                            </Grid>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     )
