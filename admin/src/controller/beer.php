@@ -56,10 +56,14 @@ class BeerController
 
     public function get()
     {
-
-        $query = $this->model->db->prepare("SELECT name, image, title, description, degre, id_type AS type, id_brewery AS brewery, id_location AS location, id_glass AS glass,
+        $query = $this->model->db->prepare("SELECT name, title, description, level, image,  id_type, id_brewery, id_location, id_glass, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
             FROM beers
-            WHERE id=:id");
+            INNER JOIN beers_flavours
+            ON beers.id = beers_flavours.id_beer
+            INNER JOIN flavours
+            ON beers_flavours.id_flavour = flavours.id
+            WHERE beers.id=:id
+            GROUP BY beers.name");
         $query->bindParam(":id", $this->model->id);
         $query->execute();
         $res = $query->fetch();
@@ -70,7 +74,7 @@ class BeerController
     public function add(): bool
     {   
         $query = $this->model->db->prepare("INSERT INTO beers (name, image, title, description, level, id_type, id_brewery, id_location, id_glass)
-        VALUES (:name, :image, :title, :description, :level, :type, :brewery, :location, :glass)");
+            VALUES (:name, :image, :title, :description, :level, :type, :brewery, :location, :glass)");
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
         $query->bindParam(":title", $this->model->title);
@@ -126,24 +130,24 @@ class BeerController
     public function edit(): bool
     {
         if(empty($this->model->image)) {
-            $beer = $this->get();
-            if (isset($beer["image"])) {
-                $this->model->image = $beer["image"];
+            $data = $this->get();
+            if (isset($data["image"])) {
+                $this->model->image = $data["image"];
             }
         }
 
-        $query = $this->model->db->prepare("UPDATE beer 
-                    SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,  
-                    WHERE id=:id;");
+        $query = $this->model->db->prepare("UPDATE beers 
+            SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,  
+            WHERE id=:id;");
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
         $query->bindParam(":title", $this->model->title);
         $query->bindParam(":description", $this->model->description);
         $query->bindParam(":level", $this->model->level);
-        $query->bindParam(":id_brewery", $this->model->brewery);
-        $query->bindParam(":id_location", $this->model->location);
-        $query->bindParam(":id_glass", $this->model->glass);
-        $query->bindParam(":id_type", $this->model->type);
+        $query->bindParam(":type", $this->model->type);
+        $query->bindParam(":brewery", $this->model->brewery);
+        $query->bindParam(":location", $this->model->location);
+        $query->bindParam(":glass", $this->model->glass);
 
         if ($query->execute()) {
             return true;

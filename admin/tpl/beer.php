@@ -49,11 +49,17 @@
                         <fieldset>
                             <legend>Veuillez sélectionner les saveurs associées a cette bière</legend>
                             <?php
+
+                                if(isset($data['saveurs'])){
+                                    $saveurs = explode(", ", $data['saveurs']);
+                                };
+                                
                                 foreach ($flavours as $flavour)
+
                                 {
                                 ?>
                                     <div>
-                                        <input type="checkbox" id="<?= $flavour["id"] ?>" name="flavour[<?= $flavour["id"]?>]" value=<?= $flavour["flavour"]?>>
+                                        <input type="checkbox" id="<?= $flavour["id"] ?>" name="flavour[<?= $flavour["id"]?>]" value="<?= $flavour["flavour"] ?>" <?= isset($data['saveurs']) && in_array($flavour["flavour"], $saveurs) ? "checked" : "none"; ?>>
                                         <label for="flavour[<?= $flavour["id"]?>]"><?= $flavour["flavour"]?></label>
                                     </div>
                                 <?php
@@ -66,9 +72,9 @@
                         <select name="glass" id="inputGlass">
                             <?php
                             foreach ($glasses as $glass){
-                                ?>
-                                    <option value="<?= $glass["id"] ?>" <?= isset($data["glass"]) && ($glass["id"] == $data["glass"]) ? "selected" : "" ?>> <?= $glass["glass"] ?></option>
-                                <?php
+                            ?>
+                                <option value="<?= $glass["id"] ?>" <?= isset($data["glass"]) && ($glass["id"] == $data["glass"]) ? "selected" : "" ?>> <?= $glass["glass"] ?></option>
+                            <?php
                             }
                             ?>
                         </select>
@@ -90,7 +96,7 @@
                             <?php
                             if (!empty($data["image"])) {
                             ?>
-                                <img src="../../assets/img/beers/<?= $data["image"] ?>" alt="">
+                                <img src="../assets/img/beers/<?= $data["image"] ?>" alt="">
                             <?php
                             } else {
                             ?>
