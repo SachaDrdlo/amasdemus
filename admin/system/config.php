@@ -10,8 +10,8 @@ define('DIR_TEMPLATE', 'tpl/');
 
 // DB
 define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', '');
-define('DB_PASSWORD', 'root');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
 define('DB_DATABASE', 'amasdemus');
 define('DB_PORT', '3306');
 ?>
