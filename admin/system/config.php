@@ -1,5 +1,5 @@
 <?php
-define("HOST", "http://localhost:8888/php-m2i/amasdemus/admin");
+define("HOST", "http://localhost:8888/amasdemus/amasdemus_interface/admin");
 
 // DIR
 define('DIR_APPLICATION', 'src/');

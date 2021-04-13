@@ -16,11 +16,11 @@ class BeerController
             "brewery" => $this->model->brewery,
             "title" => $this->model->title,
             "description" => $this->model->description,
-            "level"=>$this->model->level,
-            "glass" =>$this->model->glass,
-            "location" =>$this->model->location,
-            "image" =>$this->model->image,
-            "type" =>$this->model->type
+            "level" => $this->model->level,
+            "glass" => $this->model->glass,
+            "location" => $this->model->location,
+            "image" => $this->model->image,
+            "type" => $this->model->type
         );
     }
 
@@ -72,7 +72,7 @@ class BeerController
     }
 
     public function add(): bool
-    {   
+    {
         $query = $this->model->db->prepare("INSERT INTO beers (name, image, title, description, level, id_type, id_brewery, id_location, id_glass)
             VALUES (:name, :image, :title, :description, :level, :type, :brewery, :location, :glass)");
         $query->bindParam(":name", $this->model->name);
@@ -84,8 +84,8 @@ class BeerController
         $query->bindParam(":brewery", $this->model->brewery);
         $query->bindParam(":location", $this->model->location);
         $query->bindParam(":glass", $this->model->glass);
-        
-        if ($query->execute()) {  
+
+        if ($query->execute()) {
             $this->getBeerId();
             return true;
         } else {
@@ -94,7 +94,7 @@ class BeerController
         }
     }
 
-    
+
     public function addFlavours($idBeer) : bool
     {
         $flavourCount = 0;
@@ -111,10 +111,10 @@ class BeerController
     }
 
     public function addFlavour($idBeer, $idFlavour) : bool
-    { 
-        $query = $this->model->db->prepare("INSERT INTO beers_flavours 
+    {
+        $query = $this->model->db->prepare("INSERT INTO beers_flavours
         (id_beer, id_flavour)
-        VALUES 
+        VALUES
         (:id_beer, :id_flavour)");
         $query->bindParam(":id_beer", $idBeer);
         $query->bindParam(":id_flavour", $idFlavour);
@@ -136,8 +136,8 @@ class BeerController
             }
         }
 
-        $query = $this->model->db->prepare("UPDATE beers 
-            SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,  
+        $query = $this->model->db->prepare("UPDATE beers
+            SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,
             WHERE id=:id;");
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
@@ -180,9 +180,9 @@ class BeerController
         $res = $this->model->db->query("SELECT * FROM breweries;");
         return $res;
     }
-    
+
     public function getTypes()
-    {   
+    {
         $res = $this->model->db->query("SELECT * FROM types;");
         return $res;
     }
@@ -204,4 +204,5 @@ class BeerController
         $res = $this->model->db->query("SELECT * FROM flavours;");
         return $res;
     }
+
 }

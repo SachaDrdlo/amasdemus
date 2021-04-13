@@ -9,7 +9,7 @@ class DB {
 	public function query($sql) {
 		return $this->db->query($sql);
 	}
-	
+
 	public function prepare($sql) {
 		return $this->db->prepare($sql);
 	}
