@@ -136,15 +136,9 @@ class BeerController
             }
         }
 
-<<<<<<< HEAD
         $query = $this->model->db->prepare("UPDATE beers 
             SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,  
             WHERE id=:id;");
-=======
-        $query = $this->model->db->prepare("UPDATE beer 
-                    SET name=:name, image=:image, title=:title, description=:description, level=:level, id_brewery=:brewery, id_location=:location, id_glass=:glass, id_type=:type, 
-                    WHERE id=:id;");
->>>>>>> 002fd93cf7f9aee86b033f749a3089d6cdefb568
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
         $query->bindParam(":title", $this->model->title);
