@@ -8,12 +8,12 @@ header("Content-Type: application/json");
 include_once '../../system/db.php';
 include_once '../class/beer.php';
 
-$db = new DB('localhost:8889', 'root', 'root', 'amasdemus');
+$db = new DB('db5002226855.hosting-data.io', 'dbu890823', 'AmasDemus59.', 'dbs1797869');
 $items = new Beer($db);
 $stmt = $items->getBeersInfos();
 $itemCount = $stmt->rowCount();
 
-echo json_encode($itemCount);
+// echo json_encode($itemCount);
 
 if ($itemCount > 0) {
     $beerArray = array();

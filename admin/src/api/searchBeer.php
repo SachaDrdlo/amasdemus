@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../../system/db.php';
 include_once '../class/beer.php';
 
-$db = new DB('localhost:8889', 'root', 'root', 'amasdemus');
+$db = new DB('db5002226855.hosting-data.io', 'dbu890823', 'AmasDemus59.', 'dbs1797869');
 $items = new Beer($db);
 
 $beer_name = isset($_GET["search"]) ? trim(strip_tags($_GET["search"])) : "";

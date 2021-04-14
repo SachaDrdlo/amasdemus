@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once '../../system/db.php';
 include_once '../class/beer.php';
 
-$db = new DB('localhost:8889', 'root', 'root', 'amasdemus');
+$db = new DB('db5002226855.hosting-data.io', 'dbu890823', 'AmasDemus59.', 'dbs1797869');
 $item = new Beer($db);
 
 $item->id = isset($_GET["id"]) ? trim(strip_tags($_GET['id'])) : die();

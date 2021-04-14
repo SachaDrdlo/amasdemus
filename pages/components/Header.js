@@ -6,7 +6,9 @@ import Link from 'next/link'
 // import du fichier '../../styles/components/Header.module.scss'
 // Enlever l'import du fichier '../../styles/components/Home.module.scss'
 
-const Header = () => {
+const Header = ({ data }) => {
+
+    console.log(data);
 
     const [opened, setOpened] = useState(false);
     const breakpoint = 992;
@@ -17,6 +19,11 @@ const Header = () => {
 
     return (
         <div className="container">
+            {/* <ul>
+                {beers.map((item) => (
+                    <li>{item.name}</li>
+                ))}
+            </ul> */}
             <div className={styles.header_container}>
                 <div className={styles.header_container_left}>
                     <div className={styles.header_container_left_logo}>
@@ -39,6 +46,28 @@ const Header = () => {
             </div>
         </div>
     )
+}
+
+
+const getAllBeers = async () => {
+    const res = await fetch("http://sachadordolo.fr/amasdemus/admin/src/api/allBeers.php", {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const json = await res.json()
+    return json.data;
+}
+
+export const getStaticProps = async () => {
+    const data = await getAllBeers();
+    return {
+        props: {
+            data
+        }
+    }
 }
 
 export default Header;

@@ -1,7 +1,8 @@
 # Activation du module de réécriture d'URL :
 RewriteEngine on
+RewriteBase /
 
 # Règles de réécriture d'URL :
-RewriteRule ^beer$   ./index.php?page=beer
-RewriteRule ^edit/([0-9]+)$   ./index.php?page=beer&id=$1
-RewriteRule ^delete/([0-9]+)$   ./index.php?page=beer&operation=delete&id=$1
+RewriteRule ^amasdemus/admin/beer$   amasdemus/admin/index.php?page=beer
+RewriteRule ^amasdemus/admin/edit/([0-9]+)$   amasdemus/admin/index.php?page=beer&id=$1
+RewriteRule ^amasdemus/admin/delete/([0-9]+)$   amasdemus/admin/index.php?page=beer&operation=delete&id=$1
