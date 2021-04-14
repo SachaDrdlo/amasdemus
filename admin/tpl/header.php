@@ -21,6 +21,15 @@
                 </a>
                 <nav>
                     <ul>
+                        <?php
+                            if (isset($_SESSION["session_id"])) {
+                        ?>
+                        <li>
+                            <a class="btn" href="<?= HOST ?>/logout.php">Se déco</a>
+                        </li>
+                        <?php
+                            }
+                        ?>
                         <li>
                             <a class="btn" href="<?= HOST ?>/beer">Ajouter une bière</a>
                         </li>

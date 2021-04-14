@@ -148,6 +148,7 @@ class BeerController
         $query->bindParam(":brewery", $this->model->brewery);
         $query->bindParam(":location", $this->model->location);
         $query->bindParam(":glass", $this->model->glass);
+        $query->bindParam(":id", $this->model->id);
 
         if ($query->execute()) {
             return true;
