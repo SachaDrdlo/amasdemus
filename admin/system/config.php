@@ -1,5 +1,6 @@
 <?php
 define("HOST", "https://sachadordolo.fr/amasdemus/admin");
+// define("HOST", "http://localhost:8888/php-m2i/amasdemus/admin");
 
 // DIR
 define('DIR_APPLICATION', 'src/');
@@ -9,9 +10,9 @@ define('DIR_CONTROLLER', DIR_APPLICATION.'controller/');
 define('DIR_TEMPLATE', 'tpl/');
 
 // DB
-define('DB_HOSTNAME', 'db5002226855.hosting-data.io');
-define('DB_USERNAME', 'dbu890823');
-define('DB_PASSWORD', 'AmasDemus59.');
-define('DB_DATABASE', 'dbs1797869');
+define('DB_HOSTNAME', 'db5002236283.hosting-data.io');
+define('DB_USERNAME', 'dbu1488325');
+define('DB_PASSWORD', 'Amasdemus59.');
+define('DB_DATABASE', 'dbs1804734');
 define('DB_PORT', '3306');
 ?>

@@ -11,11 +11,12 @@ $items = new Beer($db);
 $beer_name = isset($_GET["search"]) ? trim(strip_tags($_GET["search"])) : "";
 
 $stmt = $items->searchBeer($beer_name);
-$num = $stmt->rowCount();
+$itemCount = $stmt->rowCount();
 
-if ($num > 0) {
+if ($itemCount > 0) {
     $beerArray = array();
     $beerArray["beers"] = array();
+    $beerArray["itemCount"] = $itemCount;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
