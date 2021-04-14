@@ -57,7 +57,7 @@ class Beer
         $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.name as nom_brasserie, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
         FROM beers
         INNER JOIN breweries
-        ON beers.id_brewery = breweries.id
+        ON beers.id_brewery =   
         INNER JOIN types
         ON beers.id_type = types.id
         INNER JOIN beers_flavours
