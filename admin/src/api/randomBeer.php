@@ -21,6 +21,7 @@ if ($itemCount > 0) {
         $beer = array(
             "id" => $row["id"],
             "name" => $row["nom_biere"],
+            "id_brewery" => $row["id_brewery"],
             "breweries" => $row["nom_brasserie"],
             "title" => $row["title"],
             "description" => $row["description"],

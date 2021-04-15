@@ -8,6 +8,7 @@ class Beer
     public $id;
     public $name;
     public $breweries;
+    public $id_brewery;
     public $title;
     public $flavours;
     public $description;
@@ -26,7 +27,7 @@ class Beer
 
     public function getBeersInfos()
     {
-        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.name as nom_brasserie, breweries.description as brewery_description, breweries.logo as image_brewery, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.id as id_brewery, breweries.name as nom_brasserie, breweries.description as description_brasserie, breweries.logo as image_brasserie, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
             FROM beers
             INNER JOIN breweries
             ON beers.id_brewery = breweries.id
@@ -49,7 +50,7 @@ class Beer
 
     public function getOneBeerInfos()
     {
-        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.name as nom_brasserie, breweries.description as brewery_description, breweries.logo as image_brewery, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.id as id_brewery, breweries.name as nom_brasserie, breweries.description as description_brasserie, breweries.logo as image_brasserie, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
         FROM beers
         INNER JOIN breweries
         ON beers.id_brewery = breweries.id
@@ -72,17 +73,18 @@ class Beer
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->name = $row["nom_biere"];
+        $this->id_brewery = $row["id_brewery"];
         $this->breweries = $row["nom_brasserie"];
         $this->title = $row["title"];
         $this->description = $row["description"];
         $this->level = $row["level"];
         $this->glass = $row["glass"];
         $this->location = $row["location"];
-        $this->flavours = $row["flavours"];
+        $this->flavours = $row["saveurs"];
         $this->image = $row["image"];
         $this->type =  $row["type"];
-        $this->img_brewery = $row["img_brewery"];
-        $this->desc_brewery = $row["desc_brewery"];
+        $this->img_brewery = $row["image_brasserie"];
+        $this->desc_brewery = $row["description_brasserie"];
     }
 
     public function searchBeer($beer_name)
@@ -118,7 +120,7 @@ class Beer
 
     public function getRandomBeer()
     {
-        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.name as nom_brasserie, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.id as id_brewery, breweries.name as nom_brasserie, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
             FROM beers
             INNER JOIN breweries
             ON beers.id_brewery = breweries.id

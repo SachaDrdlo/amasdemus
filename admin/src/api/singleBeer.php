@@ -19,6 +19,7 @@ if ($item->name != null) {
     $beerArray = array(
         "id" => $item->id,
         "name" => $item->name,
+        "id_brewery" => $item->id_brewery,
         "breweries" => $item->breweries,
         "title" => $item->title,
         "description" => $item->description,

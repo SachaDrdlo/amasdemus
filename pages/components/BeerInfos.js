@@ -3,12 +3,10 @@ import styles from '../../styles/components/BeerInfos.module.scss';
 import { Grid } from '@material-ui/core';
 import BeerIllu from './BeerIllu'
 import BreweryTemplate from './BreweryTemplate'
-import Link from 'next/link'
 import BeerSuggestion from './BeerSuggestion';
 import Footer from './Footer'
-import BreweryInfos from './BreweryInfos';
 
-const BeerInfos = ({ id, name, type, level, brewery, flavours, glass, brewery_img, brewery_txt, image, title, description }, props) => {
+const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, desc_brewery, brewery_id, image, title, description }, props) => {
     return (
         <div className={styles.beerPresentation}>
             <div className="container">
@@ -16,7 +14,7 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, glass, brewery_im
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_img}>
                         <figure>
                             <img className={styles.beerPresentation_container_img_beer} src={`http://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
-                            <img className={styles.beerPresentation_container_img_brewery} src={`../img/breweries/logo-redimensionedGrand/${brewery_img}`} alt="" />
+                            <img className={styles.beerPresentation_container_img_brewery} src={`http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_text}>
@@ -63,9 +61,10 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, glass, brewery_im
             </BeerIllu>
 
             <BreweryTemplate
-                brewery_img={brewery_img}
+                brewery_id={brewery_id}
+                img_brewery={img_brewery}
                 brewery={brewery}
-                brewery_txt={brewery_txt}
+                desc_brewery={desc_brewery}
             />
             {/* <BeerSuggestion/> */}
             <Footer />

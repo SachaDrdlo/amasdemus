@@ -9,12 +9,12 @@ import styles from '../styles/components/Homepage.module.scss';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 
-const HomePage = ({ data }) => {
+const HomePage = ({ beerFetch, breweriesFetch }) => {
 
-  const beers = data.beers
+  const beers = beerFetch.beers
+  const breweries = breweriesFetch.breweries
 
   const randomBeerImg = beers.map((beer) => {
-    console.log(beer);
     return (
       <BeerIllu
         id={beer.id}
@@ -28,12 +28,14 @@ const HomePage = ({ data }) => {
 
   })
 
-  const breweries = beers.map((beer) => {
+
+  const breweriesDisplay = breweries.map((brewery) => {
     return (
       <Logo_template
-        key={beer.id}
-        image={beer.brewery_img}
-        name={beer.brewery}
+        key={brewery.id}
+        id={brewery.id}
+        img_brewery={brewery.logo}
+        name_brewery={brewery.name}
       />
     )
 
@@ -89,7 +91,7 @@ const HomePage = ({ data }) => {
             <h1>Des brasseries locales</h1>
           </div>
           <Grid container spacing={5} className={styles.breweries_container}>
-            {breweries}
+            {breweriesDisplay}
           </Grid>
         </div>
       </div>
@@ -129,12 +131,18 @@ const HomePage = ({ data }) => {
 export default HomePage
 
 export async function getServerSideProps() {
+  // Fetch de la bière aléatoire en page d'accueil
   const res = await fetch('http://sachadordolo.fr/amasdemus/admin/src/api/randomBeer.php')
-  const data = await res.json()
+  const beerFetch = await res.json()
+
+  // Fetch des brasseries affichées après l'encart verte
+  const response = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php`)
+  const breweriesFetch = await response.json()
 
   return {
     props: {
-      data,
+      beerFetch,
+      breweriesFetch,
     },
   }
 }

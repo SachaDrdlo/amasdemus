@@ -7,7 +7,7 @@ import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 
 
-const Logo_template = ({ name, image }) => {
+const Logo_template = ({ id, img_brewery, name_brewery }) => {
 
     const router = useRouter();
     const [path, setPath] = useState(router.pathname)
@@ -16,7 +16,7 @@ const Logo_template = ({ name, image }) => {
     // BASE A MODIFIER PLUS TARD --> permet d'afficher soit l'image de la brasserie soit l'image de la bière selon la page sur laquelle on est
     const getPathImg = () => {
         if (path === '/' || path === '/breweries') {
-            return `../img/breweries/logo-redimensionedPetit/${image}`
+            return `http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`
         } else if (path === '/beers') {
             return `../img/beers/redimensionedGrand/${image}`
         }
@@ -37,9 +37,9 @@ const Logo_template = ({ name, image }) => {
             <figure>
                 <img src={getPathImg()} />
             </figure>
-            <h4>{name}</h4>
+            <h4>{name_brewery}</h4>
             <div className={styles.breweries_container_content_btn}>
-                <Link href="/">
+                <Link href={`/breweries/${id}`}>
                     <a className={`greenButton ${styles.beigeButton}`}>Découvrir cette {getNameBtn()}</a>
                 </Link>
             </div>
