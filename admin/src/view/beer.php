@@ -29,11 +29,21 @@ class BeerView
 
                 if(empty($errors)) {
                     if (isset($_GET["id"])){
-                        if ($this->controller->edit()){
-                            header("location: ".HOST);
+                        if ($this->controller->deleteFlavours()){
+                            if ($this->controller->edit()){
+                                if ($this->controller->addFlavours($_GET["id"])){
+                                    header("Location:  ".HOST);
+                                } else {
+                                    $message = "Erreur de bdd au niveau des saveurs";
+                                }
+                            } else {
+                                $message = "Erreur de bdd";
+                            }
                         } else {
-                            $message = "Erreur de bdd";
+                            $message="paspsible";
                         }
+
+                        
                         
                     } else { 
                         if ($this->controller->add()){
