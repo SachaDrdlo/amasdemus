@@ -135,9 +135,8 @@ class BeerController
                 $this->model->image = $data["image"];
             }
         }
-
-        $query = $this->model->db->prepare("UPDATE beers
-            SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass,
+        $query = $this->model->db->prepare("UPDATE beers 
+            SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass
             WHERE id=:id;");
         $query->bindParam(":name", $this->model->name);
         $query->bindParam(":image", $this->model->image);
@@ -148,12 +147,30 @@ class BeerController
         $query->bindParam(":brewery", $this->model->brewery);
         $query->bindParam(":location", $this->model->location);
         $query->bindParam(":glass", $this->model->glass);
+        $query->bindParam(":id", $this->model->id);
 
         if ($query->execute()) {
+            
             return true;
         } else {
+            
+            return false;
+            
+        }
+    }
+
+    public function deleteFlavours(): bool { 
+
+        $query = $this->model->db->prepare("DELETE FROM beers_flavours WHERE id_beer=:id");
+        $query->bindParam(":id", $this->model->id);
+        if ($query->execute()) {
+            
+            return true;
+        } else {
+
             return false;
         }
+        
     }
 
     public function delete(): bool

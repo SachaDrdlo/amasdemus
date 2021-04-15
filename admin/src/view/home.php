@@ -7,8 +7,12 @@ class HomeView
     }
 
     public function render(){
-        $beers = $this->controller->getBeers();
-        
-        require($this->template);
+            if (!isset($_SESSION["session_id"]) && ($_SESSION["user_ip"] != $_SERVER["REMOTE_ADDR"])) {
+                 header("Location: login");
+            } else {
+            $beers = $this->controller->getBeers();
+            
+            require($this->template);
+        }
     }
 }
