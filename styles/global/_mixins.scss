@@ -1,4 +1,5 @@
 @mixin button($clr-bcg, $clr-txt) {
+    display: block;
     text-decoration: none;
     background-color: $clr-bcg;
     color: $clr-txt;
