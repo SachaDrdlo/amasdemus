@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/Navbar-bottom.module.scss';
 import Link from 'next/link'
 
 const Navbar = () => {

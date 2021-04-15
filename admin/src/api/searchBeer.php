@@ -29,9 +29,12 @@ if ($itemCount > 0) {
             "description" => $row["description"],
             "level" => $row["level"],
             "glass" => $row["glass"],
+            "flavours" => $row["flavours"],
             "location" => $row["location"],
             "image" => $row["image"],
-            "type" => $row["type"]
+            "type" => $row["type"],
+            "img_brewery" => $row["img_brewery"],
+            "desc_brewery" => $row["desc_brewery"]
         );
 
         array_push($beerArray["beers"], $beer);

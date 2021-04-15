@@ -3,17 +3,13 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-// include_once '../controller/beer.php';
-// include_once '../model/beer.php';
 include_once '../../system/db.php';
 include_once '../class/beer.php';
 
 $db = new DB('db5002236283.hosting-data.io', 'dbu1488325', 'Amasdemus59.', 'dbs1804734');
 $items = new Beer($db);
-$stmt = $items->getBeersInfos();
+$stmt = $items->getRandomBeer();
 $itemCount = $stmt->rowCount();
-
-// echo json_encode($itemCount);
 
 if ($itemCount > 0) {
     $beerArray = array();
@@ -29,13 +25,10 @@ if ($itemCount > 0) {
             "title" => $row["title"],
             "description" => $row["description"],
             "level" => $row["level"],
-            "flavours" => $row["flavours"],
             "glass" => $row["glass"],
             "location" => $row["location"],
             "image" => $row["image"],
-            "type" => $row["type"],
-            "img_brewery" => $row["img_brewery"],
-            "desc_brewery" => $row["desc_brewery"]
+            "type" => $row["type"]
         );
 
         array_push($beerArray["beers"], $beer);

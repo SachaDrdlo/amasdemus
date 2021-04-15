@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/Footer.module.scss';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 

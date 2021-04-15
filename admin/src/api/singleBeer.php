@@ -23,10 +23,14 @@ if ($item->name != null) {
         "title" => $item->title,
         "description" => $item->description,
         "level" => $item->level,
+        "flavours" => $item->flavours,
         "glass" => $item->glass,
         "location" => $item->location,
         "image" => $item->image,
-        "type" => $item->type
+        "type" => $item->type,
+        "img_brewery" => $item->img_brewery,
+        "desc_brewery" => $item->desc_brewery
+
     );
 
     http_response_code(200);

@@ -10,8 +10,6 @@ const BreweryTemplate = ({ brewery_img, brewery, brewery_txt, id }) => {
     const path = router.route
     const [isBeer, setIsBeer] = useState()
 
-    console.log(isBeer);
-
     const getPath = () => {
         path.includes('/beers') ? setIsBeer(true) : setIsBeer(false)
     }

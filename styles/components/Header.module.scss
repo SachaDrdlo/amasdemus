@@ -1,4 +1,4 @@
-// Devient Header.module.scss appelé dans le composant Header.js
+@import '../global/variables';
 
 .header_container {
     align-items: center;
@@ -43,15 +43,19 @@
             align-items: center;
             flex-grow: 1;
 
-            input {
-                margin: 0 1.6rem;
-                padding: 0 0 .4rem;
-                font-size: 1.6rem;
-                border: none;
-                border-bottom: 2px solid $clr-green;
-                flex-grow: 1;
-                outline: none;
-                background-color: transparent;
+            form {
+                width: 100%;
+                input {
+                    width: 80%;
+                    margin: 0 1.6rem;
+                    padding: 0 0 .4rem;
+                    font-size: 1.6rem;
+                    border: none;
+                    border-bottom: 2px solid $clr-green;
+                    flex-grow: 1;
+                    outline: none;
+                    background-color: transparent;
+                }
             }
         }
     }

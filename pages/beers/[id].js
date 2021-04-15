@@ -2,44 +2,43 @@ import React, { useEffect } from 'react'
 import BeerInfos from '../components/BeerInfos'
 import Header from '../components/Header'
 import beers from '../../beers.json'
-import { useRouter } from 'next/router'
 
-const beer = () => {
+const beer = ({ data }) => {
 
-    const router = useRouter()
-    const beerId = router.query.id
-    const result = beers.find((item) => {
-        return item.id == beerId
-    })
+    // const router = useRouter()
+    // const beerId = router.query.id
+    // const result = beers.find((item) => {
+    //     return item.id == beerId
+    // })
 
+    console.log(data);
 
-    const beerDisplay = () => {
-        return (
-            <BeerInfos
-                id={result.id}
-                key={result.id}
-                name={result.name}
-                type={result.type}
-                level={result.level}
-                brewery={result.brewery}
-                brewery_txt={result.brewery_txt}
-                flavours={result.flavours}
-                format={result.format}
-                glass={result.glass}
-                image={result.image}
-                brewery_img={result.brewery_img}
-                title={result.title}
-                description={result.description}
-                introduction={result.introduction}
-            />
-        )
-    }
+    // const beerDisplay = () => {
+    //     return (
+
+    //     )
+    // }
 
     return (
         <div>
             <Header />
             <div>
-                {beerDisplay()}
+                <BeerInfos
+                    id={data.id}
+                    key={data.id}
+                    name={data.name}
+                    type={data.type}
+                    level={data.level}
+                    brewery={data.breweries}
+                    brewery_txt={data.brewery_txt}
+                    flavours={data.flavours}
+                    format={data.format}
+                    glass={data.glass}
+                    image={data.image}
+                    brewery_img={data.brewery_img}
+                    title={data.title}
+                    description={data.description}
+                />
             </div>
 
         </div>
@@ -48,8 +47,36 @@ const beer = () => {
 
 export default beer
 
-export function getServerSideProps(context) {
+export async function getServerSideProps(context) {
+    const query = context.query.id;
+    const res = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBeer.php?id=${query}`)
+    const data = await res.json()
+
     return {
-        props: { params: context.params }
-    };
+        props: {
+            data,
+        },
+    }
 }
+
+// const getBeer = async (id) => {
+//     const res = await fetch("http://sachadordolo.fr/amasdemus/admin/src/api/singleBeer.php?id=${id}", {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     });
+
+//     const json = await res.json();
+//     return json.data;
+// }
+
+// export const getServerSideProps = async ({ params }) => {
+//     const data = await getBeer(params.id);
+
+//     return {
+//         props: {
+//             data
+//         }
+//     }
+// }
