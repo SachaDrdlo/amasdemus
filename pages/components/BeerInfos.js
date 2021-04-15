@@ -1,22 +1,20 @@
 import React from 'react'
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/BeerInfos.module.scss';
 import { Grid } from '@material-ui/core';
 import BeerIllu from './BeerIllu'
 import BreweryTemplate from './BreweryTemplate'
-import Link from 'next/link'
 import BeerSuggestion from './BeerSuggestion';
 import Footer from './Footer'
-import BreweryInfos from './BreweryInfos';
 
-const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, brewery_img, brewery_txt, image, title, description, introduction }, props) => {
+const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, desc_brewery, brewery_id, image, title, description }, props) => {
     return (
         <div className={styles.beerPresentation}>
             <div className="container">
                 <Grid container justify="space-between" className={styles.beerPresentation_container}>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_img}>
                         <figure>
-                            <img className={styles.beerPresentation_container_img_beer} src={`../img/beers/redimensionedGrand/${image}`} alt="" />
-                            <img className={styles.beerPresentation_container_img_brewery} src={`../img/breweries/logo-redimensionedGrand/${brewery_img}`} alt="" />
+                            <img className={styles.beerPresentation_container_img_beer} src={`http://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
+                            <img className={styles.beerPresentation_container_img_brewery} src={`http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_text}>
@@ -35,15 +33,9 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, br
                             </ul>
                             <ul>
                                 <h5>Notes</h5>
-                                <li>{flavours.join(', ')}</li>
+                                <li>{flavours}</li>
                             </ul>
                             <div className={styles.beerPresentation_container_text_list_flex}>
-                                <div className={styles.beerPresentation_container_text_list_flex_format}>
-                                    <ul>
-                                        <h5>Formats</h5>
-                                        <li>{format.join(', ')}</li>
-                                    </ul>
-                                </div>
                                 <div className={styles.beerPresentation_container_text_list_flex_glass}>
                                     <ul >
                                         <h5>Verre</h5>
@@ -63,16 +55,16 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, br
                 <Grid item xs={12} sm={6} className={styles.beerPresentation_container_infos_content}>
                     <p>{type}</p>
                     <h1>{title}</h1>
-                    <span><p>{introduction}</p></span>
+                    <span><p>{description}</p></span>
                 </Grid>
                 {props.children}
             </BeerIllu>
 
             <BreweryTemplate
-                id={id}
-                brewery_img={brewery_img}
+                brewery_id={brewery_id}
+                img_brewery={img_brewery}
                 brewery={brewery}
-                brewery_txt={brewery_txt}
+                desc_brewery={desc_brewery}
             />
             {/* <BeerSuggestion/> */}
             <Footer />
@@ -81,3 +73,9 @@ const BeerInfos = ({ id, name, type, level, brewery, flavours, format, glass, br
 }
 
 export default BeerInfos
+
+export function getServerSideProps(context) {
+    return {
+        props: { params: context.params }
+    };
+}

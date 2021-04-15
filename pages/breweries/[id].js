@@ -1,39 +1,29 @@
 import React from 'react'
-import beers from '../../beers.json'
 import { useRouter } from 'next/router'
-import BreweryInfos from '../components/BreweryInfos'
+// import BreweryInfos from '../components/BreweryInfos'
 
-const brewery = () => {
+const Brewery = ({data}) => {
 
-    const router = useRouter()
-    const beerId = router.query.id
-    const result = beers.find((item) => {
-        return item.id == beerId
-    })
-
-    const breweryDisplay = () => {
-        return (
-            <BreweryInfos
-                key={result.id}
-                brewery={result.brewery}
-                brewery_img={result.brewery_img}
-                brewery_txt={result.brewery_txt}
-            />
-        )
-    }
+    console.log(data);
 
     return (
         <div>
-            {breweryDisplay()}
+            <h2>Hello</h2>
         </div>
     )
 }
 
-export default brewery
+export default Brewery
 
-export function getServerSideProps(context) {
+export async function getServerSideProps(context) {
+    const query = context.query.id;
+    const res = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
+    const data = await res.json()
+
     return {
-        props: { params: context.params }
-    };
+        props: {
+            data,
+        },
+    }
 }
 

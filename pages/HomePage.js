@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import BeerIllu from './BeerIllu'
-import Logo_template from './Logo_template';
-import styles from '../../styles/components/Home.module.scss';
-import beers from '../../beers.json'
+import BeerIllu from './components/BeerIllu'
+import Header from './components/Header'
+import Navbar from './components/Navbar-bottom';
+import Footer from './components/Footer'
+import Logo_template from './components/Logo_template';
+import styles from '../../styles/components/Homepage.module.scss';
+import beers from '../beers.json'
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 
@@ -35,6 +38,7 @@ const HomePage = () => {
 
     return (
         <div className={styles.home}>
+            <Header />
             <div className={styles.hero}>
                 <div className="container">
                     <div className={styles.hero_container}>
@@ -108,6 +112,8 @@ const HomePage = () => {
                     </Grid>
                 </div>
             </div>
+            <Navbar />
+            <Footer />
         </div>
 
 

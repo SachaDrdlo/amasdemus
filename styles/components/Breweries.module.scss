@@ -1,0 +1,13 @@
+@import '../global/variables.scss';
+
+.breweries{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 20rem;
+
+    & li{
+        flex-basis: 30%;
+        margin-bottom: 4.8rem;
+    }
+}

@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/BeerIllu.module.scss';
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 
@@ -25,7 +25,7 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
             <Grid container className={styles.container_grid} alignItems="center" justify="space-between" direction="row-reverse">
                 <Grid item xs={12} sm={6} className={styles.container_grid_illu}>
                     <figure>
-                        <img className={styles.container_grid_illu_beer} src={`../img/beers/redimensionedGrand/${image}`} alt="" />
+                        <img className={styles.container_grid_illu_beer} src={`http://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
                         <img className={styles.container_grid_illu_blob} src="../img/blob.svg" alt="" />
                     </figure>
                 </Grid>
@@ -58,8 +58,8 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
 
 export default BeerIllu
 
-// export function getServerSideProps(context) {
-//     return {
-//         props: { params: context.params }
-//     };
-// }
+export function getServerSideProps(context) {
+    return {
+        props: { params: context.params }
+    };
+}

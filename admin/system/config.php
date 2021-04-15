@@ -8,6 +8,7 @@ define('DIR_VIEW', DIR_APPLICATION.'view/');
 define('DIR_CONTROLLER', DIR_APPLICATION.'controller/');
 define('DIR_TEMPLATE', 'tpl/');
 
+// DB
 define('DB_HOSTNAME', 'db5002236283.hosting-data.io');
 define('DB_USERNAME', 'dbu1488325');
 define('DB_PASSWORD', 'Amasdemus59.');

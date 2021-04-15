@@ -2,44 +2,31 @@ import React, { useEffect } from 'react'
 import BeerInfos from '../components/BeerInfos'
 import Header from '../components/Header'
 import beers from '../../beers.json'
-import { useRouter } from 'next/router'
 
-const beer = () => {
+const beer = ({ data }) => {
 
-    const router = useRouter()
-    const beerId = router.query.id
-    const result = beers.find((item) => {
-        return item.id == beerId
-    })
-
-
-    const beerDisplay = () => {
-        return (
-            <BeerInfos
-                id={result.id}
-                key={result.id}
-                name={result.name}
-                type={result.type}
-                level={result.level}
-                brewery={result.brewery}
-                brewery_txt={result.brewery_txt}
-                flavours={result.flavours}
-                format={result.format}
-                glass={result.glass}
-                image={result.image}
-                brewery_img={result.brewery_img}
-                title={result.title}
-                description={result.description}
-                introduction={result.introduction}
-            />
-        )
-    }
+    console.log(data);
 
     return (
         <div>
             <Header />
             <div>
-                {beerDisplay()}
+                <BeerInfos
+                    key={data.id}
+                    name={data.name}
+                    type={data.type}
+                    level={data.level}
+                    brewery={data.breweries}
+                    desc_brewery={data.desc_brewery}
+                    brewery_id={data.id_brewery}
+                    flavours={data.flavours}
+                    format={data.format}
+                    glass={data.glass}
+                    image={data.image}
+                    img_brewery={data.img_brewery}
+                    title={data.title}
+                    description={data.description}
+                />
             </div>
 
         </div>
@@ -48,8 +35,14 @@ const beer = () => {
 
 export default beer
 
-export function getServerSideProps(context) {
+export async function getServerSideProps(context) {
+    const query = context.query.id;
+    const res = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBeer.php?id=${query}`)
+    const data = await res.json()
+
     return {
-        props: { params: context.params }
-    };
+        props: {
+            data,
+        },
+    }
 }
