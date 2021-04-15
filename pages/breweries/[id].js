@@ -2,7 +2,9 @@ import React from 'react'
 import { useRouter } from 'next/router'
 // import BreweryInfos from '../components/BreweryInfos'
 
-const Brewery = () => {
+const Brewery = ({data}) => {
+
+    console.log(data);
 
     return (
         <div>
@@ -13,19 +15,15 @@ const Brewery = () => {
 
 export default Brewery
 
-async function getBrewery(context){
+export async function getServerSideProps(context) {
     const query = context.query.id;
     const res = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
     const data = await res.json()
-    return data;
-}
 
-export async function getServerSideProps(){
-    const data = await getBrewery();
     return {
         props: {
-            data
-        }
+            data,
+        },
     }
 }
 

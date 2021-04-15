@@ -25,7 +25,7 @@ class Brewery
         $stmt->execute();
         return $stmt;
     }
-    
+
     public function getBreweryInfos()
     {
         $sqlQuery = "SELECT breweries.id, name, description, logo, address, url FROM " . $this->db_table . " WHERE breweries.id = :id";
