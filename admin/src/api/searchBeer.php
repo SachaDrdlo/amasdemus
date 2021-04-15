@@ -22,7 +22,7 @@ if ($itemCount > 0) {
         extract($row);
 
         $beer = array(
-            "id" => $row["id"],
+            "id" => $row["id_biere"],
             "name" => $row["nom_biere"],
             "breweries" => $row["nom_brasserie"],
             "title" => $row["title"],

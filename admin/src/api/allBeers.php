@@ -23,7 +23,7 @@ if ($itemCount > 0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $beer = array(
-            "id" => $row["id"],
+            "id" => $row["id_biere"],
             "name" => $row["nom_biere"],
             "breweries" => $row["nom_brasserie"],
             "title" => $row["title"],
