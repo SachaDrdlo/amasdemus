@@ -18,17 +18,17 @@ class LoginController
 
     public function validateLogin(): bool
     {
-            $result = $this->getUser($this->model->email); 
-            
-        
-    //    if (!empty($result) && password_verify($this->model->password, $result["password"])) {
-       if (!empty($result) && $this->model->password == $result["password"]) {
-             $_SESSION["session_id"] = md5($result["email"]);
+        $result = $this->getUser($this->model->email);
+
+
+        //    if (!empty($result) && password_verify($this->model->password, $result["password"])) {
+        if (!empty($result) && $this->model->password == $result["password"]) {
+            $_SESSION["session_id"] = md5($result["email"]);
             $_SESSION["user_ip"] = $_SERVER["REMOTE_ADDR"];
-        var_dump($result);
-           return true;
+
+            return true;
         }
 
-       return false;
+        return false;
     }
 }

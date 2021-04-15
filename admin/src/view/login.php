@@ -10,8 +10,7 @@ class LoginView
         $message = "";
         if (!empty($_POST)) {
             if($this->controller->validateLogin()) {
-           
-                header("Location: home");
+                header("Location: ".HOST);
             } else {
                 $message = "<div class=\"alert alert-danger\">Impossible de se connecter avec les informations saisies</div>";
             }

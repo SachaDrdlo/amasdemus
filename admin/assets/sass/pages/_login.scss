@@ -1,0 +1,45 @@
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+
+        &__login {
+            width: 100%;
+            height: 9rem;
+        }
+    }
+
+    &-section {
+        width: 50%;
+        margin: 0 auto;
+
+        form,
+        .form-group {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+
+            input {
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid $clr-green;
+                outline: none;
+            }
+        }
+
+        form {
+            .btn {
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}

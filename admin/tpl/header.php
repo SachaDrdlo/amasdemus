@@ -13,28 +13,28 @@
 </head>
 
 <body>
-    <header class="container">
-        <div class="row">
-            <div class="headercontainer">
-                <a class="logo-link" href="<?= HOST ?>">
-                    <img class="logo" src="<?= HOST ?>/assets/img/logo.png" alt="Logo Amas Demus">
-                </a>
-                <nav>
-                    <ul>
-                        <?php
-                            if (isset($_SESSION["session_id"])) {
-                        ?>
-                        <li>
-                            <a class="btn" href="<?= HOST ?>/logout.php">Se déco</a>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                        <li>
-                            <a class="btn" href="<?= HOST ?>/beer">Ajouter une bière</a>
-                        </li>
-                    </ul>
-                </nav>
+    <?php
+    if (isset($_SESSION["session_id"])) {
+    ?>
+        <header class="container">
+            <div class="row">
+                <div class="headercontainer">
+                    <a class="logo-link" href="<?= HOST ?>">
+                        <img class="logo" src="<?= HOST ?>/assets/img/logo.png" alt="Logo Amas Demus">
+                    </a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a class="btn" href="<?= HOST ?>/logout.php">Se déco</a>
+                            </li>
+                            <li>
+                                <a class="btn" href="<?= HOST ?>/beer">Ajouter une bière</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+    <?php
+    }
+    ?>

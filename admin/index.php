@@ -15,16 +15,16 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
 }
 
 $data = array(
+	"login" => array("model" => "LoginModel", "view" => "LoginView", "controller" => "LoginController"),
 	"home" => array("model" => "HomeModel", "view" => "HomeView", "controller" => "HomeController"),
-	"beer" => array("model" => "BeerModel", "view" => "BeerView", "controller" => "BeerController"),
-	"login" => array("model" => "LoginModel", "view" => "LoginView", "controller" => "LoginController")
+	"beer" => array("model" => "BeerModel", "view" => "BeerView", "controller" => "BeerController")
 );
 
 $find = false;
 foreach($data as $key => $components){
 	if ($page == $key) {
 		$find = true;
-		
+
 		$model = $components["model"];
 		$view = $components["view"];
 		$controller = $components["controller"];

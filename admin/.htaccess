@@ -5,7 +5,6 @@ RewriteBase /
 # Règles de réécriture d'URL :
 
 # LOCAL CONNECTION
-#RewriteRule ^home$   ./index.php
 #RewriteRule ^beer$   ./index.php?page=beer
 #RewriteRule ^edit/([0-9]+)$   ./index.php?page=beer&id=$1
 #RewriteRule ^delete/([0-9]+)$   ./index.php?page=beer&operation=delete&id=$1

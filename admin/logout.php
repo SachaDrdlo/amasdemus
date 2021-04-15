@@ -6,4 +6,4 @@ session_start();
 session_destroy();
 
 // Rediriger vers la page d'accueil
-header("Location: ./");
+header("Location: login");

@@ -1,5 +1,6 @@
 <?php
 define("HOST", "https://sachadordolo.fr/amasdemus/admin");
+// define('HOST', "http://localhost:8888/amasdemus/amasdemus_interface/admin");
 
 // DIR
 define('DIR_APPLICATION', 'src/');
@@ -14,4 +15,10 @@ define('DB_USERNAME', 'dbu1488325');
 define('DB_PASSWORD', 'Amasdemus59.');
 define('DB_DATABASE', 'dbs1804734');
 define('DB_PORT', '3306');
+
+// define('DB_HOSTNAME', 'localhost');
+// define('DB_USERNAME', 'root');
+// define('DB_PASSWORD', 'root');
+// define('DB_DATABASE', 'amasdemus');
+// define('DB_PORT', '8889');
 ?>
