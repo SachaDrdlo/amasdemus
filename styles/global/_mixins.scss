@@ -1,18 +1,45 @@
 @mixin button($clr-bcg, $clr-txt) {
     display: block;
+    text-align: center;
+    margin: 0 auto;
     text-decoration: none;
     background-color: $clr-bcg;
     color: $clr-txt;
-    padding: 15px 40px;
+    padding: 15px 20px;
     border: none;
 }
 
 @mixin hr($clr) {
-    width: 47px;
+    width: 4.7rem;
     border: $clr 1px solid;
 }
 
 @mixin hrMaxWidth($clr) {
     width: 100%;
     border: $clr 1px solid;
+}
+
+@mixin hrCenter($clr) {
+    width: 4.7rem;
+    margin: .5rem auto;
+    border: $clr 1px solid;
+}
+
+
+
+@mixin pseudo-el($display: block, $position: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $position;
+    // @include pseudo-el() on ::before & ::after.
+}
+
+@mixin link($bgclr, $fontclr, $radius: false){
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem;
+    font-weight: bold;
+    background-color: $bgclr;
+    color: $fontclr;
+    transition: color .5s ease;
 }

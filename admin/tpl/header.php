@@ -25,10 +25,19 @@
                     <nav>
                         <ul>
                             <li>
-                                <a class="btn" href="<?= HOST ?>/logout.php">Se déco</a>
+                                <a class="btn" href="<?= HOST ?>/logout.php">Se déconnecter</a>
+                            </li>
+                            <li>
+                                <a class="btn" href="<?= HOST ?>">Accueil Bière</a>
                             </li>
                             <li>
                                 <a class="btn" href="<?= HOST ?>/beer">Ajouter une bière</a>
+                            </li>
+                            <li>
+                                <a class="btn" href="<?= HOST ?>/breweries">Accueil Brasserie</a>
+                            </li>
+                            <li>
+                                <a class="btn" href="<?= HOST ?>/brewery">Ajouter une brasserie</a>
                             </li>
                         </ul>
                     </nav>

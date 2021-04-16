@@ -34,8 +34,8 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
       <Logo_template
         key={brewery.id}
         id={brewery.id}
-        img_brewery={brewery.logo}
-        name_brewery={brewery.name}
+        img={brewery.logo}
+        name={brewery.name}
       />
     )
 
@@ -52,7 +52,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
             </div>
             <div className={styles.hero_container_content}>
               <h1>Amas Demus</h1>
-              <hr className="grey" />
+              <hr className="greyCenter" />
               <p>Pour les amateurs de terroir</p>
             </div>
           </div>
@@ -67,7 +67,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
           <div className={styles.discover_container}>
             <div className={styles.discover_container_content}>
               <p>Bières du terroir</p>
-              <hr className="beige" />
+              <hr className="beigeCenter" />
               <h1>Un monde de découverte</h1>
               <span><p>Un moment entre amis, au restaurant ou indécis devant l'innombrable choix de votre caviste, il n'y a ni lieu ni heure pour découvrir de nouvelles saveurs locales.</p></span>
               <div className={styles.discover_container_content_btn}>
@@ -90,7 +90,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
             <hr className="green" />
             <h1>Des brasseries locales</h1>
           </div>
-          <Grid container spacing={5} className={styles.breweries_container}>
+          <Grid container item className={styles.breweries_container}>
             {breweriesDisplay}
           </Grid>
         </div>

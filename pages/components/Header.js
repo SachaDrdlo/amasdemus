@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image'
 import styles from '../../styles/components/Header.module.scss';
 import Link from 'next/link'
-// import du fichier '../../styles/components/Header.module.scss'
-// Enlever l'import du fichier '../../styles/components/Home.module.scss'
+import zIndex from '@material-ui/core/styles/zIndex';
 
 const Header = ({ data, action = '/search' }) => {
 
@@ -17,7 +16,8 @@ const Header = ({ data, action = '/search' }) => {
     const router = useRouter();
     const [query, setQuery] = useState('');
     const [opened, setOpened] = useState(false);
-    // const breakpoint = 992;
+    const breakpoint = 992;
+
 
     const handleParam = setValue => e => setValue(e.target.value);
 
@@ -34,29 +34,84 @@ const Header = ({ data, action = '/search' }) => {
         e.currentTarget.id === 'search' ? setOpened(true) : e.currentTarget.id === 'cross' ? setOpened(false) : null
     }
 
+    // CHECK LA TAILLE DE LA PAGE
+    const [width, setWidth] = useState(undefined);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth >= breakpoint ? true : false)
+        }
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [])
+
+    console.log(width);
+
     return (
-        <div className="container">
-            <div className={styles.header_container}>
-                <div className={styles.header_container_left}>
-                    <div className={styles.header_container_left_logo}>
+        <div className={styles.header_container}>
+            <div className={styles.header_container_left}>
+                <div className={styles.header_container_left_logoContainer}>
+                    <div className={styles.header_container_left_logoContainer_logo}>
                         <Link href="/">
                             <a>
-                                <Image src="/img/logos/logo-horizontal-green.svg" width={164} height={32} layout="responsive" alt="" />
+                                <img src="/img/logos/logo-horizontal-green.svg" alt="" />
                             </a>
                         </Link>
                     </div>
+                    {
+                        typeof width !== 'undefined' ? (
+                            width ? (
+                                <div className={styles.header_container_left_logoContainer_link}>
+                                    <nav>
+                                        <ul>
+                                            <li>
+                                                <Link href="/">
+                                                    <a>Accueil</a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/">
+                                                    <a>Bières</a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/">
+                                                    <a>Brasseries</a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/">
+                                                    <a>A propos</a>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            ) : null
+                        ) : null
+                    }
                 </div>
-                <div className={`${styles.header_container_search} ${opened ? styles.active : null}`}>
-                    <div className={styles.header_container_search_inputcontainer}>
-                        <img id='search' src="/img/icons/search-icon.svg" alt="" onClick={(e) => getSearch(e)} />
-                        <form onSubmit={handleSubmit}>
-                            <input type="text" placeholder="Rechercher une bière..." value={query} onChange={handleParam(setQuery)} />
-                        </form>
-                    </div>
-                    <div className={`${styles.header_container_search_close} ${!opened ? styles.none : null}`}>
-                        <img id="cross" className={`${styles.header_container_search_close_cross}`} src="/img/icons/close-icon.svg" alt="" onClick={(e) => getSearch(e)} />
-                    </div>
+            </div>
+
+            <div className={`${styles.header_container_search} ${opened ? styles.active : null}`}>
+                <div className={styles.header_container_search_inputcontainer}>
+                    <img id='search' src="/img/icons/search-icon.svg" alt="" onClick={(e) => getSearch(e)} />
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" placeholder="Rechercher une bière..." value={query} onChange={handleParam(setQuery)} />
+                    </form>
                 </div>
+                {typeof width !== 'undefined' ? (
+                    !width ? (
+                        <div className={`${styles.header_container_search_close} ${!opened ? styles.none : null}`}>
+                            <img id="cross" className={`${styles.header_container_search_close_cross}`} src="/img/icons/close-icon.svg" alt="" onClick={(e) => getSearch(e)} />
+                        </div>
+                    ) : null
+                ) : null
+                }
             </div>
         </div>
     )

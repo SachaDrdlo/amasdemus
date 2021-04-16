@@ -17,7 +17,9 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
 $data = array(
 	"login" => array("model" => "LoginModel", "view" => "LoginView", "controller" => "LoginController"),
 	"home" => array("model" => "HomeModel", "view" => "HomeView", "controller" => "HomeController"),
-	"beer" => array("model" => "BeerModel", "view" => "BeerView", "controller" => "BeerController")
+	"beer" => array("model" => "BeerModel", "view" => "BeerView", "controller" => "BeerController"),
+	"brewery" => array("model" => "BreweryModel", "view" => "BreweryView", "controller" => "BreweryController"),
+	"breweries" => array("model" => "BreweriesModel", "view" => "BreweriesView", "controller" => "BreweriesController")
 );
 
 $find = false;
