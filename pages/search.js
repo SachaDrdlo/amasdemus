@@ -7,10 +7,6 @@ import { Grid } from '@material-ui/core';
 
 const search = ({ data }) => {
 
-    console.log(data.beers);
-
-    const router = useRouter()
-
     const count = data.itemCount
 
     const listBeers = data.beers.map((beer) => {
