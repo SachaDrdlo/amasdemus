@@ -97,6 +97,7 @@
                             if (!empty($data["image"])) {
                             ?>
                                 <img src="../assets/img/beers/<?= $data["image"] ?>" alt="">
+                                <input type="file" name="image" id="inputImage" />
                             <?php
                             } else {
                             ?>

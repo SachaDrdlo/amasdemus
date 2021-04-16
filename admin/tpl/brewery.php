@@ -31,6 +31,7 @@
                             if (!empty($data["logo"])) {
                             ?>
                                 <img src="../assets/img/breweries/<?= $data["logo"] ?>" alt="">
+                                <input type="file" name="logo" id="inputLogo" />
                             <?php
                             } else {
                             ?>
@@ -38,6 +39,8 @@
                             <?php
                             }
                             ?>
+                            
+                            
                     </div>
                     <div>
                         <input type="submit" value="Ajouter la brasserie" />
