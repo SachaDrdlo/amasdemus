@@ -135,8 +135,8 @@ export async function getServerSideProps() {
   const res = await fetch('http://sachadordolo.fr/amasdemus/admin/src/api/randomBeer.php')
   const beerFetch = await res.json()
 
-  // Fetch des brasseries affichées après l'encart verte
-  const response = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php`)
+  // Fetch des brasseries affichées après l'encart vert
+  const response = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/RandomBreweries.php`)
   const breweriesFetch = await response.json()
 
   return {

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import styles from '../../styles/components/Breweries.module.scss'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import BrewerySuggestion from '../components/BrewerySuggestion';
 
 export default function Breweries({ data }) {
@@ -23,8 +24,8 @@ export default function Breweries({ data }) {
                         </li>
                     ))}
                 </ul>
-                
             </main>
+            <Footer />
         </div>
     )
 }
