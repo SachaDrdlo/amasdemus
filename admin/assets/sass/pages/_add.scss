@@ -1,0 +1,59 @@
+.beer-section {
+    .form-container {
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 3rem auto;
+
+            input {
+                border: none;
+                border-bottom: 2px solid $clr-green;
+                background-color: transparent;
+                outline: none;
+            }
+
+            select {
+                border: none;
+                background-color: $clr-green;
+                outline: none;
+                color: $clr-pale-brown;
+            }
+
+            .input-checkbox {
+                appearance: none;
+                background-color: $clr-green;
+                border: 1px solid $clr-green;
+                padding: .7rem;
+                display: inline-block;
+                position: relative;
+            }
+
+            .input-checkbox:checked {
+                background-color: $clr-green;
+                border: 1px solid $clr-green;
+                color: $clr-pale-brown;
+            }
+
+            .input-checkbox:checked:after {
+                content: '\2714';
+                font-size: 14px;
+                position: absolute;
+                top: 0px;
+                left: 3px;
+                color: $clr-pale-brown;
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+
+            .beer-img {
+                width: 30%;
+                height: auto;
+            }
+        }
+    }
+
+}

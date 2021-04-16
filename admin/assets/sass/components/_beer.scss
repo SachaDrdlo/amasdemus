@@ -5,35 +5,35 @@
     margin-bottom: 4rem;
     width: 100%;
 
-    
+
     &-container{
         display: flex;
         justify-content: space-between;
         flex-flow: row wrap;
         width: 100%;
-        
+
         & .beer:nth-child(even){
             background-color: tan;
         }
     }
-    
+
     &-infos{
         flex-basis: 20%;
     }
-    
+
     &-img{
         width: 8rem;
         height: 8rem;
         display: flex;
         align-items: center;
-        justify-content: center;   
+        justify-content: center;
         position: relative;
-        
+
         & img{
             position: absolute;
             width: auto;
             height: 100%;
-        } 
+        }
     }
 
     &-btns{

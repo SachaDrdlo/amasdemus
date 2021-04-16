@@ -3,30 +3,6 @@ import styles from '../../styles/components/Navbar-bottom.module.scss';
 import Link from 'next/link'
 
 const Navbar = () => {
-
-    // if (typeof window === 'undefined') {
-    //     global.window = {}
-    // }
-
-    // const [isDesktop, setIsDesktop] = useState(window.innerWidth)
-    // const breakpoint = 992
-
-
-    // const getSearch = () => {
-    //     setOpened(!opened);
-    // }
-    // const useWidth = () => {
-    //     const handleResize = () => {
-    //         setIsDesktop(window.innerWidth)
-    //     }
-    //     useEffect(() => {
-    //         window.addEventListener('resize', handleResize);
-    //         return () => {
-    //             window.removeEventListener('resize', handleResize)
-    //         }
-    //     }, [handleResize])
-    // }
-
     return (
         <div className={`${styles.navbar_container}`}>
             <div className={styles.navbar_container_icons}>

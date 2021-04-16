@@ -1,21 +1,46 @@
 @import '../global/variables';
+@import '../global/mixins';
 
 .header_container {
     align-items: center;
-    padding: 32px 0 0;
     display: flex;
+    padding: 32px 0;
+    margin: 0 3.2rem;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
 
     &_left {
-        width: 160px;
-        height: 32px;
+        width: 48rem;
 
-        img {
-            width: auto;
-            height: 32px;
+        &_logoContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &_logo {
+
+                img {
+                    width: auto;
+                    height: 32px;
+                }
+            }
+
+            &_link {
+
+
+                nav {
+                    ul {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 27rem;
+                    }
+
+                }
+
+            }
         }
+
     }
 
     &_search {
@@ -45,6 +70,7 @@
 
             form {
                 width: 100%;
+
                 input {
                     width: 80%;
                     margin: 0 1.6rem;
@@ -58,7 +84,29 @@
                 }
             }
         }
+
+        @media screen and (min-width: $lg-bp) {
+            position: relative;
+            width: 30rem;
+            transform: none;
+
+            &_inputcontainer {
+                form {
+                    width: calc(100% - 1.6rem);
+
+                    input {
+                        width: calc(100% - 1.6rem);
+                        margin: 0 0 0 1.6rem;
+                    }
+                }
+            }
+        }
     }
+
+    @media screen and (min-width: $lg-bp) {
+        margin: 0 4.8rem;
+    }
+
 }
 
 .active {

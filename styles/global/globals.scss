@@ -99,6 +99,18 @@ p {
   @include hrMaxWidth($clr-beige)
 }
 
+.greyCenter {
+  @include hrCenter($clr-grey)
+}
+
+.greenCenter {
+  @include hrCenter($clr-green)
+}
+
+.beigeCenter {
+  @include hrCenter($clr-beige)
+}
+
 .filters {
 
   &-lateralblock {
@@ -161,6 +173,49 @@ p {
     // }
   }
 }
+
+/*
+  STYLE DU COMPOSANT LOGO_TEMPLATE
+*/
+.container_content {
+  text-align: center;
+  margin-top: 100px;
+
+  figure {
+    width: auto;
+    margin-bottom: 2rem;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  &_breweryImg {
+    @media screen and (max-width: $lg-bp) {
+      width: auto;
+      height: 120px;
+    }
+
+    width: auto;
+    height: 130px;
+  }
+
+  &_beerImg {
+    width: auto;
+    height: 350px;
+  }
+
+  &_btn {
+    margin-top: 30px;
+
+    a {
+      width: 30rem;
+    }
+  }
+}
+
+
 
 @media screen and(min-width: $lg-bp) {
   .filters {
