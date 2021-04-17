@@ -52,7 +52,7 @@ class BreweryController
 
     public function get()
     {
-        $query = $this->model->db->prepare("SELECT name,description, logo, address, url 
+        $query = $this->model->db->prepare("SELECT name,description, logo, address, url
         FROM breweries
         WHERE breweries.id=:id");
         $query->bindParam(":id", $this->model->id);
@@ -64,7 +64,7 @@ class BreweryController
 
     public function add(): bool
     {
-        $query = $this->model->db->prepare("INSERT INTO Breweries 
+        $query = $this->model->db->prepare("INSERT INTO breweries
         (name, description, logo, address, url )
             VALUES (:name, :description, :logo, :address, :url)");
         $query->bindParam(":name", $this->model->name);
@@ -90,7 +90,7 @@ class BreweryController
                 $this->model->image = $data["logo"];
             }
         }
-        $query = $this->model->db->prepare("UPDATE breweries 
+        $query = $this->model->db->prepare("UPDATE breweries
             SET name=:name, description=:description, logo=:logo, address=:address, url=:url
             WHERE id=:id;");
         $query->bindParam(":name", $this->model->name);
@@ -101,12 +101,12 @@ class BreweryController
         $query->bindParam(":id", $this->model->id);
 
         if ($query->execute()) {
-            
+
             return true;
         } else {
-            
+
             return false;
-            
+
         }
     }
 

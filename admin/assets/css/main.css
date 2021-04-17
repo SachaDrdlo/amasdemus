@@ -558,6 +558,19 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.headercontainer nav ul {
+  display: flex;
+}
+.headercontainer nav ul li a {
+  background-color: #FDFFE6;
+  color: #0D7A5F;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+}
+.headercontainer nav ul li a:hover {
+  background-color: #0D7A5F;
+  color: #FDFFE6;
+}
 
 .btn {
   background-color: #0D7A5F;

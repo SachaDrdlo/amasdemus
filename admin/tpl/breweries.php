@@ -3,15 +3,13 @@ $home = true;
 require_once("header.php");
 ?>
 
-<body>
-
     <main class="container">
         <ul class="beer-container">
             <?php
             foreach ($breweries as $brewery) {
             ?>
                 <li class="beer">
-                   
+
                     <div class="beer-img">
                         <img src="./assets/img/breweries/<?= $brewery["logo"] ?>" alt="">
                     </div>

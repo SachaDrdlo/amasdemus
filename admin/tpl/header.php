@@ -25,9 +25,6 @@
                     <nav>
                         <ul>
                             <li>
-                                <a class="btn" href="<?= HOST ?>/logout.php">Se déconnecter</a>
-                            </li>
-                            <li>
                                 <a class="btn" href="<?= HOST ?>">Accueil Bière</a>
                             </li>
                             <li>
@@ -38,6 +35,9 @@
                             </li>
                             <li>
                                 <a class="btn" href="<?= HOST ?>/brewery">Ajouter une brasserie</a>
+                            </li>
+                            <li>
+                                <a class="btn" href="<?= HOST ?>/logout.php">Se déconnecter</a>
                             </li>
                         </ul>
                     </nav>
