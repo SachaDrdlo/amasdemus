@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Navbar from './components/Navbar-bottom';
 import Footer from './components/Footer'
 import beers from '../beers.json'
-import Logo_template from './components/Logo_template';
+import LogoTemplate from './components/LogoTemplate';
 import styles from '../styles/components/Homepage.module.scss';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
@@ -31,7 +31,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
 
   const breweriesDisplay = breweries.map((brewery) => {
     return (
-      <Logo_template
+      <LogoTemplate
         key={brewery.id}
         id={brewery.id}
         img={brewery.logo}

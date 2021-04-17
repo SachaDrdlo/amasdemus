@@ -3,7 +3,7 @@ import BeerIllu from './components/BeerIllu'
 import Header from './components/Header'
 import Navbar from './components/Navbar-bottom';
 import Footer from './components/Footer'
-import Logo_template from './components/Logo_template';
+import LogoTemplate from './components/LogoTemplate';
 import styles from '../../styles/components/Homepage.module.scss';
 import beers from '../beers.json'
 import { Grid } from '@material-ui/core';
@@ -27,7 +27,7 @@ const HomePage = () => {
 
     const breweries = beers.map((beer) => {
         return (
-            <Logo_template
+            <LogoTemplate
                 key={beer.id}
                 image={beer.brewery_img}
                 name={beer.brewery}

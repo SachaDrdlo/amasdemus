@@ -6,7 +6,7 @@ import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 
 
-const Logo_template = ({ id, img, name }) => {
+const LogoTemplate = ({ id, img, name }) => {
 
     const router = useRouter();
     const [path, setPath] = useState(router.pathname)
@@ -16,9 +16,10 @@ const Logo_template = ({ id, img, name }) => {
     const getPathImg = () => {
         if (path === '/' || path === '/breweries') {
             return <img className='container_content_breweryImg' src={`http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img}`} alt="" />
-        } else if (path === '/beers' || path === '/search') {
+        } else if (path === '/beers' || path === '/search' || path === `/breweries/[id]`) {
             return <img className='container_content_beerImg' src={`http://sachadordolo.fr/amasdemus/admin/assets/img/beers/${img}`} alt="" />
         }
+        
     }
 
     // Permet d'afficher soit bière soit brasserie en fonction de la page sur laquelle on est
@@ -26,10 +27,23 @@ const Logo_template = ({ id, img, name }) => {
         const brewery = 'brasserie'
         const beer = 'bière'
 
-        return path === '/' || path === '/breweries' ? brewery : path === '/beers' || path === '/search' ? beer : null
+        if (path === '/' || path === '/breweries') {
+            return brewery
+        } else if (path === '/beers' || path === '/search' || path === `/breweries/[id]`) {
+            return beer
+        }
+        // return path === '/' || path === '/breweries' ? brewery : path === '/beers' || path === '/search' ? beer : null
     }
 
-    const redirection = path === '/' || path === '/breweries' ? `/breweries/${id}` : path === '/beers' || path === '/search' ? `/beers/${id}` : null
+    // const redirection = path === '/' || path === '/breweries' ? `/breweries/${id}` : path === '/beers' || path === '/search' ? `/beers/${id}` : null
+    
+    const redirection = (path) => {
+        if (path === '/' || path === '/breweries') {
+            return `/breweries/${id}`
+        } else if (path === '/beers' || path === '/search' || path === `/breweries/[id]`) {
+            return `/beers/${id}`
+        }
+    }
 
 
     return (
@@ -40,7 +54,7 @@ const Logo_template = ({ id, img, name }) => {
             </figure>
             <h3>{name}</h3>
             <div className='container_content_btn'>
-                <Link href={redirection}>
+                <Link href={redirection(path)}>
                     <a className={`greenButton`}>Découvrir cette {getNameBtn()}</a>
                 </Link>
             </div>
@@ -48,4 +62,4 @@ const Logo_template = ({ id, img, name }) => {
     )
 }
 
-export default Logo_template
+export default LogoTemplate
