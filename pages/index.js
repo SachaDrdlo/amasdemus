@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Navbar from './components/Navbar-bottom';
 import Footer from './components/Footer'
 import beers from '../beers.json'
-import Logo_template from './components/Logo_template';
+import LogoTemplate from './components/LogoTemplate';
 import styles from '../styles/components/Homepage.module.scss';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
@@ -31,7 +31,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
 
   const breweriesDisplay = breweries.map((brewery) => {
     return (
-      <Logo_template
+      <LogoTemplate
         key={brewery.id}
         id={brewery.id}
         img={brewery.logo}
@@ -135,8 +135,8 @@ export async function getServerSideProps() {
   const res = await fetch('http://sachadordolo.fr/amasdemus/admin/src/api/randomBeer.php')
   const beerFetch = await res.json()
 
-  // Fetch des brasseries affichées après l'encart verte
-  const response = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php`)
+  // Fetch des brasseries affichées après l'encart vert
+  const response = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/RandomBreweries.php`)
   const breweriesFetch = await response.json()
 
   return {

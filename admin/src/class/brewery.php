@@ -11,6 +11,7 @@ class Brewery
     public $logo;
     public $address;
     public $url;
+    public $locations;
 
     public function __construct($db)
     {
@@ -26,9 +27,23 @@ class Brewery
         return $stmt;
     }
 
+    public function getRandomBreweries()
+    {
+        $sqlQuery = "SELECT id, name, description, logo, address, url FROM " . $this->db_table . " ORDER BY RAND() LIMIT 3";
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->execute();
+        return $stmt;
+    }
+
     public function getBreweryInfos()
     {
-        $sqlQuery = "SELECT breweries.id, name, description, logo, address, url FROM " . $this->db_table . " WHERE breweries.id = :id";
+        $sqlQuery = "SELECT breweries.id, breweries.name, breweries.description, logo, address, url, locations.location as region
+        FROM " . $this->db_table . "
+        INNER JOIN beers
+        ON breweries.id = beers.id_brewery
+        INNER JOIN locations
+        ON beers.id_location = locations.id
+        WHERE breweries.id = :id";
 
         $stmt = $this->connection->prepare($sqlQuery);
         $stmt->bindParam(':id', $this->id);
@@ -41,8 +56,10 @@ class Brewery
         $this->logo = $row["logo"];
         $this->address = $row["address"];
         $this->url = $row["url"];
+        $this->locations = $row["region"];
         $stmt = $this->connection->prepare($sqlQuery);
         $stmt->execute();
         return $stmt;
     }
+
 }

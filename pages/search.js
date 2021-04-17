@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import Header from './components/Header'
 import styles from '../styles/components/search.module.scss';
-import Logo_template from './components/Logo_template'
+import LogoTemplate from './components/LogoTemplate'
 import { Grid } from '@material-ui/core';
 
 const search = ({ data }) => {
@@ -12,7 +12,7 @@ const search = ({ data }) => {
     const listBeers = data.beers.map((beer) => {
         console.log(beer);
         return (
-            <Logo_template
+            <LogoTemplate
                 id={beer.id}
                 img={beer.image}
                 name={beer.name}

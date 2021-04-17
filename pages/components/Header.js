@@ -49,7 +49,7 @@ const Header = ({ data, action = '/search' }) => {
         }
     }, [])
 
-    console.log(width);
+    // console.log(width);
 
     return (
         <div className={styles.header_container}>
@@ -74,17 +74,17 @@ const Header = ({ data, action = '/search' }) => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="/beers">
                                                     <a>Bières</a>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="/breweries">
                                                     <a>Brasseries</a>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="/about">
                                                     <a>A propos</a>
                                                 </Link>
                                             </li>

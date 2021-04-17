@@ -17,7 +17,12 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        
+        @media screen and (min-width: $lg-bp){
+            background-size: contain;
+        }
     }
+
 
 }
 

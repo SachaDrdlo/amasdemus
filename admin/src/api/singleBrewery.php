@@ -22,7 +22,9 @@ if ($item->name != null) {
         "description" => $item->description,
         "logo" => $item->logo,
         "address" => $item->address,
-        "url" => $item->url
+        "url" => $item->url,
+        "region" => $item->locations
+
     );
 
     http_response_code(200);
