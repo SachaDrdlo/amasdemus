@@ -49,7 +49,7 @@ const Header = ({ data, action = '/search' }) => {
         }
     }, [])
 
-    console.log(width);
+    // console.log(width);
 
     return (
         <div className={styles.header_container}>

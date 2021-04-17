@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from 'next/link'
-import { useEffect, useState } from 'react';
+import { Grid } from '@material-ui/core';
 import styles from '../../styles/components/Breweries.module.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import BrewerySuggestion from '../components/BrewerySuggestion';
+import LogoTemplate from '../components/LogoTemplate';
+// import BrewerySuggestion from '../components/BrewerySuggestion';
 
 export default function Breweries({ data }) {
     const breweries = data.breweries;
@@ -12,18 +12,25 @@ export default function Breweries({ data }) {
         <div>
             <Header />
             <main className="container">
-                <ul className={styles.breweries}>
-                    {breweries.map((brewery) => (
-                        <li>
-                            <BrewerySuggestion
-                                key = {brewery.id}
-                                id = {brewery.id}
-                                name = {brewery.name}
-                                image = {brewery.logo}
+                <section className="sectionblock">
+                    <div className="sectionblock-infos">
+                        <h2 className="sectionblock-headtitle">De l'artisanal</h2>
+                        <hr className="sectionblock-underline" />
+                        <h3 className="sectionblock-title">Des brasseries locales</h3>      
+                    </div>
+                    <Grid container item className={styles.breweries_container}>
+                        {breweries.map((brewery) => (
+                            
+                                <LogoTemplate
+                                key={brewery.id}
+                                id={brewery.id}
+                                img={brewery.logo}
+                                name={brewery.name}
                             />
-                        </li>
-                    ))}
-                </ul>
+                            
+                        ))}
+                    </Grid>
+                </section>
             </main>
             <Footer />
         </div>

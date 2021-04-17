@@ -40,7 +40,7 @@ const Brewery = ({brewery, breweryBeersData}) => {
             <Header/>
             <main className={styles.brewery_mainsection}>
                 <div className="container">
-                    <div className={styles.brewery_infos}>
+                    <section className={styles.brewery_infos}>
                         <Grid container spacing={5} justify="space-between">
                             <Grid item xs={12} md={6}>
                                 <figure className={styles.brewery_img}>
@@ -48,18 +48,25 @@ const Brewery = ({brewery, breweryBeersData}) => {
                                 </figure>
                             </Grid>
                             <Grid item xs={12} md={6}>
-                                <p>{brewery.region}</p>
-                                <hr className="green" />
-                                <h2>{brewery.name}</h2>
+                                <div className="sectionblock-infos">
+                                    <h2 className="sectionblock-headtitle">{brewery.region}</h2>
+                                    <hr className="sectionblock-underline" />
+                                    <h3 className="sectionblock-title">{brewery.name}</h3>      
+                                </div>
                                 <p>{brewery.description}</p>
                             </Grid>
                         </Grid>
-                    </div>
-                    <div className={styles.brewery_beers}>
+                    </section>
+                    <section className={styles.brewery_beers}>
+                        <div className="sectionblock-infos">
+                            <h2 className="sectionblock-headtitle">{brewery.name}</h2>
+                            <hr className="sectionblock-underline" />
+                            <h3 className="sectionblock-title">Leurs bières</h3>      
+                        </div>
                         <Grid container spacing={5}>
-                        {breweriesBeersDisplay}
+                            {breweriesBeersDisplay}
                         </Grid>
-                    </div>
+                    </section>
                 </div>
             </main>
             <Footer/>
@@ -71,6 +78,7 @@ export default Brewery
 
 export async function getServerSideProps(context) {
     const query = context.query.id;
+    
     const breweryRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
     const brewery = await breweryRes.json()
     

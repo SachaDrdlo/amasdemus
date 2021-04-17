@@ -142,18 +142,34 @@ class Beer
         return $stmt;
     }
 
-        public function getBreweryBeers($idBrewery)
-        {
-            $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image
-            FROM " . $this->db_table . "
-            INNER JOIN breweries
-            ON beers.id_brewery = $idBrewery
-            GROUP BY beers.id
-            ORDER BY beers.name;";
-    
-            $stmt = $this->connection->prepare($sqlQuery);
-            $stmt->execute();
+    public function getBreweryBeers($idBrewery)
+    {
+        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image
+        FROM " . $this->db_table . "
+        INNER JOIN breweries
+        ON beers.id_brewery = $idBrewery
+        GROUP BY beers.id
+        ORDER BY beers.name;";
 
-            return $stmt;
-        }
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function selectBeersByType($selection)
+    {
+        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, types.type AS type
+        FROM " . $this->db_table . "
+        INNER JOIN types
+        ON beers.id_type = types.id
+        WHERE types.type = " . $selection . "
+        ORDER BY RAND()
+        LIMIT 3;";
+
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->execute();
+
+        return $stmt;
+    }
 }
