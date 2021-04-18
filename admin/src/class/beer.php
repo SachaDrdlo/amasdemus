@@ -104,7 +104,8 @@ class Beer
         INNER JOIN locations
         ON beers.id_location = locations.id
         WHERE beers.name LIKE :beer_name
-        GROUP BY beers.id";
+        GROUP BY beers.id
+        -- LIMIT :from_record_num, :record_per_page";
 
         $stmt = $this->connection->prepare($sqlQuery);
 
@@ -112,10 +113,52 @@ class Beer
         $beer_name = '%' . $beer_name . '%';
 
         $stmt->bindParam(':beer_name', $beer_name);
+        // $stmt->bindParam(':from_record_num', $from_record_num);
+        // $stmt->bindParam(':records_per_page', $records_per_page);
 
         $stmt->execute();
 
         return $stmt;
+    }
+
+    public function readPagin($from_record_num, $records_per_page)
+    {
+        $sqlQuery = "SELECT beers.id as id_biere, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.name as nom_brasserie, breweries.description as image_description, breweries.logo as image_brewery, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+        FROM beers
+        INNER JOIN breweries
+        ON beers.id_brewery = breweries.id
+        INNER JOIN types
+        ON beers.id_type = types.id
+        INNER JOIN beers_flavours
+        ON beers.id = beers_flavours.id_beer
+        INNER JOIN flavours
+        ON beers_flavours.id_flavour = flavours.id
+        INNER JOIN glasses
+        ON beers.id_glass = glasses.id
+        INNER JOIN locations
+        ON beers.id_location = locations.id
+        LIMIT :from_record_num, :records_per_page
+        ORDER BY beers.name
+        GROUP BY beers.id";
+        $stmt = $this->connection->prepare($sqlQuery);
+
+        $stmt->bindParam(':from_record_num', $from_record_num, PDO::PARAM_INT);
+        $stmt->bindParam(':records_per_page', $records_per_page, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function count()
+    {
+        $query = "SELECT COUNT(*) as total_rows FROM beers";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row['total_rows'];
     }
 
     public function getRandomBeer()

@@ -7,18 +7,44 @@ import { Grid } from '@material-ui/core';
 
 const search = ({ data }) => {
 
-    const count = data.itemCount
+    let count = 0;
 
-    const listBeers = data.beers.map((beer) => {
-        console.log(beer);
-        return (
-            <LogoTemplate
-                id={beer.id}
-                img={beer.image}
-                name={beer.name}
-            />
-        )
-    })
+    // Fonction qui permet de checker si le tableau data.beers renvois quelque chose ou non
+    // Si oui -> renvois data.itemCount
+    // Si non -> renvois la valeur initial de la variable count, soit 0
+    const countIfDefined = () => {
+        // ItemCount renvoyé dans le tableau beers
+        const itemCount = data.itemCount
+
+        data.beers !== undefined ? count = itemCount : count;
+
+        return count;
+    }
+
+    // Fonction qui permet de checker si le tableau data.beers renvois quelque chose ou non
+    // Si oui -> renvois le map
+    // Si non renvois NULL
+    const defined = () => {
+
+        if (data.beers !== undefined) {
+            const listBeers = data.beers.map((beer) => {
+                return (
+                    <LogoTemplate
+                        id={beer.id}
+                        key={beer.id}
+                        img={beer.image}
+                        name={beer.name}
+                    />
+                )
+            })
+
+            return listBeers
+        } else {
+            return (
+                null
+            )
+        }
+    }
 
     return (
         <div>
@@ -27,10 +53,12 @@ const search = ({ data }) => {
                 <div className="container">
                     <p>Résultat de recherche</p>
                     <hr className="green" />
-                    <h1>{count} bières trouvées</h1>
-                    <Grid container justify="space-evenly" spacing={5} className={styles.beerSearch_container}>
-                        {listBeers}
-                    </Grid>
+                    <div>
+                        <h1>{countIfDefined()} {countIfDefined() > 1 ? 'bières trouvées' : 'bière trouvée'}</h1>
+                        <Grid container justify="space-evenly" spacing={5} className={styles.beerSearch_container}>
+                            {defined()}
+                        </Grid>
+                    </div>
                 </div>
             </div>
         </div>

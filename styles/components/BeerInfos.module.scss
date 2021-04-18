@@ -30,7 +30,8 @@
             }
 
             &_beer {
-                width: 35%;
+                width: auto;
+                height: 45rem;
                 z-index: 0;
             }
         }
@@ -70,7 +71,8 @@
                     margin: 0;
 
                     img {
-                        width: 60%;
+                        width: auto;
+                        height: 15rem;
                     }
                 }
             }
