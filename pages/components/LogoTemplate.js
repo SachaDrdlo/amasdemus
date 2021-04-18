@@ -16,7 +16,7 @@ const LogoTemplate = ({ id, img, name }) => {
     const getPathImg = () => {
         if (path === '/' || path === '/breweries') {
             return <img className='container_content_breweryImg' src={`http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img}`} alt="" />
-        } else if (path === '/beers' || path === '/search' || path === `/breweries/[id]` || path === `/beers/[id]`) {
+        } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
             return <img className='container_content_beerImg' src={`http://sachadordolo.fr/amasdemus/admin/assets/img/beers/${img}`} alt="" />
         }
         
@@ -29,7 +29,7 @@ const LogoTemplate = ({ id, img, name }) => {
 
         if (path === '/' || path === '/breweries') {
             return brewery
-        } else if (path === '/beers' || path === '/search' || path === `/breweries/[id]` || path === `/beers/[id]`) {
+        } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
             return beer
         }
         // return path === '/' || path === '/breweries' ? brewery : path === '/beers' || path === '/search' ? beer : null
@@ -40,7 +40,7 @@ const LogoTemplate = ({ id, img, name }) => {
     const redirection = (path) => {
         if (path === '/' || path === '/breweries') {
             return `/breweries/${id}`
-        } else if (path === '/beers' || path === '/search' || path === `/breweries/[id]` || path === `/beers/[id]`) {
+        } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
             return `/beers/${id}`
         }
     }

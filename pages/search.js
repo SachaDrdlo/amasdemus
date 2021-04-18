@@ -55,7 +55,7 @@ const search = ({ data }) => {
                     <hr className="green" />
                     <div>
                         <h1>{countIfDefined()} {countIfDefined() > 1 ? 'bières trouvées' : 'bière trouvée'}</h1>
-                        <Grid container justify="space-evenly" spacing={5} className={styles.beerSearch_container}>
+                        <Grid container spacing={5} className={styles.beerSearch_container}>
                             {defined()}
                         </Grid>
                     </div>

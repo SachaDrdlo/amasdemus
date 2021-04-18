@@ -11,9 +11,9 @@ include_once '../class/beer.php';
 $db = new DB('db5002236283.hosting-data.io', 'dbu1488325', 'Amasdemus59.', 'dbs1804734');
 $items = new Beer($db);
 
-$idBrewery = isset($_GET["id"]) ? trim(strip_tags($_GET['id'])) : "";
+$selection = isset($_GET["selection"]) ? trim(strip_tags($_GET['selection'])) : "";
 
-$stmt = $items->getBreweryBeers($idBrewery);
+$stmt = $items->selectAllBeersByType($selection);
 $itemCount = $stmt->rowCount();
 
 if ($itemCount > 0) {
@@ -27,8 +27,8 @@ if ($itemCount > 0) {
         $beer = array(
             "id" => $row["id_biere"],
             "name" => $row["nom_biere"],
-            "brewery_name" => $row["nom_brasserie"],
-            "image" => $row["image"]
+            "image" => $row["image"],
+            "type" => $row["type"],
         );
 
         array_push($beerArray["beers"], $beer);

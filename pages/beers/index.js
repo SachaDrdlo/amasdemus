@@ -83,33 +83,42 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers }) {
                 <div className="container">
                     <section className="sectionblock">
                         <div className="sectionblock-infos">
-                            <h2 className="sectionblock-headtitle">Bières {blondType}s</h2>
+                            <h2 className="sectionblock-headtitle">Bières blondes</h2>
                             <hr className="sectionblock-underline" />
                             <h3 className="sectionblock-title">Belles blondes</h3>      
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {blondList}
                         </Grid>
+                        <Link href={`/beers/type/${blondType}`}>
+                            <a className={`beigeButton ${styles.beigeButton}`}>Découvrir toutes les bières blondes</a>
+                        </Link>
                     </section>
                     <section className={styles.beers_section}>
                         <div className="sectionblock-infos">
-                            <h2 className="sectionblock-headtitle">Bières {tripleType}s</h2>
+                            <h2 className="sectionblock-headtitle">Bières triples</h2>
                             <hr className="sectionblock-underline" />
                             <h3 className="sectionblock-title">Triples saveurs</h3>      
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {tripleList}
                         </Grid>
+                        <Link href={`/beers/type/${tripleType}`}>
+                            <a className={`beigeButton ${styles.beigeButton}`}>Découvrir toutes les bières triples</a>
+                        </Link>
                     </section>
                     <section className={styles.beers_section}>
                         <div className="sectionblock-infos">
-                            <h2 className="sectionblock-headtitle">Bières {amberType}s</h2>
+                            <h2 className="sectionblock-headtitle">Bières ambrées</h2>
                             <hr className="sectionblock-underline" />
                             <h3 className="sectionblock-title">Mousses d'ambre</h3>      
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {amberList}
                         </Grid>
+                        <Link href={`/beers/type/${amberType}`}>
+                            <a className={`beigeButton ${styles.beigeButton}`}>Découvrir les bières ambrées</a>
+                        </Link>
                     </section>
                 </div>
             </main>

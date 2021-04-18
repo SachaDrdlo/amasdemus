@@ -203,7 +203,7 @@ class Beer
 
     public function getBreweryBeers($idBrewery)
     {
-        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image
+        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, breweries.name as nom_brasserie
         FROM " . $this->db_table . "
         INNER JOIN breweries
         ON beers.id_brewery = $idBrewery
@@ -231,15 +231,29 @@ class Beer
 
         return $stmt;
     }
+
+    public function selectAllBeersByType($selection)
+    {
+        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, types.type AS type
+        FROM " . $this->db_table . "
+        INNER JOIN types
+        ON beers.id_type = types.id
+        WHERE types.type = " . $selection . "
+        ORDER BY RAND();";
+
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->execute();
+
+        return $stmt;
+    }
     
     public function selectBeersBySameTypeOfOneBeer($beerId, $selection)
     {
         $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, types.type AS type
         FROM " . $this->db_table . "
-        MINUS beers.id = :id
         INNER JOIN types
         ON beers.id_type = types.id
-        WHERE types.type = " . $selection . "
+        WHERE types.type = " . $selection . " AND beers.id NOT LIKE :id
         ORDER BY RAND()
         LIMIT 3;";
 

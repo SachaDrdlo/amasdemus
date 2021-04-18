@@ -13,17 +13,17 @@ const beer = ({ beerData, sameTypeBeers }) => {
     // console.log(beerData.id);
     sameTypeBeers = sameTypeBeers.beers
 
-    const sameTypeBeersSelection = sameTypeBeers.flatMap( (beer) => {
-        if(beer.id != beerData.id){
-            return (
-                <LogoTemplate
-                    key={beer.id}
-                    id={beer.id}
-                    name={beer.name}
-                    img={beer.image}
-                />
-            )
-        }
+    const sameTypeBeersSelection = sameTypeBeers.map( (beer) => {
+        
+        return (
+            <LogoTemplate
+                key={beer.id}
+                id={beer.id}
+                name={beer.name}
+                img={beer.image}
+            />
+        )
+        
     })
 
     //
@@ -88,8 +88,9 @@ export async function getServerSideProps(context) {
     const beerDataRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBeer.php?id=${query}`)
     const beerData = await beerDataRes.json()
     
+    const beerId = beerData.id
     const beerType = encodeURI(beerData.type)
-    const sameTypeRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${beerType}"`)
+    const sameTypeRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBeerSelectOtherBeers.php?id=${beerId}&selection="${beerType}"`)
     const sameTypeBeers = await sameTypeRes.json()
 
     return {
