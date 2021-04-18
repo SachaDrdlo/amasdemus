@@ -18,7 +18,7 @@ body {
   position: relative;
   background: url('../../public/img/illus/clouds-bg.png') repeat $clr-beige;
   overflow-x: hidden;
-  
+
   &::after{
     position: absolute;
     display: block;
@@ -29,14 +29,14 @@ body {
     right: -12rem;
     transform: rotate(-35deg);
     bottom: 48rem;
-    
+
     @media screen and (min-width: $md-bp){
-      bottom: 38rem; 
+      bottom: 38rem;
     }
-    
+
     @media screen and (min-width: $lg-bp){
       right: -8rem;
-      bottom: 20rem; 
+      bottom: 20rem;
     }
   }
 }
@@ -199,7 +199,7 @@ p {
 
 .sectionblock{
   margin-top: 20rem;
-  
+
   &-infos{
     margin-bottom: 3.2rem;
   }
@@ -252,7 +252,7 @@ p {
 
   &_beerImg {
     width: auto;
-    height: 350px;
+    height: 200px;
   }
 
   &_btn {
