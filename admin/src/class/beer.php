@@ -142,6 +142,22 @@ class Beer
         return $stmt;
     }
 
+    public function getThreeBreweryBeers($idBrewery)
+    {
+        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image
+        FROM " . $this->db_table . "
+        INNER JOIN breweries
+        ON beers.id_brewery = $idBrewery
+        GROUP BY beers.id
+        ORDER BY RAND()
+        LIMIT 3;";
+
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function getBreweryBeers($idBrewery)
     {
         $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image
@@ -168,6 +184,24 @@ class Beer
         LIMIT 3;";
 
         $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->execute();
+
+        return $stmt;
+    }
+    
+    public function selectBeersBySameTypeOfOneBeer($beerId, $selection)
+    {
+        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, types.type AS type
+        FROM " . $this->db_table . "
+        MINUS beers.id = :id
+        INNER JOIN types
+        ON beers.id_type = types.id
+        WHERE types.type = " . $selection . "
+        ORDER BY RAND()
+        LIMIT 3;";
+
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->bindParam(':id', $beerId);
         $stmt->execute();
 
         return $stmt;

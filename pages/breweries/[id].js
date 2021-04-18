@@ -42,7 +42,7 @@ const Brewery = ({brewery, breweryBeersData}) => {
                 <div className="container">
                     <section className={styles.brewery_infos}>
                         <Grid container spacing={5} justify="space-between">
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12} md={6} lg={4}>
                                 <figure className={styles.brewery_img}>
                                     <img src={`http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${brewery.logo}`} alt=""/>
                                 </figure>

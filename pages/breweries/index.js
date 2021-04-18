@@ -19,15 +19,13 @@ export default function Breweries({ data }) {
                         <h3 className="sectionblock-title">Des brasseries locales</h3>      
                     </div>
                     <Grid container item className={styles.breweries_container}>
-                        {breweries.map((brewery) => (
-                            
+                        {breweries.map((brewery) => ( 
                                 <LogoTemplate
                                 key={brewery.id}
                                 id={brewery.id}
                                 img={brewery.logo}
                                 name={brewery.name}
                             />
-                            
                         ))}
                     </Grid>
                 </section>

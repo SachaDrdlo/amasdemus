@@ -67,7 +67,6 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                 desc_brewery={desc_brewery}
             />
             {/* <BeerSuggestion/> */}
-            <Footer />
         </div>
     )
 }

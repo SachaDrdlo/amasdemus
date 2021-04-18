@@ -1,33 +1,80 @@
 import React, { useEffect } from 'react'
+import { Grid } from '@material-ui/core';
+import LogoTemplate from '../components/LogoTemplate'
 import BeerInfos from '../components/BeerInfos'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import beers from '../../beers.json'
 
-const beer = ({ data }) => {
+const beer = ({ beerData, sameTypeBeers }) => {
 
-    console.log(data);
+    // console.log(sameTypeBeers);
+
+    // console.log(beerData.id);
+    sameTypeBeers = sameTypeBeers.beers
+
+    const sameTypeBeersSelection = sameTypeBeers.flatMap( (beer) => {
+        if(beer.id != beerData.id){
+            return (
+                <LogoTemplate
+                    key={beer.id}
+                    id={beer.id}
+                    name={beer.name}
+                    img={beer.image}
+                />
+            )
+        }
+    })
+
+    //
+    
+    // ? console.log(`same id: ${beer.id} === ${beerData.id}`) : console.log(beer.id)  
+
+    // const sameTypeBeersSelection = sameTypeBeers.map((beer) => {
+    //     return (
+    //       <LogoTemplate
+    //         key={beer.id}
+    //         id={beer.id}
+    //         name={beer.name}
+    //         img={beer.image}
+    //       />
+    //     )
+    // })
 
     return (
         <div>
             <Header />
             <div>
                 <BeerInfos
-                    key={data.id}
-                    name={data.name}
-                    type={data.type}
-                    level={data.level}
-                    brewery={data.breweries}
-                    desc_brewery={data.desc_brewery}
-                    brewery_id={data.id_brewery}
-                    flavours={data.flavours}
-                    format={data.format}
-                    glass={data.glass}
-                    image={data.image}
-                    img_brewery={data.img_brewery}
-                    title={data.title}
-                    description={data.description}
+                    key={beerData.id}
+                    name={beerData.name}
+                    type={beerData.type}
+                    level={beerData.level}
+                    brewery={beerData.breweries}
+                    desc_brewery={beerData.desc_brewery}
+                    brewery_id={beerData.id_brewery}
+                    flavours={beerData.flavours}
+                    format={beerData.format}
+                    glass={beerData.glass}
+                    image={beerData.image}
+                    img_brewery={beerData.img_brewery}
+                    title={beerData.title}
+                    description={beerData.description}
                 />
             </div>
+            <div className="container">
+                <div className="sectionblock">
+                    <div className="sectionblock-infos">
+                        <h2 className="sectionblock-headtitle">Bières similaires</h2>
+                        <hr className="sectionblock-underline" />
+                        <h3 className="sectionblock-title">D'autres bières</h3>      
+                    </div>
+                </div>
+                <Grid container spacing={5}>
+                    {sameTypeBeersSelection}
+                </Grid>
+            </div>
+            <Footer />
 
         </div>
     )
@@ -37,12 +84,18 @@ export default beer
 
 export async function getServerSideProps(context) {
     const query = context.query.id;
-    const res = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBeer.php?id=${query}`)
-    const data = await res.json()
+
+    const beerDataRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/singleBeer.php?id=${query}`)
+    const beerData = await beerDataRes.json()
+    
+    const beerType = encodeURI(beerData.type)
+    const sameTypeRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${beerType}"`)
+    const sameTypeBeers = await sameTypeRes.json()
 
     return {
         props: {
-            data,
+            beerData,
+            sameTypeBeers
         },
     }
 }
