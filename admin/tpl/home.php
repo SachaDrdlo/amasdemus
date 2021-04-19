@@ -1,5 +1,5 @@
 <?php
-$home = true;
+$page="home";
 require_once("header.php");
 ?>
 

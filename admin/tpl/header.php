@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,20 +26,24 @@
                     </a>
                     <nav>
                         <ul>
-                            <li>
+                            <li >
                                 <a class="btn" href="<?= HOST ?>/logout.php">Se déconnecter</a>
                             </li>
                             <li>
-                                <a class="btn" href="<?= HOST ?>">Accueil Bière</a>
+                                <a class="btn  <?= isset($page) && $page === "home" ? "hidden": "" ?>" 
+                                href="<?= HOST ?>">Accueil Bière</a>
                             </li>
                             <li>
-                                <a class="btn" href="<?= HOST ?>/beer">Ajouter une bière</a>
+                                <a class="btn <?= isset($page) && $page === "brewery" || $page === "beer" || $page === "breweries" ? "hidden": "" ?>" 
+                                href="<?= HOST ?>/beer">Ajouter une bière</a>
                             </li>
                             <li>
-                                <a class="btn" href="<?= HOST ?>/breweries">Accueil Brasserie</a>
+                                <a class="btn <?= isset($page) && $page === "breweries" ? "hidden": "" ?>" 
+                                href="<?= HOST ?>/breweries">Accueil Brasserie</a>
                             </li>
                             <li>
-                                <a class="btn" href="<?= HOST ?>/brewery">Ajouter une brasserie</a>
+                                <a class="btn <?= isset($page) && $page === "home" || $page === "beer" ? "hidden": "" ?>  " 
+                                href="<?= HOST ?>/brewery">Ajouter une brasserie</a>
                             </li>
                         </ul>
                     </nav>

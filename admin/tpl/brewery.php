@@ -1,4 +1,7 @@
-<?php include("header.php"); ?>
+<?php 
+$page="brewery";
+include("header.php");
+ ?>
     <main>
         <section>
             <h1><?= $detailPage ?></h1>

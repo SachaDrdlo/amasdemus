@@ -1,4 +1,7 @@
-<?php include("header.php"); ?>
+<?php
+$page="beer" ; 
+include("header.php");
+?>
     <main>
         <section>
             <h1><?= $detailPage ?></h1>
@@ -74,7 +77,7 @@
                             <?php
                             foreach ($glasses as $glass){
                             ?>
-                                <option value="<?= $glass["id"] ?>" <?= isset($data["glass"]) && ($glass["id"] == $data["glass"]) ? "selected" : "" ?>> <?= $glass["glass"] ?></option>
+                                <option value="<?= $glass["id"] ?>" <?= isset($data["id_glass"]) && ($glass["id"] == $data["id_glass"]) ? "selected" : "" ?>> <?= $glass["glass"] ?></option>
                             <?php
                             }
                             ?>
@@ -86,7 +89,7 @@
                             <?php
                             foreach ($locations as $location){
                                 ?>
-                                    <option value="<?= $location["id"] ?>" <?= isset($data["location"]) && ($location["id"] == $data["location"]) ? "selected" : "" ?>> <?= $location["location"] ?></option>
+                                    <option value="<?= $location["id"] ?>" <?= isset($data["id_location"]) && ($location["id"] == $data["id_location"]) ? "selected" : "" ?>> <?= $location["location"] ?></option>
                                 <?php
                                 }
                                 ?>
