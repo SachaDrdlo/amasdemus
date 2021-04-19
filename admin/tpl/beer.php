@@ -15,7 +15,7 @@
                             <?php
                             foreach ($breweries as $brewery){
                                 ?>
-                                    <option value="<?= $brewery["id"] ?>" <?= isset($data["brewery"]) && ($brewery["id"] == $data["brewery"]) ? "selected" : "" ?>> <?= $brewery["name"] ?></option>
+                                    <option value="<?= $brewery["id"] ?>" <?= isset($data["id_brewery"]) && ($brewery["id"] == $data["id_brewery"]) ? "selected" : "" ?>> <?= $brewery["name"] ?></option>
                                 <?php
                                 }
                                 ?>
@@ -25,9 +25,10 @@
                         <label for="inputType">Le type de la bière</label>
                         <select name="type" id="inputType">
                         <?php
+                                var_dump($data);
                             foreach ($types as $type){
                         ?>
-                            <option value="<?= $type["id"] ?>" <?= isset($data["type"]) && ($type["id"] == $data["type"]) ? "selected" : "" ?>> <?= $type["type"] ?></option>
+                            <option value="<?= $type["id"] ?>" <?= isset($data["id_type"]) && ($type["id"] == $data["id_type"]) ? "selected" : "" ?>> <?= $type["type"] ?></option>
                         <?php
                         }
                         ?>
