@@ -40,7 +40,7 @@ class BeerView
                                 $message = "Erreur de bdd";
                             }
                         } else {
-                            $message = "paspsible";
+                            $message = "erreur";
                         }
                     } else {
                         if ($this->controller->add()) {

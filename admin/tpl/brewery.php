@@ -1,7 +1,9 @@
-<?php include("header.php"); ?>
-<main>
-    <section class="beer-section">
-        <div class="container">
+<?php 
+$page="brewery";
+include("header.php");
+ ?>
+    <main>
+        <section>
             <h1><?= $detailPage ?></h1>
             <?= $message ?>
             <form class="form-container" action="" method="post" enctype="multipart/form-data">
@@ -25,23 +27,26 @@
                     <input type="text" name="url" id="inputUrl" value="<?= isset($data["url"]) ? $data["url"] : "" ?>" />
                 </div>
 
-                <div class="form-group">
-                    <label for="inputLogo">Le logo de la brasserie</label>
-                    <?php
-                    if (!empty($data["logo"])) {
-                    ?>
-                        <img src="../assets/img/breweries/<?= $data["logo"] ?>" alt="">
-                    <?php
-                    } else {
-                    ?>
-                        <input type="file" name="logo" id="inputLogo" />
-                        <label class="btn" for="inputLogo">Choisir une photo</label>
-                    <?php
-                    }
-                    ?>
-                </div>
-                <div>
-                    <input class="btn" type="submit" value="Ajouter la brasserie" />
+                    <div class="form-group">
+                            <label for="inputLogo">Le logo de la brasserie</label>
+                            <?php
+                            if (!empty($data["logo"])) {
+                            ?>
+                                <img src="../assets/img/breweries/<?= $data["logo"] ?>" alt="">
+                                <input type="file" name="logo" id="inputLogo" />
+                            <?php
+                            } else {
+                            ?>
+                                <input type="file" name="logo" id="inputLogo" />
+                            <?php
+                            }
+                            ?>
+                            
+                            
+                    </div>
+                    <div>
+                        <input type="submit" value="Ajouter la brasserie" />
+                    </div>
                 </div>
         </div>
         </form>

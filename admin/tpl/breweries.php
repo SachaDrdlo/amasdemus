@@ -1,5 +1,5 @@
 <?php
-$home = true;
+$page = "breweries";
 require_once("header.php");
 ?>
 
