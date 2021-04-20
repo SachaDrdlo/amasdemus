@@ -293,4 +293,22 @@ class Beer
 
         return $stmt;
     }
+
+    // WHERE types.type IN ()
+    
+    public function selectBeersByTypeFilter($typeArray)
+    {
+        $typeString = implode("\", \"", $typeArray);
+        $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, types.type AS type
+        FROM " . $this->db_table . "
+        INNER JOIN types
+        ON beers.id_type = types.id
+        WHERE types.type IN (\"{$typeString}\")
+        ORDER BY beers.name";
+
+        $stmt = $this->connection->prepare($sqlQuery);
+        $stmt->execute();
+
+        return $stmt;
+    }
 }

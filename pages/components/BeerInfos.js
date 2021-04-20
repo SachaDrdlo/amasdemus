@@ -25,7 +25,7 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                         <div className={styles.beerPresentation_container_text_list}>
                             <ul>
                                 <h5>Degré</h5>
-                                <li>{level}</li>
+                                <li>{level}°</li>
                             </ul>
                             <ul>
                                 <h5>Provenance</h5>
@@ -53,7 +53,7 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                 image={image}
             >
                 <Grid item xs={12} sm={6} className={styles.beerPresentation_container_infos_content}>
-                    <p>{type}</p>
+                    <p>Bière {type}</p>
                     <h1>{title}</h1>
                     <span><p>{description}</p></span>
                 </Grid>
