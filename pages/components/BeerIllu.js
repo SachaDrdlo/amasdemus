@@ -25,11 +25,7 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
             <Grid container className={styles.container_grid} alignItems="center" justify="space-between" direction="row-reverse">
                 <Grid item xs={12} sm={6} className={styles.container_grid_illu}>
                     <figure>
-<<<<<<< HEAD
                         <img className={styles.container_grid_illu_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
-=======
-                        <img className={styles.container_grid_illu_beer} src={`https://sachadordolo\.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
->>>>>>> c2e331773b309b262acc797924a00d43227f690c
                         <img className={styles.container_grid_illu_blob} src="../img/blob.svg" alt="" />
                     </figure>
                 </Grid>

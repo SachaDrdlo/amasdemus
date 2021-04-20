@@ -15,15 +15,9 @@ const LogoTemplate = ({ id, img, name }) => {
     // BASE A MODIFIER PLUS TARD --> permet d'afficher soit l'image de la brasserie soit l'image de la bière selon la page sur laquelle on est
     const getPathImg = () => {
         if (path === '/' || path === '/breweries') {
-<<<<<<< HEAD
             return <img className='container_content_breweryImg' src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img}`} alt="" />
         } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
             return <img className='container_content_beerImg' src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${img}`} alt="" />
-=======
-            return <img className='container_content_breweryImg' src={`https://sachadordolo\.fr/amasdemus/admin/assets/img/breweries/${img}`} alt="" />
-        } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
-            return <img className='container_content_beerImg' src={`https://sachadordolo\.fr/amasdemus/admin/assets/img/beers/${img}`} alt="" />
->>>>>>> c2e331773b309b262acc797924a00d43227f690c
         }
 
     }
