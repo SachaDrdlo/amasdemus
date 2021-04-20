@@ -203,6 +203,6 @@ export async function getServerSideProps({ params }) {
             typesFilters,
             locationsFilters,
             flavoursFilters
-        },
+        }
     }
 }

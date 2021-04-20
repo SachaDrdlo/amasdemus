@@ -34,7 +34,11 @@ const Brewery = ({ brewery, breweryBeersData }) => {
                         <Grid container spacing={5} justify="space-between">
                             <Grid item xs={12} md={6} lg={4}>
                                 <figure className={styles.brewery_img}>
+<<<<<<< HEAD
                                     <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${brewery.logo}`} alt="" />
+=======
+                                    <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${brewery.logo}`} alt=""/>
+>>>>>>> 464743a6ab5ac926d75752bb4fb5ee12156c9de2
                                 </figure>
                             </Grid>
                             <Grid item xs={12} md={6}>
@@ -77,6 +81,13 @@ export async function getServerSideProps(context) {
 
     const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryThreeBeers.php?id=${query}`)
     const breweryBeersData = await breweryBeersRes.json()
+<<<<<<< HEAD
+=======
+
+    
+    const breweryRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
+    const brewery = await breweryRes.json()
+>>>>>>> 464743a6ab5ac926d75752bb4fb5ee12156c9de2
 
     return {
         props: {
