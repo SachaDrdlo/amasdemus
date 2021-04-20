@@ -31,10 +31,10 @@ const BeersType = ({ beers, type }) => {
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">Bières {type}s</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Toutes les bières {type}s</h3>      
+                            <h3 className="sectionblock-title">Toutes les bières {type}s</h3>
                         </div>
                         <Grid container spacing={5}>
-                            {beersDisplay} 
+                            {beersDisplay}
                         </Grid>
                     </section>
                 </div>
@@ -49,11 +49,11 @@ export default BeersType
 
 export async function getServerSideProps(context) {
     const type = encodeURI(context.query.type)
-    
+
     const beersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/allBeersByType.php?selection="${type}"`)
     const beers = await beersRes.json()
-    
-    
+
+
 
     return {
         props: {

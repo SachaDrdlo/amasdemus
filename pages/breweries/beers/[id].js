@@ -13,7 +13,7 @@ const BreweryId = ({ breweryBeersData }) => {
 
     const breweryNameObject = breweryBeers.find(beer => beer.brewery_name)
     const breweryName = breweryNameObject.brewery_name
-    
+
 
     const breweriesBeersDisplay = breweryBeers.map((beer) => {
         return (
@@ -34,15 +34,15 @@ const BreweryId = ({ breweryBeersData }) => {
                     <div className="sectionblock-infos">
                         <h2 className="sectionblock-headtitle">{breweryName}</h2>
                         <hr className="sectionblock-underline" />
-                        <h3 className="sectionblock-title">Toutes leurs bières</h3>      
+                        <h3 className="sectionblock-title">Toutes leurs bières</h3>
                     </div>
                     <Grid container spacing={5}>
-                        {breweriesBeersDisplay} 
+                        {breweriesBeersDisplay}
                     </Grid>
                 </section>
 
             </main>
-                
+
             <Footer/>
         </div>
     )
@@ -52,7 +52,7 @@ export default BreweryId
 
 export async function getServerSideProps(context) {
     const query = context.query.id;
-    
+
     const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryBeers.php?id=${query}`)
     const breweryBeersData = await breweryBeersRes.json()
 

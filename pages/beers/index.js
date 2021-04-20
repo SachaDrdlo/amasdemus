@@ -29,23 +29,23 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
         // Bravo à Sacha le grand
         const beerState = [...beerFilters]
         const filterIn = beerState.find((filter) =>{
-            return filterResponse == filter 
+            return filterResponse == filter
         })
-        
+
         if(filterIn){
             const remainingFilters = beerState.filter(item => item !== filterIn)
-            setBeerFilters(remainingFilters) 
+            setBeerFilters(remainingFilters)
         }else{
             setBeerFilters([...beerFilters, filterResponse])
         }
-    } 
+    }
 
     useEffect(() => {
         document.body.classList.add("filters");
         // a enlever
         document.body.classList.add("filters__active")
-        
-        
+
+
     }, [])
 
     const blondList = blondBeers.map((blondBeer) => {
@@ -58,7 +58,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
             />
         )
     })
-    
+
     const tripleList = tripleBeers.map((tripleBeer) => {
         return (
             <LogoTemplate
@@ -109,19 +109,19 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
                         </button>
                     </div>
                 </div>
-                <Filters 
-                  types = {typesList}  
-                  locations = {locationsList}  
+                <Filters
+                  types = {typesList}
+                  locations = {locationsList}
                   flavours = {flavoursList}
-                  parentCallback = {callbackFunction} 
-                /> 
+                  parentCallback = {callbackFunction}
+                />
 
                 <div className="container">
                     <section className="sectionblock">
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">Bières blondes</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Belles blondes</h3>      
+                            <h3 className="sectionblock-title">Belles blondes</h3>
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {blondList}
@@ -134,7 +134,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">Bières triples</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Triples saveurs</h3>      
+                            <h3 className="sectionblock-title">Triples saveurs</h3>
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {tripleList}
@@ -147,7 +147,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">Bières ambrées</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Mousses d'ambre</h3>      
+                            <h3 className="sectionblock-title">Mousses d'ambre</h3>
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {amberList}
@@ -166,32 +166,32 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 export async function getServerSideProps({params}) {
     console.log(params)
-    
+
 
     const blonde = encodeURI("blonde")
     const triple = encodeURI("triple")
     const amber = encodeURI("ambrée")
-    
+
     const blondRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${blonde}"`)
     const blondBeers = await blondRes.json()
-    
+
     const tripleRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${triple}"`)
     const tripleBeers = await tripleRes.json()
-    
+
     const amberRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${amber}"`)
     const amberBeers = await amberRes.json()
-    
+
 
     // APPEL FILTERS ITEMS
     const typeRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterTypeItem.php`)
     const typesFilters = await typeRes.json()
-    
+
     const locationRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterLocationItem.php`)
     const locationsFilters = await locationRes.json()
-    
+
     const flavourRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterFlavourItem.php`)
     const flavoursFilters = await flavourRes.json()
-    
+
 
     return {
         props: {

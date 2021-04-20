@@ -1,33 +1,37 @@
-<?php include("header.php"); ?>
-<main>
-    <section class="beer-section">
-        <div class="container">
+<?php
+$page="beer" ; 
+include("header.php");
+?>
+    <main>
+        <section>
             <h1><?= $detailPage ?></h1>
             <?= $message ?>
-            <form class="form-container" action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="inputName">Le nom de la bière</label>
-                    <input type="text" name="name" id="inputName" value="<?= isset($data["name"]) ? $data["name"] : "" ?>" required />
-                </div>
-                <div class="form-group">
-                    <label for="inputBrewery">La brasserie dans laquelle est brassé cette bière</label>
-                    <select name="brewery" id="inputBrewery">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="container">
+                    <div class="form-group">
+                        <label for="inputName">Le nom de la bière</label>
+                        <input type="text" name="name" id="inputName" value="<?=isset($data["name"]) ? $data["name"] : "" ?>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="inputBrewery">La brasserie dans laquelle est brassé cette bière</label>
+                        <select name="brewery" id="inputBrewery">
+                            <?php
+                            foreach ($breweries as $brewery){
+                                ?>
+                                    <option value="<?= $brewery["id"] ?>" <?= isset($data["id_brewery"]) && ($brewery["id"] == $data["id_brewery"]) ? "selected" : "" ?>> <?= $brewery["name"] ?></option>
+                                <?php
+                                }
+                                ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputType">Le type de la bière</label>
+                        <select name="type" id="inputType">
                         <?php
-                        foreach ($breweries as $brewery) {
+                                var_dump($data);
+                            foreach ($types as $type){
                         ?>
-                            <option value="<?= $brewery["id"] ?>" <?= isset($data["brewery"]) && ($brewery["id"] == $data["brewery"]) ? "selected" : "" ?>> <?= $brewery["name"] ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="inputType">Le type de la bière</label>
-                    <select name="type" id="inputType">
-                        <?php
-                        foreach ($types as $type) {
-                        ?>
-                            <option value="<?= $type["id"] ?>" <?= isset($data["type"]) && ($type["id"] == $data["type"]) ? "selected" : "" ?>> <?= $type["type"] ?></option>
+                            <option value="<?= $type["id"] ?>" <?= isset($data["id_type"]) && ($type["id"] == $data["id_type"]) ? "selected" : "" ?>> <?= $type["type"] ?></option>
                         <?php
                         }
                         ?>
@@ -67,47 +71,46 @@
                 </div>
                 <div class="form-group">
                     <label for="inputGlass">Le verre de dégustation à utiliser</label>
-                    <select name="glass" id="inputGlass">
-                        <?php
-                        foreach ($glasses as $glass) {
-                        ?>
-                            <option value="<?= $glass["id"] ?>" <?= isset($data["glass"]) && ($glass["id"] == $data["glass"]) ? "selected" : "" ?>> <?= $glass["glass"] ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group">
+                        <select name="glass" id="inputGlass">
+                            <?php
+                            foreach ($glasses as $glass){
+                            ?>
+                                <option value="<?= $glass["id"] ?>" <?= isset($data["id_glass"]) && ($glass["id"] == $data["id_glass"]) ? "selected" : "" ?>> <?= $glass["glass"] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                     <label for="inputLocation">La région dans laquelle est brassé cette bière</label>
-                    <select name="location" id="inputLocation">
-                        <?php
-                        foreach ($locations as $location) {
-                        ?>
-                            <option value="<?= $location["id"] ?>" <?= isset($data["location"]) && ($location["id"] == $data["location"]) ? "selected" : "" ?>> <?= $location["location"] ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>L'image de la bière</label>
-                    <?php
-                    if (!empty($data["image"])) {
-                    ?>
-                        <img class="beer-img" src="../assets/img/beers/<?= $data["image"] ?>" alt="">
-                        <input type="file" name="image" id="inputImage" />
-                        <label class="btn" for="inputImage">Choisir une photo</label>
-                    <?php
-                    } else {
-                    ?>
-                        <input type="file" name="image" id="inputImage" />
-                        <label class="btn" for="inputImage">Choisir une photo</label>
-                    <?php
-                    }
-                    ?>
-                </div>
-                <div>
-                    <input class="btn" type="submit" value="Ajouter la bière" />
+                        <select name="location" id="inputLocation">
+                            <?php
+                            foreach ($locations as $location){
+                                ?>
+                                    <option value="<?= $location["id"] ?>" <?= isset($data["id_location"]) && ($location["id"] == $data["id_location"]) ? "selected" : "" ?>> <?= $location["location"] ?></option>
+                                <?php
+                                }
+                                ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="inputImage">L'image de la bière</label>
+                            <?php
+                            if (!empty($data["image"])) {
+                            ?>
+                                <img src="../assets/img/beers/<?= $data["image"] ?>" alt="">
+                                <input type="file" name="image" id="inputImage" />
+                            <?php
+                            } else {
+                            ?>
+                                <input type="file" name="image" id="inputImage" />
+                            <?php
+                            }
+                            ?>
+                    </div>
+                    <div>
+                        <input type="submit" value="Ajouter la bière" />
+                    </div>
                 </div>
             </form>
         </div>

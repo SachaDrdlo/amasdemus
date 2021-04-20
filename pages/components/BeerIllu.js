@@ -43,7 +43,7 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
                         </p>
                         <div className={styles.container_grid_content_button}>
                             <Link href={`/beers/${id}`}>
-                                <a className='orangeButton'>Découvrir cette bière</a>
+                                <a className='greenButton'>Découvrir cette bière</a>
                             </Link>
                         </div>
                     </Grid>

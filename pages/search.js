@@ -7,6 +7,7 @@ import { Grid } from '@material-ui/core';
 
 const search = ({ data }) => {
 
+
     let count = 0;
 
     // Fonction qui permet de checker si le tableau data.beers renvois quelque chose ou non

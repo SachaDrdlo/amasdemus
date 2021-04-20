@@ -19,7 +19,7 @@ const LogoTemplate = ({ id, img, name }) => {
         } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
             return <img className='container_content_beerImg' src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${img}`} alt="" />
         }
-        
+
     }
 
     // Permet d'afficher soit bière soit brasserie en fonction de la page sur laquelle on est
@@ -36,7 +36,7 @@ const LogoTemplate = ({ id, img, name }) => {
     }
 
     // const redirection = path === '/' || path === '/breweries' ? `/breweries/${id}` : path === '/beers' || path === '/search' ? `/beers/${id}` : null
-    
+
     const redirection = (path) => {
         if (path === '/' || path === '/breweries') {
             return `/breweries/${id}`

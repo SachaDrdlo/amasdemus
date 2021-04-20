@@ -22,7 +22,7 @@ const Brewery = ({brewery, breweryBeersData}) => {
             />
         )
     })
-        
+
     return (
         <div className={styles.brewery}>
             <Header/>
@@ -39,7 +39,7 @@ const Brewery = ({brewery, breweryBeersData}) => {
                                 <div className="sectionblock-infos">
                                     <h2 className="sectionblock-headtitle">{brewery.region}</h2>
                                     <hr className="sectionblock-underline" />
-                                    <h3 className="sectionblock-title">{brewery.name}</h3>      
+                                    <h3 className="sectionblock-title">{brewery.name}</h3>
                                 </div>
                                 <p>{brewery.description}</p>
                             </Grid>
@@ -49,7 +49,7 @@ const Brewery = ({brewery, breweryBeersData}) => {
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">{brewery.name}</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Leurs bières</h3>      
+                            <h3 className="sectionblock-title">Leurs bières</h3>
                         </div>
                         <Grid container spacing={5}>
                             {breweriesBeersDisplay}
@@ -69,12 +69,16 @@ export default Brewery
 
 export async function getServerSideProps(context) {
     const query = context.query.id;
+
+    const breweryRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
+    const brewery = await breweryRes.json()
+
+    const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryThreeBeers.php?id=${query}`)
+    const breweryBeersData = await breweryBeersRes.json()
+
     
     const breweryRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
     const brewery = await breweryRes.json()
-    
-    const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryThreeBeers.php?id=${query}`)
-    const breweryBeersData = await breweryBeersRes.json()
 
     return {
         props: {

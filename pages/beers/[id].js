@@ -14,7 +14,7 @@ const beer = ({ beerData, sameTypeBeers }) => {
     sameTypeBeers = sameTypeBeers.beers
 
     const sameTypeBeersSelection = sameTypeBeers.map( (beer) => {
-        
+
         return (
             <LogoTemplate
                 key={beer.id}
@@ -23,12 +23,12 @@ const beer = ({ beerData, sameTypeBeers }) => {
                 img={beer.image}
             />
         )
-        
+
     })
 
     //
-    
-    // ? console.log(`same id: ${beer.id} === ${beerData.id}`) : console.log(beer.id)  
+
+    // ? console.log(`same id: ${beer.id} === ${beerData.id}`) : console.log(beer.id)
 
     // const sameTypeBeersSelection = sameTypeBeers.map((beer) => {
     //     return (
@@ -67,7 +67,7 @@ const beer = ({ beerData, sameTypeBeers }) => {
                     <div className="sectionblock-infos">
                         <h2 className="sectionblock-headtitle">Bières similaires</h2>
                         <hr className="sectionblock-underline" />
-                        <h3 className="sectionblock-title">D'autres bières</h3>      
+                        <h3 className="sectionblock-title">D'autres bières</h3>
                     </div>
                 </div>
                 <Grid container spacing={5}>
@@ -87,7 +87,7 @@ export async function getServerSideProps(context) {
 
     const beerDataRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBeer.php?id=${query}`)
     const beerData = await beerDataRes.json()
-    
+
     const beerId = beerData.id
     const beerType = encodeURI(beerData.type)
     const sameTypeRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBeerSelectOtherBeers.php?id=${beerId}&selection="${beerType}"`)

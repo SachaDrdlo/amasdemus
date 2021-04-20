@@ -1,12 +1,37 @@
 @mixin button($clr-bcg, $clr-txt) {
     display: block;
     text-align: center;
+    position: relative;
     margin: 0 auto;
+    z-index: 1;
     text-decoration: none;
     background-color: $clr-bcg;
+    background-position: 0px;
     color: $clr-txt;
     padding: 15px 20px;
     border: none;
+    overflow: hidden;
+
+    &:hover {
+        color: $clr-beige;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: $clr-orange;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        z-index: -1;
+        transition: top 0.15s ease-in;
+    }
+
+    &:hover::before {
+        top: 0;
+    }
+
 }
 
 @mixin hr($clr) {
