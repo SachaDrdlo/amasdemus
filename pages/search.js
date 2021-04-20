@@ -70,7 +70,11 @@ export default search
 
 export async function getServerSideProps(context) {
     const query = context.query.value
+<<<<<<< HEAD
     const res = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/searchBeer.php?search=${query}`)
+=======
+    const res = await fetch(`https://sachadordolo\.fr/amasdemus/admin/src/api/searchBeer.php?search=${query}`)
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
     const data = await res.json()
 
     return {

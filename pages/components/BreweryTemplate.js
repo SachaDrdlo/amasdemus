@@ -24,7 +24,11 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
                 <Grid container className={styles.beerPresentation_brewery_container} alignItems="center">
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_brewery_container_logo}>
                         <figure>
+<<<<<<< HEAD
                             <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+=======
+                            <img src={`https://sachadordolo\.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={7} className={styles.beerPresentation_brewery_container_text}>

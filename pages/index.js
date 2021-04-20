@@ -132,12 +132,20 @@ export default HomePage
 
 export async function getServerSideProps() {
   // Fetch de la bière aléatoire en page d'accueil
+<<<<<<< HEAD
   const res = await fetch('https://sachadordolo.fr/amasdemus/admin/src/api/randomBeer.php')
+=======
+  const res = await fetch('https://sachadordolo\.fr/amasdemus/admin/src/api/randomBeer.php')
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
   const beerFetch = await res.json()
   // .then(text => console.log(text))
 
   // Fetch des brasseries affichées après l'encart vert
+<<<<<<< HEAD
   const response = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/RandomBreweries.php`)
+=======
+  const response = await fetch(`https://sachadordolo\.fr/amasdemus/admin/src/api/RandomBreweries.php`)
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
   const breweriesFetch = await response.json()
   // .then(text => console.log(text))
 

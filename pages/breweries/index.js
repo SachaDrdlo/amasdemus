@@ -36,7 +36,11 @@ export default function Breweries({ data }) {
 }
 
 async function getBreweries() {
+<<<<<<< HEAD
     const res = await fetch('https://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php')
+=======
+    const res = await fetch('https://sachadordolo\.fr/amasdemus/admin/src/api/allBreweries.php')
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
     const data = await res.json()
     return data;
 }

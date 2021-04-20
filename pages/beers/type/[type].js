@@ -49,8 +49,13 @@ export default BeersType
 
 export async function getServerSideProps(context) {
     const type = encodeURI(context.query.type)
+<<<<<<< HEAD
 
     const beersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/allBeersByType.php?selection="${type}"`)
+=======
+    
+    const beersRes = await fetch(`https://sachadordolo\.fr/amasdemus/admin/src/api/allBeersByType.php?selection="${type}"`)
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
     const beers = await beersRes.json()
 
 

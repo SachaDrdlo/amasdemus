@@ -161,6 +161,36 @@ class Beer
         return $row['total_rows'];
     }
 
+    public function getFiltersTypeItem()
+    {
+        $sqlQuery = "SELECT types.id, types.type
+            FROM types
+            ORDER BY types.type";
+        $stmt = $this->connection->query($sqlQuery);
+        $stmt->execute();
+        return $stmt;
+    }
+    
+    public function getFiltersLocationItem()
+    {
+        $sqlQuery = "SELECT locations.id, locations.location
+            FROM locations
+            ORDER BY locations.location";
+        $stmt = $this->connection->query($sqlQuery);
+        $stmt->execute();
+        return $stmt;
+    }
+    
+    public function getFiltersFlavourItem()
+    {
+        $sqlQuery = "SELECT flavours.id, flavours.flavour
+            FROM flavours
+            ORDER BY flavours.flavour";
+        $stmt = $this->connection->query($sqlQuery);
+        $stmt->execute();
+        return $stmt;
+    }
+
     public function getRandomBeer()
     {
         $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.id as id_brewery, breweries.name as nom_brasserie, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"

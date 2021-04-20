@@ -32,7 +32,11 @@ const Brewery = ({brewery, breweryBeersData}) => {
                         <Grid container spacing={5} justify="space-between">
                             <Grid item xs={12} md={6} lg={4}>
                                 <figure className={styles.brewery_img}>
+<<<<<<< HEAD
                                     <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${brewery.logo}`} alt=""/>
+=======
+                                    <img src={`https://sachadordolo\.fr/amasdemus/admin/assets/img/breweries/${brewery.logo}`} alt=""/>
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
                                 </figure>
                             </Grid>
                             <Grid item xs={12} md={6}>
@@ -69,11 +73,19 @@ export default Brewery
 
 export async function getServerSideProps(context) {
     const query = context.query.id;
+<<<<<<< HEAD
 
     const breweryRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
     const brewery = await breweryRes.json()
 
     const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryThreeBeers.php?id=${query}`)
+=======
+    
+    const breweryRes = await fetch(`https://sachadordolo\.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
+    const brewery = await breweryRes.json()
+    
+    const breweryBeersRes = await fetch(`https://sachadordolo\.fr/amasdemus/admin/src/api/singleBreweryThreeBeers.php?id=${query}`)
+>>>>>>> c2e331773b309b262acc797924a00d43227f690c
     const breweryBeersData = await breweryBeersRes.json()
 
     return {
