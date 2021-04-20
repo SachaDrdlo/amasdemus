@@ -28,7 +28,8 @@
         align-items: center;
         justify-content: center;
         position: relative;
-
+        flex-basis: 20%;
+        
         & img{
             position: absolute;
             width: auto;
