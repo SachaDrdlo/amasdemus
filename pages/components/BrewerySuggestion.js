@@ -8,7 +8,7 @@ import Link from 'next/link'
 const BrewerySuggestion = ({ id, name, image }) => {
     return (
         <div className={styles.brewery}>
-            <img className={styles.brewery_img} src={`https://sachadordolo\.fr/amasdemus/admin/assets/img/breweries/${image}`} alt="" />
+            <img className={styles.brewery_img} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${image}`} alt="" />
             <h2 className={styles.brewery_title}>{name}</h2>
             <Link href={`/breweries/${id}`}>
                 <a className="greenButton">Découvrir cette brasserie</a>
