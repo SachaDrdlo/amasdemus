@@ -61,7 +61,6 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
 
       {/* COMPOSANT BEERILLU */}
       {randomBeerImg}
-
       <div className={styles.discover}>
         <div className="container">
           <div className={styles.discover_container}>

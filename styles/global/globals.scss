@@ -9,7 +9,7 @@
 // PT Sans
 @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=PT+Sans:wght@400;700&display=swap');
 
-html{
+html {
   overflow-x: hidden;
 }
 
@@ -22,7 +22,7 @@ body {
   background: url('../../public/img/illus/clouds-bg.png') repeat $clr-beige;
   overflow-x: hidden;
 
-  &::after{
+  &::after {
     position: absolute;
     display: block;
     content: url('../../public/img/illus/hop-footer-illu.svg');
@@ -33,11 +33,11 @@ body {
     transform: rotate(-35deg);
     bottom: 48rem;
 
-    @media screen and (min-width: $md-bp){
+    @media screen and (min-width: $md-bp) {
       bottom: 38rem;
     }
 
-    @media screen and (min-width: $lg-bp){
+    @media screen and (min-width: $lg-bp) {
       right: -8rem;
       bottom: 20rem;
     }
@@ -200,20 +200,20 @@ p {
   }
 }
 
-.sectionblock{
+.sectionblock {
   margin-top: 20rem;
 
-  &-infos{
+  &-infos {
     margin-bottom: 3.2rem;
   }
 
-  &-headtitle{
+  &-headtitle {
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     font-size: 2rem;
   }
 
-  &-underline{
+  &-underline {
     width: 4.8rem;
     height: .2rem;
     background-color: $clr-green;
@@ -221,7 +221,7 @@ p {
     margin: 1.6rem 0;
   }
 
-  &-title{
+  &-title {
     font-size: 6.4rem;
   }
 }
@@ -263,6 +263,23 @@ p {
 
     a {
       width: 30rem;
+    }
+  }
+}
+
+// ARROW GO BACK BUTTON
+.arrow-container {
+  margin: 24px 0 0 48px;
+  display: inline-block;
+
+  &-button {
+    width: 40px;
+    height: auto;
+    transition: all .3s ease-out;
+
+    &:hover {
+      margin-left: -8px;
+      transition: all .3s ease-out;
     }
   }
 }

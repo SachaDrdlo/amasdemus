@@ -4,11 +4,12 @@ import { useRouter } from 'next/router'
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 import Header from '../components/Header'
+import GoBackButton from '../components/GoBackButton'
 import Footer from '../components/Footer'
 import LogoTemplate from '../components/LogoTemplate';
 import styles from '../../styles/components/Brewery.module.scss';
 
-const Brewery = ({brewery, breweryBeersData}) => {
+const Brewery = ({ brewery, breweryBeersData }) => {
     const breweryBeers = breweryBeersData.beers;
     const breweryId = brewery.id
 
@@ -25,14 +26,15 @@ const Brewery = ({brewery, breweryBeersData}) => {
 
     return (
         <div className={styles.brewery}>
-            <Header/>
+            <Header />
+            <GoBackButton />
             <main className={styles.brewery_mainsection}>
                 <div className="container">
                     <section className={styles.brewery_infos}>
                         <Grid container spacing={5} justify="space-between">
                             <Grid item xs={12} md={6} lg={4}>
                                 <figure className={styles.brewery_img}>
-                                    <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${brewery.logo}`} alt=""/>
+                   @                 <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${brewery.logo}`} alt="" />
                                 </figure>
                             </Grid>
                             <Grid item xs={12} md={6}>
@@ -60,7 +62,7 @@ const Brewery = ({brewery, breweryBeersData}) => {
                     </section>
                 </div>
             </main>
-            <Footer/>
+            <Footer />
         </div>
     )
 }
@@ -75,10 +77,6 @@ export async function getServerSideProps(context) {
 
     const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryThreeBeers.php?id=${query}`)
     const breweryBeersData = await breweryBeersRes.json()
-
-    
-    const breweryRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
-    const brewery = await breweryRes.json()
 
     return {
         props: {
