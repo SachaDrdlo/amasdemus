@@ -7,6 +7,7 @@ import { Grid } from '@material-ui/core';
 
 const search = ({ data }) => {
 
+
     let count = 0;
 
     // Fonction qui permet de checker si le tableau data.beers renvois quelque chose ou non
@@ -69,7 +70,7 @@ export default search
 
 export async function getServerSideProps(context) {
     const query = context.query.value
-    const res = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/searchBeer.php?search=${query}`)
+    const res = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/searchBeer.php?search=${query}`)
     const data = await res.json()
 
     return {

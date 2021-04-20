@@ -16,10 +16,10 @@ export default function Breweries({ data }) {
                     <div className="sectionblock-infos">
                         <h2 className="sectionblock-headtitle">De l'artisanal</h2>
                         <hr className="sectionblock-underline" />
-                        <h3 className="sectionblock-title">Des brasseries locales</h3>      
+                        <h3 className="sectionblock-title">Des brasseries locales</h3>
                     </div>
                     <Grid container item className={styles.breweries_container}>
-                        {breweries.map((brewery) => ( 
+                        {breweries.map((brewery) => (
                                 <LogoTemplate
                                 key={brewery.id}
                                 id={brewery.id}
@@ -36,7 +36,7 @@ export default function Breweries({ data }) {
 }
 
 async function getBreweries() {
-    const res = await fetch('http://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php')
+    const res = await fetch('https://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php')
     const data = await res.json()
     return data;
 }

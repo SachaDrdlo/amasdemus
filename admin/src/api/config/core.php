@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // home page url
-$home_url="http://sachadordolo.fr/amasdemus/admin/src/api";
+$home_url="https://sachadordolo.fr/amasdemus/admin/src/api";
 
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? trim(strip_tags($_GET['page'])) : 1;

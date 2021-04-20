@@ -15,11 +15,11 @@ const LogoTemplate = ({ id, img, name }) => {
     // BASE A MODIFIER PLUS TARD --> permet d'afficher soit l'image de la brasserie soit l'image de la bière selon la page sur laquelle on est
     const getPathImg = () => {
         if (path === '/' || path === '/breweries') {
-            return <img className='container_content_breweryImg' src={`http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img}`} alt="" />
+            return <img className='container_content_breweryImg' src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img}`} alt="" />
         } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
-            return <img className='container_content_beerImg' src={`http://sachadordolo.fr/amasdemus/admin/assets/img/beers/${img}`} alt="" />
+            return <img className='container_content_beerImg' src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${img}`} alt="" />
         }
-        
+
     }
 
     // Permet d'afficher soit bière soit brasserie en fonction de la page sur laquelle on est
@@ -36,7 +36,7 @@ const LogoTemplate = ({ id, img, name }) => {
     }
 
     // const redirection = path === '/' || path === '/breweries' ? `/breweries/${id}` : path === '/beers' || path === '/search' ? `/beers/${id}` : null
-    
+
     const redirection = (path) => {
         if (path === '/' || path === '/breweries') {
             return `/breweries/${id}`

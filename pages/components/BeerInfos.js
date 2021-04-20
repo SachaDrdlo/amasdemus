@@ -13,8 +13,8 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                 <Grid container justify="space-between" className={styles.beerPresentation_container}>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_img}>
                         <figure>
-                            <img className={styles.beerPresentation_container_img_beer} src={`http://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
-                            <img className={styles.beerPresentation_container_img_brewery} src={`http://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                            <img className={styles.beerPresentation_container_img_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
+                            <img className={styles.beerPresentation_container_img_brewery} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_text}>

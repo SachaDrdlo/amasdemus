@@ -43,7 +43,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers }) {
             />
         )
     })
-    
+
     const tripleList = tripleBeers.map((tripleBeer) => {
         return (
             <LogoTemplate
@@ -85,7 +85,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers }) {
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">Bières blondes</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Belles blondes</h3>      
+                            <h3 className="sectionblock-title">Belles blondes</h3>
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {blondList}
@@ -98,7 +98,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers }) {
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">Bières triples</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Triples saveurs</h3>      
+                            <h3 className="sectionblock-title">Triples saveurs</h3>
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {tripleList}
@@ -111,7 +111,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers }) {
                         <div className="sectionblock-infos">
                             <h2 className="sectionblock-headtitle">Bières ambrées</h2>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Mousses d'ambre</h3>      
+                            <h3 className="sectionblock-title">Mousses d'ambre</h3>
                         </div>
                         <Grid container item className={styles.breweries_container}>
                             {amberList}
@@ -132,17 +132,17 @@ export async function getServerSideProps() {
     const blonde = encodeURI("blonde")
     const triple = encodeURI("triple")
     const amber = encodeURI("ambrée")
-    
-    const blondRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${blonde}"`)
+
+    const blondRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${blonde}"`)
     const blondBeers = await blondRes.json()
-    
-    const tripleRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${triple}"`)
+
+    const tripleRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${triple}"`)
     const tripleBeers = await tripleRes.json()
-    
-    const amberRes = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${amber}"`)
+
+    const amberRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${amber}"`)
     const amberBeers = await amberRes.json()
-    
-    
+
+
 
     return {
         props: {
