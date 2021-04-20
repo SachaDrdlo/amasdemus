@@ -42,7 +42,7 @@
                 & p{
                     margin-top: 0;
                     margin-bottom: 0;
-                    height: 0;
+                    height: 100%;
                     overflow: hidden;
                     transition: all 200ms ease-out; 
                 }
@@ -55,7 +55,7 @@
                         }
                     }
                     & p{
-                        height: 2rem;
+                        height: 100%;
                         margin-bottom: 1.5rem;
                     }
                 }

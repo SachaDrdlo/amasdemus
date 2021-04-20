@@ -2,23 +2,24 @@ import React, { useState } from "react";
 import AccordionItem from "./FiltersAccordionItem";
 import styles from '../../styles/components/Filters.module.scss';
 
-const FiltersAccordion = () => {
+const FiltersAccordion = ({ types, locations, flavours }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  console.log(types);
   const filters = [
     {
       title: "Type",
       filters:
-        "Triple - blonde, ...",
+       `${types}`
     },
     {
       title: "Provenance",
       filters:
-        "Nord, Pas de Calais, Belgique",
+      `${locations}`
     },
     {
       title: "Notes / Saveurs",
-      filters: "Caramel, houblon, céréales, ...",
+      filters: `${flavours}`
     }
   ];
 
