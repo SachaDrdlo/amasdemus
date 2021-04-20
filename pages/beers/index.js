@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, createContext, useContext } from 'rea
 import { Grid } from '@material-ui/core';
 import styles from '../../styles/components/Beers.module.scss'
 import Header from '../components/Header'
+import GoBackButton from '../components/GoBackButton'
 import Footer from '../components/Footer'
 import Filters from '../components/Filters'
 import LogoTemplate from '../components/LogoTemplate'
@@ -28,14 +29,14 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
     const callbackFunction = (filterResponse) => {
         // Bravo à Sacha le grand
         const beerState = [...beerFilters]
-        const filterIn = beerState.find((filter) =>{
+        const filterIn = beerState.find((filter) => {
             return filterResponse == filter
         })
 
-        if(filterIn){
+        if (filterIn) {
             const remainingFilters = beerState.filter(item => item !== filterIn)
             setBeerFilters(remainingFilters)
-        }else{
+        } else {
             setBeerFilters([...beerFilters, filterResponse])
         }
     }
@@ -102,6 +103,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
             <Header />
             <main>
                 <div className={`${styles.filters_container} ${opened ? styles.filters_container_active : null}`}>
+                    <GoBackButton />
                     <div className="container">
                         <button id="filter" className={styles.filters_btn} onClick={(e) => getFilters(e)}>
                             <img src="/img/icons/filter-icon.svg" alt="" />
@@ -110,10 +112,10 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
                     </div>
                 </div>
                 <Filters
-                  types = {typesList}
-                  locations = {locationsList}
-                  flavours = {flavoursList}
-                  parentCallback = {callbackFunction}
+                    types={typesList}
+                    locations={locationsList}
+                    flavours={flavoursList}
+                    parentCallback={callbackFunction}
                 />
 
                 <div className="container">
@@ -164,7 +166,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 }
 
 
-export async function getServerSideProps({params}) {
+export async function getServerSideProps({ params }) {
     console.log(params)
 
 

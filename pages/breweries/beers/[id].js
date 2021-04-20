@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import GoBackButton from '../components/GoBackButton'
 import LogoTemplate from '../../components/LogoTemplate';
 import styles from '../../../styles/components/Brewery.module.scss';
 import beer from '../../beers/[id]';
@@ -29,6 +30,7 @@ const BreweryId = ({ breweryBeersData }) => {
     return (
         <div>
             <Header/>
+            <GoBackButton/>
             <main className="container">
                 <section className={styles.brewery_beers}>
                     <div className="sectionblock-infos">
@@ -52,13 +54,8 @@ export default BreweryId
 
 export async function getServerSideProps(context) {
     const query = context.query.id;
-<<<<<<< HEAD
 
     const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryBeers.php?id=${query}`)
-=======
-    
-    const breweryBeersRes = await fetch(`https://sachadordolo\.fr/amasdemus/admin/src/api/singleBreweryBeers.php?id=${query}`)
->>>>>>> c2e331773b309b262acc797924a00d43227f690c
     const breweryBeersData = await breweryBeersRes.json()
 
     return {

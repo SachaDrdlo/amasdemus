@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Grid } from '@material-ui/core';
+import GoBackButton from '../components/GoBackButton'
 import LogoTemplate from '../components/LogoTemplate'
 import BeerInfos from '../components/BeerInfos'
 import Header from '../components/Header'
@@ -44,6 +45,7 @@ const beer = ({ beerData, sameTypeBeers }) => {
     return (
         <div>
             <Header />
+            <GoBackButton />
             <div>
                 <BeerInfos
                     key={beerData.id}

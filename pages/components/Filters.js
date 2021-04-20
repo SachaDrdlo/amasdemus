@@ -6,10 +6,10 @@ import FiltersAccordion from './FiltersAccordion';
 export default function Filters({ types, locations, flavours, parentCallback }) {
     const [opened, setOpened] = useState(false);
     const [beerFilters, setBeerFilters] = useState([]);
-    
+
 
     const breakpoint = 992;
-    
+
     const getFilters = (e) => {
         e.currentTarget.id === 'filtercross' ? setOpened(!opened) : null
     }
@@ -17,7 +17,7 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
     // const sendData = (props) => {
     //     props.parentCallback(beerFilters)
     // }
-    
+
     // const handleFilterItem = (e) => {
     //     setBeerFilters([...beerFilters, e.target.id])
     //     // sendData(props)
@@ -29,7 +29,7 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
                 <input type="checkbox" id={type.type}  name={type.type} onChange={() => parentCallback(type.type)}/>
                 <label htmlFor={type.type}>{type.type}</label>
             </div>
-                
+
         )
     })
 
@@ -39,7 +39,7 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
                 <input type="checkbox" id={location.location} name={location.location}/>
                 <label htmlFor={location.location}>{location.location}</label>
             </div>
-                
+
         )
     })
 
@@ -49,7 +49,7 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
                 <input type="checkbox" id={flavour.flavour} name={flavour.flavour}/>
                 <label htmlFor={flavour.flavour}>{flavour.flavour}</label>
             </div>
-                
+
         )
     })
 
@@ -72,29 +72,29 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
                 <div>
                     <ul>
                         <li className={styles.filters_list_el}>
-                            <div className={styles.filter}> 
+                            <div className={styles.filter}>
                                 <button>Type</button>
                                 {/* className={styles.filter_boxes} */}
                                     {typeFilterMap}
-                                
+
                             </div>
                         </li>
 
                         <li className={styles.filters_list_el}>
-                            <div className={styles.filter}> 
+                            <div className={styles.filter}>
                                 <button>Région</button>
                                 {/* className={styles.filter_boxes} */}
                                     {locationFilterMap}
-                                
+
                             </div>
                         </li>
 
                         <li className={styles.filters_list_el}>
-                            <div className={styles.filter}> 
+                            <div className={styles.filter}>
                                 <button>Notes / saveurs</button>
                                 {/* className={styles.filter_boxes} */}
                                     {flavourFilterMap}
-                                
+
                             </div>
                         </li>
                         {/* <li className={styles.filters_list_el}>
@@ -108,13 +108,13 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
                         </li> */}
                     </ul>
                 </div>
-                {/* <FiltersAccordion 
+                {/* <FiltersAccordion
                     types = {types}
                     locations = {locations}
                     flavours = {flavours}
                 /> */}
                 <button className={styles.filters_applybtn}>Appliquer les filtres</button>
-            </div>    
+            </div>
         </div>
     )
 }

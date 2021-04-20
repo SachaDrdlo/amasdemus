@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import styles from '../../styles/components/Breweries.module.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import GoBackButton from '../components/GoBackButton'
 import LogoTemplate from '../components/LogoTemplate';
 // import BrewerySuggestion from '../components/BrewerySuggestion';
 
@@ -11,6 +12,7 @@ export default function Breweries({ data }) {
     return (
         <div>
             <Header />
+            <GoBackButton />
             <main className="container">
                 <section className="sectionblock">
                     <div className="sectionblock-infos">
@@ -20,7 +22,7 @@ export default function Breweries({ data }) {
                     </div>
                     <Grid container item className={styles.breweries_container}>
                         {breweries.map((brewery) => (
-                                <LogoTemplate
+                            <LogoTemplate
                                 key={brewery.id}
                                 id={brewery.id}
                                 img={brewery.logo}
@@ -36,16 +38,12 @@ export default function Breweries({ data }) {
 }
 
 async function getBreweries() {
-<<<<<<< HEAD
     const res = await fetch('https://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php')
-=======
-    const res = await fetch('https://sachadordolo\.fr/amasdemus/admin/src/api/allBreweries.php')
->>>>>>> c2e331773b309b262acc797924a00d43227f690c
     const data = await res.json()
     return data;
 }
 
-export async function getServerSideProps(){
+export async function getServerSideProps() {
     const data = await getBreweries();
     return {
         props: {
