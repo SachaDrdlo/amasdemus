@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Navbar from './components/Navbar-bottom';
 import styles from '../styles/components/search.module.scss';
 import LogoTemplate from './components/LogoTemplate'
 import { Grid } from '@material-ui/core';
@@ -64,6 +65,7 @@ const search = ({ data }) => {
                 </div>
             </div>
             <Footer />
+            <Navbar />
         </div>
     )
 }

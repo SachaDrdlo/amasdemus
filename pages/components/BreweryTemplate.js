@@ -24,7 +24,15 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
                 <Grid container className={styles.beerPresentation_brewery_container} alignItems="center">
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_brewery_container_logo}>
                         <figure>
-                            <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                            {router.pathname === '/beers/[id]'
+                                ?
+                                <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                                : router.pathname === '/about'
+                                    ?
+                                    <img src={img_brewery} alt="" />
+                                    :
+                                    null
+                            }
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={7} className={styles.beerPresentation_brewery_container_text}>
@@ -43,6 +51,9 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
                         }
                     </Grid>
                 </Grid>
+            </div>
+            <div className={styles.beerPresentation_brewery_illu}>
+                <img className={styles.beerPresentation_brewery_illu_hop} src="../img/illus/hop-discover-illu.svg" alt="" />
             </div>
         </div>
     )
