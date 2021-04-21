@@ -2,18 +2,23 @@ import { Grid } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import styles from '../../styles/components/Filters.module.scss';
 
-export default function Filters({ types, parentCallback }) {
+export default function Filters({ types, handleBeersFilterCallback, handleFiltersReset, isChecked }) {
     const [opened, setOpened] = useState(false);
-    const [beerFilters, setBeerFilters] = useState([]);
+    // const [beerFilters, setBeerFilters] = useState([]);
 
     const getFilters = (e) => {
         e.currentTarget.id === 'filtercross' ? setOpened(!opened) : null
     }
 
+    const getTrueChecked = () => {
+        isChecked = true
+    }
+
+    // console.log(isChecked);
     const typeFilterMap = types.map((type) => {
         return(
-            <div>
-                <input type="checkbox" id={type.type}  name={type.type} onChange={() => parentCallback(type.type)}/>
+            <div className={styles.filter_box}>
+                <input data-filter="filter" type="checkbox" id={type.type}  name={type.type} onChange={() => handleBeersFilterCallback(type.type)} checked={isChecked} />
                 <label htmlFor={type.type}>{type.type}</label>
             </div>
 
@@ -49,7 +54,7 @@ export default function Filters({ types, parentCallback }) {
         <div className="filters-lateralblock">
             <div className={styles.filters_container}>
                 <div className={styles.filters_header}>
-                    <button className={styles.filters_header_resetbtn} id="filterreset">
+                    <button className={styles.filters_header_resetbtn} id="filterreset" onClick={(e) => handleFiltersReset(e)}>
                         <img id="search" src="/img/icons/reset-icon.svg" alt=""/>
                         <p>Réinitialiser</p>
                     </button>
@@ -62,13 +67,15 @@ export default function Filters({ types, parentCallback }) {
                         <li className={styles.filters_list_el}>
                             <div className={styles.filter}>
                                 <button>Type de bières</button>
-                                    {typeFilterMap}
+                                    <div className={styles.filter_boxes}>
+                                        {typeFilterMap}
+                                    </div>
                             </div>
                         </li>
 
                         {/* TODO - MAP DES DIFFERENTS FILTRES A REVOIR DANS UNE PROCHAINE VERSION
                         -------------------------------------------------------------------------------------------- */}
-                        
+
                         {/* <li className={styles.filters_list_el}>
                             <div className={styles.filter}>
                                 <button>Région</button>

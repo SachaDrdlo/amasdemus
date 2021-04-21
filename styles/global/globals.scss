@@ -141,7 +141,7 @@ p {
 
   &-lateralblock {
     background-color: $clr-green;
-    position: absolute;
+    position: fixed;
     width: 100%;
     right: 0;
     top: 10.3rem;
@@ -155,7 +155,7 @@ p {
 
   &__active {
     .filters-lateralblock {
-      transform: translatex(0);
+      transform: translateX(0);
     }
   }
 }
@@ -163,40 +163,11 @@ p {
 
 @media screen and(min-width: $md-bp) {
   .filters {
-
-    // &::after{
-    //   position: absolute;
-    //   display: block;
-    //   content: "";
-    //   width: 100%;
-    //   top: 9.6rem;
-    //   left: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   background-color: black;
-    //   transition: opacity .6s ease;
-    //   opacity: 0;
-    // }
-
     &-lateralblock {
       width: 50%;
-
+      top: 0rem;
+      overflow: visible;
     }
-
-    // &__active{
-    //   &::after{
-    //     position: absolute;
-    //     display: block;
-    //     content: "";
-    //     width: 100%;
-    //     top: 9.6rem;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     background-color: black;
-    //     opacity: .4;
-    //   }
-    // }
   }
 }
 

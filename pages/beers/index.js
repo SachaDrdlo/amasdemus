@@ -27,9 +27,9 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 	const [ beerFilters, setBeerFilters ] = useState([]);
 
-	const callbackFunction = (filterResponse) => {
+	const handleBeersFilter = (filterResponse) => {
 		// Bravo à Sacha le grand
-		const beerState = [ ...beerFilters ];
+		const beerState = [...beerFilters];
 
 		const filterIn = beerState.find((filter) => {
 			return filterResponse == filter;
@@ -125,6 +125,42 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	// 	return flavour;
 	// });
 
+
+	const [checked, setChecked] = useState()
+
+	const handleBeersFilterReset = () => {
+		// console.log(beerFilters);
+		// console.log(beersFiltered);
+		// console.log(typesList);
+		
+		// console.log(typeFilterMap);
+		// setChecked(false)
+		// if(beerFilters == 0){
+		// 	setChecked(true)
+		// }
+		// // console.log(checked)
+		// if (checked === false){
+		// 	setChecked(null)
+		// }
+		setBeerFilters([])
+		
+
+		// console.log(typeFilteredBeers);
+		// const typeFiltered = array()
+		// const filter = document.querySelectorAll("data-filter")
+		// const filters = document.querySelectorAll(`input[type="checkbox"]`)
+		// const typeFilters = filters.forEach(filter => {
+		// 	filter.hasAttributes('data-filter');
+		// })
+		
+
+		// }
+		// filter.foreach
+		// console.log(filters);
+
+		// const filters = beerFiltered;
+	};
+
 	const pageRender = (beerDataArray) => {
 		if (beerFilters.length > 0 && beerDataArray != undefined) {
 
@@ -203,7 +239,9 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 					types={typesList}
 					// locations={locationsList}
 					// flavours={flavoursList}
-					parentCallback={callbackFunction}
+					isChecked = {checked}
+					handleBeersFilterCallback={handleBeersFilter}
+					handleFiltersReset={handleBeersFilterReset}
 				/>
 				<div className="container">
                     {pageRender(beersFiltered)}
