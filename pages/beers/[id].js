@@ -10,9 +10,6 @@ import beers from '../../beers.json'
 
 const beer = ({ beerData, sameTypeBeers }) => {
 
-    // console.log(sameTypeBeers);
-
-    // console.log(beerData.id);
     sameTypeBeers = sameTypeBeers.beers
 
     const sameTypeBeersSelection = sameTypeBeers.map((beer) => {
@@ -27,21 +24,6 @@ const beer = ({ beerData, sameTypeBeers }) => {
         )
 
     })
-
-    //
-
-    // ? console.log(`same id: ${beer.id} === ${beerData.id}`) : console.log(beer.id)
-
-    // const sameTypeBeersSelection = sameTypeBeers.map((beer) => {
-    //     return (
-    //       <LogoTemplate
-    //         key={beer.id}
-    //         id={beer.id}
-    //         name={beer.name}
-    //         img={beer.image}
-    //       />
-    //     )
-    // })
 
     return (
         <div>

@@ -165,9 +165,9 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 			return (
 				<section className={styles.beers_section}>
 					<div className="sectionblock-infos">
-						<h2 className="sectionblock-headtitle">Filtres</h2>
+						<p className="sectionblock-headtitle">Filtres</p>
 						<hr className="sectionblock-underline" />
-						<h3 className="sectionblock-title">{beerDataArray.itemCount} Bières trouvées</h3>
+						<h2 className="sectionblock-title">{beerDataArray.itemCount} Bières trouvées</h2>
 					</div>
 					<Grid container item className={styles.breweries_container}>
 						{filterBeers(beersFiltered)}
@@ -179,9 +179,9 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 				<div>
 					<section className="sectionblock">
 						<div className="sectionblock-infos">
-							<h2 className="sectionblock-headtitle">Bières blondes</h2>
+							<p className="sectionblock-headtitle">Bières blondes</p>
 							<hr className="sectionblock-underline" />
-							<h3 className="sectionblock-title">Belles blondes</h3>
+							<h2 className="sectionblock-title">Belles blondes</h2>
 						</div>
 						<Grid container item className={styles.breweries_container}>
 							{blondList}
@@ -197,9 +197,9 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 					</section>
 					<section className={styles.beers_section}>
 						<div className="sectionblock-infos">
-							<h2 className="sectionblock-headtitle">Bières triples</h2>
+							<p className="sectionblock-headtitle">Bières triples</p>
 							<hr className="sectionblock-underline" />
-							<h3 className="sectionblock-title">Triples saveurs</h3>
+							<h2 className="sectionblock-title">Triples saveurs</h2>
 						</div>
 						<Grid container item className={styles.breweries_container}>
 							{tripleList}
@@ -215,9 +215,9 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 					</section>
 					<section className={styles.beers_section}>
 						<div className="sectionblock-infos">
-							<h2 className="sectionblock-headtitle">Bières ambrées</h2>
+							<p className="sectionblock-headtitle">Bières ambrées</p>
 							<hr className="sectionblock-underline" />
-							<h3 className="sectionblock-title">Mousses d'ambre</h3>
+							<h2 className="sectionblock-title">Mousses d'ambre</h2>
 						</div>
 						<Grid container item className={styles.breweries_container}>
 							{amberList}

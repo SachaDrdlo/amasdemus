@@ -36,10 +36,12 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={7} className={styles.beerPresentation_brewery_container_text}>
-                        <p>Le lieu de brassage</p>
-                        <hr className="beige" />
-                        <h1>{brewery}</h1>
-                        <span><p>{desc_brewery}</p></span>
+                        <div className="sectionblock-infos sectionblock-infos__beige">
+                            <p className="sectionblock-headtitle">Le lieu de brassage</p>
+                            <hr className="sectionblock-underline" />
+                            <h3 className="sectionblock-title">{brewery}</h3>
+                            <span><p>{desc_brewery}</p></span>
+                        </div>
                         {isBeer ?
                             <div className={styles.beerPresentation_brewery_container_text_btn}>
                                 <Link href={`/breweries/${brewery_id}`}>

@@ -41,14 +41,15 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
                 {/* CONDITION QUI PERMET DE CHECKER SI ON EST BIEN SUR LA HOME */}
                 {isHome ?
                     <Grid item xs={12} sm={3} className={styles.container_grid_content}>
-                        <p>La star de la semaine</p>
-                        <hr className="green" />
-                        <h1>{name}</h1>
-                        <div></div>
-                        <p>
-                            <span>{type} - </span>
-                            <span>{level}°</span>
-                        </p>
+                        <div className="sectionblock-infos">
+                            <h2 className="sectionblock-headtitle">La star du moment</h2>
+                            <hr className="sectionblock-underline" />
+                            <h3 className="sectionblock-title">{name}</h3>
+                            <p>
+                                <span>{type} - </span>
+                                <span>{level}°</span>
+                            </p>
+                        </div>
                         <div className={styles.container_grid_content_button}>
                             <Link href={`/beers/${id}`}>
                                 <a className='greenButton'>Découvrir cette bière</a>

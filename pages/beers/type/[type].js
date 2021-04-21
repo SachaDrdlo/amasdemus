@@ -32,9 +32,9 @@ const BeersType = ({ beers, type }) => {
                 <div className="container">
                     <section className="sectionblock">
                         <div className="sectionblock-infos">
-                            <h2 className="sectionblock-headtitle">Bières {type}s</h2>
+                            <h1 className="sectionblock-headtitle">Bières {decodeURI(type)}s</h1>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Toutes les bières {type}s</h3>
+                            <h2 className="sectionblock-title">Toutes les bières {decodeURI(type)}s</h2>
                         </div>
                         <Grid container spacing={5}>
                             {beersDisplay}

@@ -36,26 +36,37 @@
             }
         }
 
-        &_text {
-            &_list {
-
-                ul {
-                    margin: 10px 0;
-                }
-
-                &_flex {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                }
+        &_list{
+            &container{
+                padding: 2.8rem 0;
+                border-top: 2px solid $clr-green;
+                border-bottom: 2px solid $clr-green;
             }
+
+            & li:not(:last-child){
+                margin-bottom: 1.6rem;  
+            }
+
+            & h2{
+                font-size: 2.4rem;
+                font-family: "PT sans", sans-serif;
+                font-weight: bold;
+                margin-bottom: 1rem;
+            }
+            
+            & p{
+                font-size: 1.8rem;
+                // opacity: ;
+
+            }
+
+
         }
     }
 
     .beerPresentation_brewery {
         background-color: $clr-green;
-        padding: 60px 0;
+        padding: 160px 0;
         margin-top: 150px;
         position: relative;
 
@@ -115,6 +126,12 @@
                 top: 0;
                 left: -20px;
             }
+        }
+
+        @media screen and (min-width: $lg-bp){
+
+            padding: 88px 0;
+            
         }
     }
 }

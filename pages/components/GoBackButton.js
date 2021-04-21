@@ -9,9 +9,10 @@ const GoBackButton = () => {
 
     return (
         <div className="arrow-container">
-                <a onClick={() => router.back()}>
-                    <img className='arrow-container-button' src="../../img/icons/arrow.svg" alt="" />
-                </a>
+            <a className='arrow-container-button' onClick={() => router.back()}>
+                <img src="../../img/icons/arrow.svg" alt="" />
+                <p>Retour</p>
+            </a>
         </div>
     )
 }

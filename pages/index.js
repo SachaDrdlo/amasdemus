@@ -3,7 +3,6 @@ import BeerIllu from './components/BeerIllu'
 import Header from './components/Header'
 import Navbar from './components/Navbar-bottom';
 import Footer from './components/Footer'
-import beers from '../beers.json'
 import LogoTemplate from './components/LogoTemplate';
 import styles from '../styles/components/Homepage.module.scss';
 import { Grid } from '@material-ui/core';
@@ -65,9 +64,11 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
         <div className="container">
           <div className={styles.discover_container}>
             <div className={styles.discover_container_content}>
-              <p>Bières du terroir</p>
-              <hr className="beigeCenter" />
-              <h1>Un monde de découverte</h1>
+              <div className="sectionblock-infos sectionblock-infos__beige">
+                  <p className="sectionblock-headtitle">Bières du terroir</p>
+                  <hr className="sectionblock-underline" />
+                  <h2 className="sectionblock-title">Un monde de découverte</h2>
+              </div>
               <span><p>Un moment entre amis, au restaurant ou indécis devant l'innombrable choix de votre caviste, il n'y a ni lieu ni heure pour découvrir de nouvelles saveurs locales.</p></span>
               <div className={styles.discover_container_content_btn}>
                 <Link href="/beers">
@@ -84,10 +85,10 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
 
       <div className={styles.breweries}>
         <div className="container">
-          <div className={styles.breweries_text}>
-            <p>De l'artisanal</p>
-            <hr className="green" />
-            <h1>Des brasseries locales</h1>
+          <div className="sectionblock-infos">
+              <p className="sectionblock-headtitle">De l'artisanal</p>
+              <hr className="sectionblock-underline" />
+              <h2 className="sectionblock-title">Des brasseries locales</h2>
           </div>
           <Grid container item className={styles.breweries_container}>
             {breweriesDisplay}
@@ -99,9 +100,11 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
         <div className="container">
           <Grid container spacing={5} direction="row-reverse" justify="space-between" className={styles.about_container}>
             <Grid item xs={12} sm={5} className={styles.about_container_text}>
-              <p>Le projet</p>
-              <hr className="green" />
-              <h2>Amas Demus: un projet à la découverte du local</h2>
+              <div className="sectionblock-infos">
+                <p className="sectionblock-headtitle">Le projet</p>
+                <hr className="sectionblock-underline" />
+                <h2 className="sectionblock-title">Amas Demus: un projet à la découverte du local</h2>
+              </div>
               <div className={styles.discover_container_content_btn}>
                 <Link href="/">
                   <a className={`greenButton ${styles.greenButton}`}>Découvrir les bières du terroir</a>
