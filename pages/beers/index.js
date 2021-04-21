@@ -130,13 +130,9 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 	const [checked, setChecked] = useState()
 
-	const handleBeersFilterReset = () => {
-		// console.log(beerFilters);
-		// console.log(beersFiltered);
-		// console.log(typesList);
-		
-		// console.log(typeFilterMap);
-		// setChecked(false)
+	const handleBeersFilterReset = (e) => {
+		setChecked(false)
+		e.stopPropagation()
 		// if(beerFilters == 0){
 		// 	setChecked(true)
 		// }
@@ -145,7 +141,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 		// 	setChecked(null)
 		// }
 		setBeerFilters([])
-		
+
 
 		// console.log(typeFilteredBeers);
 		// const typeFiltered = array()
@@ -154,7 +150,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 		// const typeFilters = filters.forEach(filter => {
 		// 	filter.hasAttributes('data-filter');
 		// })
-		
+
 
 		// }
 		// filter.foreach

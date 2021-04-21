@@ -6,24 +6,27 @@
     text-decoration: none;
     display: block;
     transition: background-color .4s ease;
+    box-shadow: none;
+    outline: none;
+    border: none;
 
     &:hover,
     &:focus{
-        background-color: $clr-orange;  
+        background-color: $clr-orange;
     }
 
     &__beerhome:first-child{
         margin-bottom: .8rem;
     }
-    
+
     &__beerhome:last-child{
         margin-bottom: .8rem;
         background-color: $clr-danger;
     }
 
-    &__beerhom{
-        padding: .8rem 1.6rem; 
-        
+    &__beerhome{
+        padding: .8rem 1.6rem;
+
     }
 }
 

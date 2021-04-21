@@ -495,6 +495,9 @@ body {
   cursor: pointer;
 }
 
+.beer-section .form-container {
+  margin: 3rem 0;
+}
 .beer-section .form-container .form-group {
   display: flex;
   flex-direction: column;
@@ -541,6 +544,12 @@ body {
   width: 30%;
   height: auto;
 }
+.beer-section input[type=submit] {
+  background-color: #FEA443;
+  cursor: pointer;
+  margin: 5rem auto;
+  padding: 1.5rem 5rem;
+}
 
 .logo {
   height: 4.8rem;
@@ -580,6 +589,9 @@ body {
   text-decoration: none;
   display: block;
   transition: background-color 0.4s ease;
+  box-shadow: none;
+  outline: none;
+  border: none;
 }
 .btn:hover, .btn:focus {
   background-color: #FEA443;
@@ -591,7 +603,7 @@ body {
   margin-bottom: 0.8rem;
   background-color: #A63A50;
 }
-.btn__beerhom {
+.btn__beerhome {
   padding: 0.8rem 1.6rem;
 }
 
@@ -599,17 +611,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4rem;
   width: 100%;
+  border-bottom: 2px solid #0D7A5F;
+  padding: 3rem 0;
 }
 .beer-container {
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
   width: 100%;
-}
-.beer-container .beer:nth-child(even) {
-  background-color: tan;
 }
 .beer-infos {
   flex-basis: 20%;
@@ -621,6 +631,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  flex-basis: 20%;
 }
 .beer-img img {
   position: absolute;
@@ -629,10 +640,6 @@ body {
 }
 .beer-btns {
   flex-basis: 20%;
-}
-
-.hidden {
-  display:none;
 }
 
 /*# sourceMappingURL=main.css.map */

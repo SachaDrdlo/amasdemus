@@ -30,7 +30,7 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
                             <img className={styles.container_grid_illu_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
                             : router.pathname === '/about'
                                 ?
-                                <img src={image} alt="" />
+                                <img className={styles.container_grid_illu_beer} src={image} alt="" />
                                 :
                                 null
                         }
