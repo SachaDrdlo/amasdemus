@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useEffect, useState, useCallback, createContext, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import styles from '../../styles/components/Beers.module.scss';
 import Header from '../components/Header';
@@ -8,14 +8,9 @@ import Footer from '../components/Footer';
 import Filters from '../components/Filters';
 import LogoTemplate from '../components/LogoTemplate';
 
-export default function Beers({
-	blondBeers,
-	tripleBeers,
-	amberBeers,
-	typesFilters,
-	locationsFilters,
-	flavoursFilters
-}) {
+export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilters }) {
+	// locationsFilters, flavoursFilters
+
 	blondBeers = blondBeers.beers;
 	tripleBeers = tripleBeers.beers;
 	amberBeers = amberBeers.beers;
@@ -25,7 +20,6 @@ export default function Beers({
 	const amberType = amberBeers[0].type;
 
 	const [ opened, setOpened ] = useState(false);
-	const breakpoint = 992;
 	const getFilters = (e) => {
 		e.currentTarget.id === 'filter' ? setOpened(!opened) : null;
 		document.body.classList.add('filters__active');
@@ -35,7 +29,6 @@ export default function Beers({
 
 	const callbackFunction = (filterResponse) => {
 		// Bravo à Sacha le grand
-
 		const beerState = [ ...beerFilters ];
 
 		const filterIn = beerState.find((filter) => {
@@ -61,7 +54,7 @@ export default function Beers({
 			},
 			body: JSON.stringify({ filters })
 		}).then((response) => response.json());
-
+		
 		setBeersFiltered(letFilterBeers);
 	}
 
@@ -122,17 +115,19 @@ export default function Beers({
 	const typesList = typesFilters.beers.map((type) => {
 		return type;
 	});
-	const locationsList = locationsFilters.beers.map((location) => {
-		return location;
-	});
-	const flavoursList = flavoursFilters.beers.map((flavour) => {
-		return flavour;
-	});
+
+	// TODO - AUTRES FILTRES A ACTIVER DAS UNE PROCHAINE VERSION
+	// --------------------------------------------------------------------------------------------
+	// const locationsList = locationsFilters.beers.map((location) => {
+	// 	return location;
+	// });
+	// const flavoursList = flavoursFilters.beers.map((flavour) => {
+	// 	return flavour;
+	// });
 
 	const pageRender = (beerDataArray) => {
 		if (beerFilters.length > 0 && beerDataArray != undefined) {
-            console.log(beerDataArray);
-            // {beersFilteredList.itemCount}
+
 			return (
 				<section className={styles.beers_section}>
 					<div className="sectionblock-infos">
@@ -142,7 +137,6 @@ export default function Beers({
 					</div>
 					<Grid container item className={styles.breweries_container}>
 						{filterBeers(beersFiltered)}
-						{/* {beersFilteredList != undefined ? beersFilteredList : ""} */}
 					</Grid>
 				</section>
 			);
@@ -207,11 +201,10 @@ export default function Beers({
 				</div>
 				<Filters
 					types={typesList}
-					locations={locationsList}
-					flavours={flavoursList}
+					// locations={locationsList}
+					// flavours={flavoursList}
 					parentCallback={callbackFunction}
 				/>
-
 				<div className="container">
                     {pageRender(beersFiltered)}
                 </div>
@@ -226,43 +219,35 @@ export async function getServerSideProps() {
 	const triple = encodeURI('triple');
 	const amber = encodeURI('ambrée');
 
-	const blondRes = await fetch(
-		`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${blonde}"`
-	);
+	const blondRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${blonde}"`);
 	const blondBeers = await blondRes.json();
 
-	const tripleRes = await fetch(
-		`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${triple}"`
-	);
+	const tripleRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${triple}"`);
 	const tripleBeers = await tripleRes.json();
 
-	const amberRes = await fetch(
-		`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${amber}"`
-	);
+	const amberRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/selectBeersByType.php?selection="${amber}"`);
 	const amberBeers = await amberRes.json();
 
 	// APPEL FILTERS ITEMS
+
 	const typeRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterTypeItem.php`);
 	const typesFilters = await typeRes.json();
 
-	const locationRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterLocationItem.php`);
-	const locationsFilters = await locationRes.json();
+	// TODO - AUTRES APPELS FILTRES A REVOIR POUR UNE PROCHAINE VERSION
+	// --------------------------------------------------------------------------------------------
 
-	const flavourRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterFlavourItem.php`);
-	const flavoursFilters = await flavourRes.json();
+	// const locationRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterLocationItem.php`);
+	// const locationsFilters = await locationRes.json();
 
-	const allBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/allBeers.php`);
-	const allBeers = await allBeersRes.json();
+	// const flavourRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterFlavourItem.php`);
+	// const flavoursFilters = await flavourRes.json();
 
 	return {
 		props: {
 			blondBeers,
 			tripleBeers,
 			amberBeers,
-			typesFilters,
-			locationsFilters,
-			flavoursFilters,
-			allBeers
+			typesFilters
 		}
 	};
 }

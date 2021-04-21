@@ -1,27 +1,14 @@
 import { Grid } from '@material-ui/core';
-import { useEffect, useState, createContext, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../styles/components/Filters.module.scss';
-import FiltersAccordion from './FiltersAccordion';
 
-export default function Filters({ types, locations, flavours, parentCallback }) {
+export default function Filters({ types, parentCallback }) {
     const [opened, setOpened] = useState(false);
     const [beerFilters, setBeerFilters] = useState([]);
-
-
-    const breakpoint = 992;
 
     const getFilters = (e) => {
         e.currentTarget.id === 'filtercross' ? setOpened(!opened) : null
     }
-
-    // const sendData = (props) => {
-    //     props.parentCallback(beerFilters)
-    // }
-
-    // const handleFilterItem = (e) => {
-    //     setBeerFilters([...beerFilters, e.target.id])
-    //     // sendData(props)
-    // }
 
     const typeFilterMap = types.map((type) => {
         return(
@@ -33,25 +20,26 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
         )
     })
 
-    const locationFilterMap = locations.map((location) => {
-        return(
-            <div>
-                <input type="checkbox" id={location.location} name={location.location}/>
-                <label htmlFor={location.location}>{location.location}</label>
-            </div>
+    // TODO - MAP DES DIFFERENTS FILTRES A REVOIR DANS UNE PROCHAINE VERSION
+    // --------------------------------------------------------------------------------------------
 
-        )
-    })
+    // const locationFilterMap = locations.map((location) => {
+    //     return(
+    //         <div>
+    //             <input type="checkbox" id={location.location} name={location.location}/>
+    //             <label htmlFor={location.location}>{location.location}</label>
+    //         </div>
+    //     )
+    // })
 
-    const flavourFilterMap = flavours.map((flavour) => {
-        return(
-            <div>
-                <input type="checkbox" id={flavour.flavour} name={flavour.flavour}/>
-                <label htmlFor={flavour.flavour}>{flavour.flavour}</label>
-            </div>
-
-        )
-    })
+    // const flavourFilterMap = flavours.map((flavour) => {
+    //     return(
+    //         <div>
+    //             <input type="checkbox" id={flavour.flavour} name={flavour.flavour}/>
+    //             <label htmlFor={flavour.flavour}>{flavour.flavour}</label>
+    //         </div>
+    //     )
+    // })
 
     useEffect(() => {
         document.body.classList.remove("filters__active", opened);
@@ -73,47 +61,30 @@ export default function Filters({ types, locations, flavours, parentCallback }) 
                     <ul>
                         <li className={styles.filters_list_el}>
                             <div className={styles.filter}>
-                                <button>Type</button>
-                                {/* className={styles.filter_boxes} */}
+                                <button>Type de bières</button>
                                     {typeFilterMap}
-
                             </div>
                         </li>
 
-                        <li className={styles.filters_list_el}>
-                            <div className={styles.filter}>
-                                <button>Région</button>
-                                {/* className={styles.filter_boxes} */}
-                                    {locationFilterMap}
-
-                            </div>
-                        </li>
-
-                        <li className={styles.filters_list_el}>
-                            <div className={styles.filter}>
-                                <button>Notes / saveurs</button>
-                                {/* className={styles.filter_boxes} */}
-                                    {flavourFilterMap}
-
-                            </div>
-                        </li>
+                        {/* TODO - MAP DES DIFFERENTS FILTRES A REVOIR DANS UNE PROCHAINE VERSION
+                        -------------------------------------------------------------------------------------------- */}
+                        
                         {/* <li className={styles.filters_list_el}>
                             <div className={styles.filter}>
-                                   {types}
-                                <button>Type</button>
-                                <p className={styles.filter_boxes}>
-                                {types}
-                                </p>
+                                <button>Région</button>
+                                    {locationFilterMap}
+                            </div>
+                        </li> */}
+
+                        {/* <li className={styles.filters_list_el}>
+                            <div className={styles.filter}>
+                                <button>Notes / saveurs</button>
+                                    {flavourFilterMap}
                             </div>
                         </li> */}
                     </ul>
                 </div>
-                {/* <FiltersAccordion
-                    types = {types}
-                    locations = {locations}
-                    flavours = {flavours}
-                /> */}
-                <button className={styles.filters_applybtn}>Appliquer les filtres</button>
+                {/* <button className={styles.filters_applybtn}>Appliquer les filtres</button> */}
             </div>
         </div>
     )
