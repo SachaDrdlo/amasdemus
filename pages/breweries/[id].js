@@ -40,9 +40,9 @@ const Brewery = ({ brewery, breweryBeersData }) => {
                             </Grid>
                             <Grid item xs={12} md={6}>
                                 <div className="sectionblock-infos">
-                                    <h2 className="sectionblock-headtitle">{brewery.region}</h2>
+                                    <p className="sectionblock-headtitle">{brewery.region}</p>
                                     <hr className="sectionblock-underline" />
-                                    <h3 className="sectionblock-title">{brewery.name}</h3>
+                                    <h1 className="sectionblock-title">{brewery.name}</h1>
                                 </div>
                                 <p>{brewery.description}</p>
                             </Grid>
@@ -50,9 +50,9 @@ const Brewery = ({ brewery, breweryBeersData }) => {
                     </section>
                     <section className={styles.brewery_beers}>
                         <div className="sectionblock-infos">
-                            <h2 className="sectionblock-headtitle">{brewery.name}</h2>
+                            <p className="sectionblock-headtitle">{brewery.name}</p>
                             <hr className="sectionblock-underline" />
-                            <h3 className="sectionblock-title">Leurs bières</h3>
+                            <h2 className="sectionblock-title">Leurs bières</h2>
                         </div>
                         <Grid container spacing={5}>
                             {breweriesBeersDisplay}
@@ -60,7 +60,7 @@ const Brewery = ({ brewery, breweryBeersData }) => {
                         <div className='beers-btn'>
                             <Link href={`/breweries/beers/${breweryId}`}>
                                 <a className="discoverBtn">
-                                    Découvrir les bières triples
+                                    Découvrir leurs bières
 									<svg className="discover-arrow-svg" width="42" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M40.36 5.762H5.613l5.756-3.868c.642-.432.645-1.134.006-1.568-.64-.433-1.678-.435-2.32-.003L.482 6.085l-.002.001c-.64.432-.642 1.136 0 1.57h.002l8.572 5.763c.642.431 1.681.43 2.32-.004.64-.434.637-1.136-.005-1.567l-5.756-3.87H40.36c.907 0 1.641-.495 1.641-1.107s-.734-1.109-1.64-1.109z" /></svg>
                                 </a>
                             </Link>

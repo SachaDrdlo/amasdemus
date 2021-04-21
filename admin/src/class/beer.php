@@ -236,7 +236,8 @@ class Beer
         $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, breweries.name as nom_brasserie
         FROM " . $this->db_table . "
         INNER JOIN breweries
-        ON beers.id_brewery = $idBrewery
+        ON beers.id_brewery = breweries.id
+        WHERE beers.id_brewery = $idBrewery
         GROUP BY beers.id
         ORDER BY beers.name;";
 

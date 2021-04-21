@@ -10,6 +10,7 @@ export default function Filters({ types, handleBeersFilterCallback, handleFilter
         e.currentTarget.id === 'filtercross' ? setOpened(!opened) : null
     }
 
+
     const getTrueChecked = () => {
         isChecked = true
     }
