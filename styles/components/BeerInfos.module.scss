@@ -57,6 +57,22 @@
         background-color: $clr-green;
         padding: 60px 0;
         margin-top: 150px;
+        position: relative;
+
+        // &::after {
+        //     position: absolute;
+        //     display: block;
+        //     content: "";
+        //     background-image: url('../../public/img/illus/hop-discover-illu.svg');
+        //     background-repeat: no-repeat;
+        //     background-size: contain;
+        //     width: 30rem;
+        //     height: auto;
+        //     top: -3rem;
+        //     left: -5rem;
+        //     transform: rotate(20deg);
+        //     bottom: 20rem;
+        // }
 
         &_container {
             &_logo {
@@ -81,6 +97,23 @@
                 &_btn {
                     padding-top: 20px;
                 }
+            }
+        }
+
+        &_illu {
+            position: relative;
+            bottom: 0;
+            left: -50px;
+
+            &_hop {
+                width: 20rem;
+                height: auto;
+            }
+
+            @media only screen and (min-width: 760px) {
+                position: absolute;
+                top: 0;
+                left: -20px;
             }
         }
     }

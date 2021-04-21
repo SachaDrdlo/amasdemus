@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GoBackButton from '../components/GoBackButton'
 import LogoTemplate from '../components/LogoTemplate';
+import Navbar from '../components/Navbar-bottom';
 // import BrewerySuggestion from '../components/BrewerySuggestion';
 
 export default function Breweries({ data }) {
@@ -33,6 +34,7 @@ export default function Breweries({ data }) {
                 </section>
             </main>
             <Footer />
+            <Navbar />
         </div>
     )
 }

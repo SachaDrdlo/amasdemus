@@ -5,6 +5,8 @@ import { Grid } from '@material-ui/core';
 import styles from '../../styles/components/Beers.module.scss';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import GoBackButton from '../components/GoBackButton'
+import Navbar from '../components/Navbar-bottom';
 import Filters from '../components/Filters';
 import LogoTemplate from '../components/LogoTemplate';
 
@@ -19,13 +21,13 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const tripleType = tripleBeers[0].type;
 	const amberType = amberBeers[0].type;
 
-	const [ opened, setOpened ] = useState(false);
+	const [opened, setOpened] = useState(false);
 	const getFilters = (e) => {
 		e.currentTarget.id === 'filter' ? setOpened(!opened) : null;
 		document.body.classList.add('filters__active');
 	};
 
-	const [ beerFilters, setBeerFilters ] = useState([]);
+	const [beerFilters, setBeerFilters] = useState([]);
 
 	const handleBeersFilter = (filterResponse) => {
 		// Bravo à Sacha le grand
@@ -39,11 +41,11 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 			const remainingFilters = beerState.filter((item) => item !== filterIn);
 			setBeerFilters(remainingFilters);
 		} else {
-			setBeerFilters([ ...beerFilters, filterResponse ]);
+			setBeerFilters([...beerFilters, filterResponse]);
 		}
 	};
 
-	const [beersFiltered, setBeersFiltered ] = useState();
+	const [beersFiltered, setBeersFiltered] = useState();
 
 	async function getSacha(filters) {
 		const letFilterBeers = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/getBeersByTypeFilter.php`, {
@@ -54,7 +56,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 			},
 			body: JSON.stringify({ filters })
 		}).then((response) => response.json());
-		
+
 		setBeersFiltered(letFilterBeers);
 	}
 
@@ -68,48 +70,48 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 		() => {
 			getSacha(beerFilters);
 		},
-		[ beerFilters ]
+		[beerFilters]
 	);
 
 	const filterBeers = (beerDataArray) => {
 		if (beerFilters.length > 0 && beerDataArray != undefined) {
 			const beersFilteredList = beerDataArray.beers.map((beer) => {
-				return  <LogoTemplate
-                            key={beer.id}
-                            id={beer.id}
-                            img={beer.image}
-                            name={beer.name}
-                        />;
+				return <LogoTemplate
+					key={beer.id}
+					id={beer.id}
+					img={beer.image}
+					name={beer.name}
+				/>;
 			});
 			return beersFilteredList;
 		}
 	};
 
 	const blondList = blondBeers.map((blondBeer) => {
-		return  <LogoTemplate
-                    key={blondBeer.id}
-                    id={blondBeer.id}
-                    img={blondBeer.image}
-                    name={blondBeer.name}
-                />;
+		return <LogoTemplate
+			key={blondBeer.id}
+			id={blondBeer.id}
+			img={blondBeer.image}
+			name={blondBeer.name}
+		/>;
 	});
 
 	const tripleList = tripleBeers.map((tripleBeer) => {
-		return  <LogoTemplate
-                    key={tripleBeer.id}
-                    id={tripleBeer.id}
-                    img={tripleBeer.image}
-                    name={tripleBeer.name}
-                />;
+		return <LogoTemplate
+			key={tripleBeer.id}
+			id={tripleBeer.id}
+			img={tripleBeer.image}
+			name={tripleBeer.name}
+		/>;
 	});
 
 	const amberList = amberBeers.map((amberBeer) => {
-		return  <LogoTemplate
-                    key={amberBeer.id}
-                    id={amberBeer.id}
-                    img={amberBeer.image}
-                    name={amberBeer.name}
-                />;
+		return <LogoTemplate
+			key={amberBeer.id}
+			id={amberBeer.id}
+			img={amberBeer.image}
+			name={amberBeer.name}
+		/>;
 	});
 
 	const typesList = typesFilters.beers.map((type) => {
@@ -188,9 +190,14 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 						<Grid container item className={styles.breweries_container}>
 							{blondList}
 						</Grid>
-						<Link href={`/beers/type/${blondType}`}>
-							<a className={`beigeButton ${styles.beigeButton}`}>Découvrir toutes les bières blondes</a>
-						</Link>
+						<div className="beers-btn">
+							<Link href={`/beers/type/${blondType}`}>
+								<a className="discoverBtn">
+									Découvrir les bières blondes
+									<svg className="discover-arrow-svg" width="42" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M40.36 5.762H5.613l5.756-3.868c.642-.432.645-1.134.006-1.568-.64-.433-1.678-.435-2.32-.003L.482 6.085l-.002.001c-.64.432-.642 1.136 0 1.57h.002l8.572 5.763c.642.431 1.681.43 2.32-.004.64-.434.637-1.136-.005-1.567l-5.756-3.87H40.36c.907 0 1.641-.495 1.641-1.107s-.734-1.109-1.64-1.109z" /></svg>
+								</a>
+							</Link>
+						</div>
 					</section>
 					<section className={styles.beers_section}>
 						<div className="sectionblock-infos">
@@ -201,9 +208,14 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 						<Grid container item className={styles.breweries_container}>
 							{tripleList}
 						</Grid>
-						<Link href={`/beers/type/${tripleType}`}>
-							<a className={`beigeButton ${styles.beigeButton}`}>Découvrir toutes les bières triples</a>
-						</Link>
+						<div className='beers-btn'>
+							<Link href={`/beers/type/${tripleType}`}>
+								<a className="discoverBtn">
+									Découvrir les bières triples
+									<svg className="discover-arrow-svg" width="42" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M40.36 5.762H5.613l5.756-3.868c.642-.432.645-1.134.006-1.568-.64-.433-1.678-.435-2.32-.003L.482 6.085l-.002.001c-.64.432-.642 1.136 0 1.57h.002l8.572 5.763c.642.431 1.681.43 2.32-.004.64-.434.637-1.136-.005-1.567l-5.756-3.87H40.36c.907 0 1.641-.495 1.641-1.107s-.734-1.109-1.64-1.109z" /></svg>
+								</a>
+							</Link>
+						</div>
 					</section>
 					<section className={styles.beers_section}>
 						<div className="sectionblock-infos">
@@ -214,9 +226,14 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 						<Grid container item className={styles.breweries_container}>
 							{amberList}
 						</Grid>
-						<Link href={`/beers/type/${amberType}`}>
-							<a className={`beigeButton ${styles.beigeButton}`}>Découvrir les bières ambrées</a>
-						</Link>
+						<div className='beers-btn'>
+							<Link href={`/beers/type/${amberType}`}>
+								<a className="discoverBtn">
+									Découvrir les bières ambrées
+									<svg className="discover-arrow-svg" width="42" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M40.36 5.762H5.613l5.756-3.868c.642-.432.645-1.134.006-1.568-.64-.433-1.678-.435-2.32-.003L.482 6.085l-.002.001c-.64.432-.642 1.136 0 1.57h.002l8.572 5.763c.642.431 1.681.43 2.32-.004.64-.434.637-1.136-.005-1.567l-5.756-3.87H40.36c.907 0 1.641-.495 1.641-1.107s-.734-1.109-1.64-1.109z" /></svg>
+								</a>
+							</Link>
+						</div>
 					</section>
 				</div>
 			);
@@ -228,6 +245,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 			<Header />
 			<main>
 				<div className={`${styles.filters_container} ${opened ? styles.filters_container_active : null}`}>
+					{/* <GoBackButton /> */}
 					<div className="container">
 						<button id="filter" className={styles.filters_btn} onClick={(e) => getFilters(e)}>
 							<img src="/img/icons/filter-icon.svg" alt="" />
@@ -244,10 +262,11 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 					handleFiltersReset={handleBeersFilterReset}
 				/>
 				<div className="container">
-                    {pageRender(beersFiltered)}
-                </div>
+					{pageRender(beersFiltered)}
+				</div>
 			</main>
 			<Footer />
+			<Navbar />
 		</div>
 	);
 }

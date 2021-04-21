@@ -25,7 +25,15 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
             <Grid container className={styles.container_grid} alignItems="center" justify="space-between" direction="row-reverse">
                 <Grid item xs={12} sm={6} className={styles.container_grid_illu}>
                     <figure>
-                        <img className={styles.container_grid_illu_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
+                        {router.pathname === '/' || router.pathname === '/beers/[id]'
+                            ?
+                            <img className={styles.container_grid_illu_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
+                            : router.pathname === '/about'
+                                ?
+                                <img src={image} alt="" />
+                                :
+                                null
+                        }
                         <img className={styles.container_grid_illu_blob} src="../img/blob.svg" alt="" />
                     </figure>
                 </Grid>

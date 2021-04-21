@@ -1,14 +1,14 @@
 @import '../global/variables.scss';
 
-.filters{
-    &_container{
+.filters {
+    &_container {
         position: relative;
         // margin-top: 3.2rem;
         height: 7.2rem;
         border-top: 2px solid $clr-green;
     }
 
-    &_btn{
+    &_btn {
         position: absolute;
         display: flex;
         align-items: center;
@@ -17,13 +17,13 @@
         outline: none;
         cursor: pointer;
 
-        & img{
+        & img {
             height: 2.4rem;
             width: auto;
             margin-right: 1.2rem;
         }
 
-        & p{
+        & p {
             margin: 0;
             font-size: 2rem;
             font-weight: bold;
@@ -32,12 +32,13 @@
     }
 }
 
-.beers{
-    &_section{
+.beers {
+    &_section {
         margin-top: 13.6rem;
     }
-    &_section:not(:last-child){  
-        &::after{
+
+    &_section:not(:last-child) {
+        &::after {
             background-color: $clr-green;
             display: block;
             content: "";

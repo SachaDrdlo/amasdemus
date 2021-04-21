@@ -70,7 +70,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
               <h1>Un monde de découverte</h1>
               <span><p>Un moment entre amis, au restaurant ou indécis devant l'innombrable choix de votre caviste, il n'y a ni lieu ni heure pour découvrir de nouvelles saveurs locales.</p></span>
               <div className={styles.discover_container_content_btn}>
-                <Link href="/">
+                <Link href="/beers">
                   <a className={`beigeButton ${styles.beigeButton}`}>Découvrir les bières du terroir</a>
                 </Link>
               </div>

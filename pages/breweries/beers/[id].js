@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Navbar from '../../components/Navbar-bottom';
 import GoBackButton from '../../components/GoBackButton'
 import LogoTemplate from '../../components/LogoTemplate';
 import styles from '../../../styles/components/Brewery.module.scss';
@@ -29,8 +30,8 @@ const BreweryId = ({ breweryBeersData }) => {
 
     return (
         <div>
-            <Header/>
-            <GoBackButton/>
+            <Header />
+            <GoBackButton />
             <main className="container">
                 <section className={styles.brewery_beers}>
                     <div className="sectionblock-infos">
@@ -44,8 +45,8 @@ const BreweryId = ({ breweryBeersData }) => {
                 </section>
 
             </main>
-
-            <Footer/>
+            <Footer />
+            <Navbar />
         </div>
     )
 }

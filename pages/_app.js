@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
         ?
         <div className='loading-container'>
           <img className='loading-container-logo' src='../img/logos/logo-picto-green.svg' alt="" />
+          <h1>Chargement</h1>
         </div>
         :
         <Component {...pageProps} />

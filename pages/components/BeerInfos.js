@@ -5,16 +5,33 @@ import BeerIllu from './BeerIllu'
 import BreweryTemplate from './BreweryTemplate'
 import BeerSuggestion from './BeerSuggestion';
 import Footer from './Footer'
+import { useRouter } from 'next/router';
 
 const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, desc_brewery, brewery_id, image, title, description }, props) => {
+
+    const router = useRouter()
+
     return (
         <div className={styles.beerPresentation}>
             <div className="container">
                 <Grid container justify="space-between" className={styles.beerPresentation_container}>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_img}>
                         <figure>
-                            <img className={styles.beerPresentation_container_img_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
-                            <img className={styles.beerPresentation_container_img_brewery} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                            {router.pathname === '/beers/[id]'
+                                ?
+                                <>
+                                    <img className={styles.beerPresentation_container_img_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
+                                    <img className={styles.beerPresentation_container_img_brewery} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                                </>
+                                : router.pathname === '/about'
+                                    ?
+                                    <>
+                                        <img className={styles.beerPresentation_container_img_beer} src={`${image}`} alt="" />
+                                        <img className={styles.beerPresentation_container_img_brewery} src={`${img_brewery}`} alt="" />
+                                    </>
+                                    :
+                                    null
+                            }
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_text}>

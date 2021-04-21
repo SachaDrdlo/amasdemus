@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Grid } from '@material-ui/core';
 import GoBackButton from '../components/GoBackButton'
 import LogoTemplate from '../components/LogoTemplate'
+import Navbar from '../components/Navbar-bottom';
 import BeerInfos from '../components/BeerInfos'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -14,7 +15,7 @@ const beer = ({ beerData, sameTypeBeers }) => {
     // console.log(beerData.id);
     sameTypeBeers = sameTypeBeers.beers
 
-    const sameTypeBeersSelection = sameTypeBeers.map( (beer) => {
+    const sameTypeBeersSelection = sameTypeBeers.map((beer) => {
 
         return (
             <LogoTemplate
@@ -77,7 +78,7 @@ const beer = ({ beerData, sameTypeBeers }) => {
                 </Grid>
             </div>
             <Footer />
-
+            <Navbar />
         </div>
     )
 }
