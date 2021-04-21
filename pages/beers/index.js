@@ -81,11 +81,11 @@ export default function Beers({
 	const filterBeers = (beerDataArray) => {
 		if (beerFilters.length > 0 && beerDataArray != undefined) {
 			const beersFilteredList = beerDataArray.beers.map((beer) => {
-				return  <LogoTemplate 
-                            key={beer.id} 
-                            id={beer.id} 
-                            img={beer.image} 
-                            name={beer.name} 
+				return  <LogoTemplate
+                            key={beer.id}
+                            id={beer.id}
+                            img={beer.image}
+                            name={beer.name}
                         />;
 			});
 			return beersFilteredList;
@@ -93,29 +93,29 @@ export default function Beers({
 	};
 
 	const blondList = blondBeers.map((blondBeer) => {
-		return  <LogoTemplate 
-                    key={blondBeer.id} 
-                    id={blondBeer.id} 
-                    img={blondBeer.image} 
-                    name={blondBeer.name} 
+		return  <LogoTemplate
+                    key={blondBeer.id}
+                    id={blondBeer.id}
+                    img={blondBeer.image}
+                    name={blondBeer.name}
                 />;
 	});
 
 	const tripleList = tripleBeers.map((tripleBeer) => {
-		return  <LogoTemplate 
-                    key={tripleBeer.id} 
-                    id={tripleBeer.id} 
-                    img={tripleBeer.image} 
-                    name={tripleBeer.name} 
+		return  <LogoTemplate
+                    key={tripleBeer.id}
+                    id={tripleBeer.id}
+                    img={tripleBeer.image}
+                    name={tripleBeer.name}
                 />;
 	});
 
 	const amberList = amberBeers.map((amberBeer) => {
-		return  <LogoTemplate 
-                    key={amberBeer.id} 
-                    id={amberBeer.id} 
-                    img={amberBeer.image} 
-                    name={amberBeer.name} 
+		return  <LogoTemplate
+                    key={amberBeer.id}
+                    id={amberBeer.id}
+                    img={amberBeer.image}
+                    name={amberBeer.name}
                 />;
 	});
 
