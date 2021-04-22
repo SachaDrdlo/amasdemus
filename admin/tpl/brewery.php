@@ -11,52 +11,47 @@ include("header.php");
                 <div class="container">
                     <div class="form-group">
                         <label for="inputName">Le nom de la brasserie</label>
-                        <input type="text" name="name" id="inputName" value="<?=isset($data["name"]) ? $data["name"] : "" ?>" required />
+                        <input type="text" name="name" id="inputName" value="<?= isset($data["name"]) ? $data["name"] : "" ?>" required />
                     </div>
 
                     <div class="form-group">
                         <label for="inputDescription">Le texte de description</label>
-                        <textarea name="description" id="inputDescription" rows="15" cols="33" value="" ><?= isset($data["description"]) ? $data["description"] : "" ?></textarea>
+                        <textarea name="description" id="inputDescription" rows="15" cols="33" value=""><?= isset($data["description"]) ? $data["description"] : "" ?></textarea>
                     </div>
 
-                <div class="form-group">
-                    <label for="inputDescription">Le texte de description</label>
-                    <input type="text" name="description" id="inputDescription" value="<?= isset($data["description"]) ? $data["description"] : "" ?>" />
-                </div>
+                    <div class="form-group">
+                        <label for="inputAddress">L'addresse de la brasserie</label>
+                        <input type="text" name="address" id="inputAddress" value="<?= isset($data["address"]) ? $data["address"] : "" ?>" />
+                    </div>
 
-                <div class="form-group">
-                    <label for="inputAddress">L'addresse de la brasserie</label>
-                    <input type="text" name="address" id="inputAddress" value="<?= isset($data["address"]) ? $data["address"] : "" ?>" />
-                </div>
+                    <div class="form-group">
+                        <label for="inputUrl">Le site internet de la brasserie</label>
+                        <input type="text" name="url" id="inputUrl" value="<?= isset($data["url"]) ? $data["url"] : "" ?>" />
+                    </div>
 
-                <div class="form-group">
-                    <label for="inputUrl">Le site internet de la brasserie</label>
-                    <input type="text" name="url" id="inputUrl" value="<?= isset($data["url"]) ? $data["url"] : "" ?>" />
-                </div>
-
-                <div class="form-group">
-                    <label for="inputLogo">Le logo de la brasserie</label>
-                    <?php
-                    if (!empty($data["logo"])) {
-                    ?>
-                        <img class="beer-img" src="../assets/img/breweries/<?= $data["logo"] ?>" alt="">
-                        <input type="file" name="logo" id="inputLogo" />
-                        <label class="btn" for="inputLogo">Choisir une photo</label>
-                    <?php
-                    } else {
-                    ?>
-                        <input type="file" name="logo" id="inputLogo" />
-                        <label class="btn" for="inputLogo">Choisir une photo</label>
-                    <?php
-                    }
-                    ?>
+                    <div class="form-group">
+                        <label for="inputLogo">Le logo de la brasserie</label>
+                        <?php
+                        if (!empty($data["logo"])) {
+                        ?>
+                            <img class="beer-img" src="../assets/img/breweries/<?= $data["logo"] ?>" alt="">
+                            <input type="file" name="logo" id="inputLogo" />
+                            <label class="btn" for="inputLogo">Choisir une photo</label>
+                        <?php
+                        } else {
+                        ?>
+                            <input type="file" name="logo" id="inputLogo" />
+                            <label class="btn" for="inputLogo">Choisir une photo</label>
+                        <?php
+                        }
+                        ?>
 
 
+                    </div>
+                    <div>
+                        <input class="btn" type="submit" value="Ajouter la brasserie" />
+                    </div>
                 </div>
-                <div>
-                    <input class="btn" type="submit" value="Ajouter la brasserie" />
-                </div>
-        </div>
         </div>
         </div>
         </form>
