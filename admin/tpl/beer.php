@@ -28,7 +28,6 @@ include("header.php");
                     <label for="inputType">Le type de la bière</label>
                     <select name="type" id="inputType">
                         <?php
-                        var_dump($data);
                         foreach ($types as $type) {
                         ?>
                             <option value="<?= $type["id"] ?>" <?= isset($data["id_type"]) && ($type["id"] == $data["id_type"]) ? "selected" : "" ?>> <?= $type["type"] ?></option>
@@ -43,9 +42,7 @@ include("header.php");
                     </div>
                     <div class="form-group">
                         <label for="inputDescription">Le premier texte de description</label>
-                        <textarea name="description" id="inputDescription" rows="10" cols="33" value="" >
-                        <?= isset($data["description"]) ? $data["description"] : "" ?>
-                        </textarea>
+                        <textarea name="description" id="inputDescription" rows="10" cols="33" value="" ><?= isset($data["description"]) ? $data["description"] : "" ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="inputLevel">Le degré d'alcool dans la bière</label>
@@ -100,8 +97,9 @@ include("header.php");
                     <?php
                     if (!empty($data["image"])) {
                     ?>
-                        <img src="../assets/img/beers/<?= $data["image"] ?>" alt="">
+                        <img class="beer-img" src="../assets/img/beers/<?= $data["image"] ?>" alt="">
                         <input type="file" name="image" id="inputImage" />
+                        <label class="btn" for="inputImage">Choisir une photo</label>
                     <?php
                     } else {
                     ?>

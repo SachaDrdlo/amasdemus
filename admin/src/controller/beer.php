@@ -133,7 +133,6 @@ class BeerController
     {
         if(empty($this->model->image)) {
             $data = $this->get();
-            var_dump ($data);
             if (isset($data["image"])) {
                 $this->model->image = $data["image"];
 

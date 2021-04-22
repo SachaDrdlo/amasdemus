@@ -14,19 +14,19 @@ const About = () => {
 
             <BeerInfos
             // key={beerData.id}
-            name={'Team Zobar'}
+            name={'La Zytholoteam'}
             type={'brune'}
-            level={18}
+            level={59}
             brewery={'Hauts-de-France'}
-            desc_brewery={"Nous sommes exceptionnel regardez ce qu'on a réussi à faire je vous en supplie lets go c'est parti j'adore la bière j'aime le sexe et ensuite j'adore la bière en faisant du sexe Etienne est un gros puant ainsi que Julien la longue mèche mdr allez zé barti tout le monde pour un nouveau tour"}
+            desc_brewery={"Berceau de nos 3 ingrédients exceptionnels, cette région habrite également les locaux de M2i formation, brasserie du savoir dans laquelle le maître brasseur Frédéric Girod apporte une attention toute particulière à la confection & à réussite de la bière Zytholoteam. Sa sagesse et ses conseils avisés ont rendu possible la création de ce projet."}
             // brewery_id={beerData.id_brewery}
-            flavours={'Créatif, salé, branleur'}
+            flavours={'Créativité, force de caractère, passion'}
             // format={beerData.format}
             glass={'Pinte ou rien'}
             image={'../img/beer-about.png'}
             img_brewery={'../img/hauts-de-france.png'}
-            title={'La dream team'}
-            description={"Nous sommes exceptionnel regardez ce qu'on a réussi à faire je vous en supplie lets go c'est parti j'adore la bière j'aime le sexe et ensuite j'adore la bière en faisant du sexe Etienne est un gros puant ainsi que Julien la longue mèche mdr allez zé barti tout le monde pour un nouveau tour"}
+            title={"L'alliance parfaite"}
+            description={"Chacun des ingrédients que composent cette bière a été brassé avec amour pendant 9 mois. Sacha, un houblonné de provenance Picarde, Étienne, l'orge Dunkerquois et Julien, le malt Roubaisien forment à eux trois, l'Amas Demus. Cette bière, alliant de belles saveurs créatives, une technique affinée et beaucoup de caractère, saura vous emerveiller."}
             />
             <Footer />
             <Navbar />

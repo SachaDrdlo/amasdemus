@@ -7,18 +7,16 @@ include("header.php");
         <div class="container">
             <h1><?= $detailPage ?></h1>
             <?= $message ?>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form class="form-container" action="" method="post" enctype="multipart/form-data">
                 <div class="container">
                     <div class="form-group">
                         <label for="inputName">Le nom de la brasserie</label>
                         <input type="text" name="name" id="inputName" value="<?=isset($data["name"]) ? $data["name"] : "" ?>" required />
                     </div>
-        
+
                     <div class="form-group">
                         <label for="inputDescription">Le texte de description</label>
-                        <textarea name="description" id="inputDescription" rows="15" cols="33" value="" >
-                        <?= isset($data["description"]) ? $data["description"] : "" ?>
-                        </textarea>
+                        <textarea name="description" id="inputDescription" rows="15" cols="33" value="" ><?= isset($data["description"]) ? $data["description"] : "" ?></textarea>
                     </div>
 
                 <div class="form-group">
@@ -41,8 +39,9 @@ include("header.php");
                     <?php
                     if (!empty($data["logo"])) {
                     ?>
-                        <img src="../assets/img/breweries/<?= $data["logo"] ?>" alt="">
+                        <img class="beer-img" src="../assets/img/breweries/<?= $data["logo"] ?>" alt="">
                         <input type="file" name="logo" id="inputLogo" />
+                        <label class="btn" for="inputLogo">Choisir une photo</label>
                     <?php
                     } else {
                     ?>

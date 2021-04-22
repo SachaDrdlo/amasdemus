@@ -52,12 +52,16 @@ class BreweryController
 
     public function get()
     {
-        $query = $this->model->db->prepare("SELECT name,description, logo, address, url
+        $id=intval($this->model->id);
+        // Changer en prepare plus tard
+        $query = $this->model->db->query("SELECT name,description, logo, address, url
         FROM breweries
-        WHERE breweries.id=:id");
-        $query->bindParam(":id", $this->model->id);
-        $query->execute();
+        WHERE breweries.id={$id}");
+        // $query->bindParam(":id", $this->model->id);
+        // $query->execute();
+        // var_dump($query->execute());
         $res = $query->fetch();
+        // var_dump($res);
 
         return $res;
     }
@@ -84,10 +88,10 @@ class BreweryController
 
     public function edit(): bool
     {
-        if(empty($this->model->image)) {
+        if(empty($this->model->logo)) {
             $data = $this->get();
             if (isset($data["logo"])) {
-                $this->model->image = $data["logo"];
+                $this->model->logo = $data["logo"];
             }
         }
         $query = $this->model->db->prepare("UPDATE breweries

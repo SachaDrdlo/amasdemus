@@ -541,8 +541,9 @@ body {
   display: none;
 }
 .beer-section .form-container .form-group .beer-img {
-  width: 30%;
+  width: 20%;
   height: auto;
+  margin: 3rem auto;
 }
 .beer-section input[type=submit] {
   background-color: #FEA443;
@@ -579,6 +580,13 @@ body {
 .headercontainer nav ul li a:hover {
   background-color: #0D7A5F;
   color: #FDFFE6;
+}
+
+textarea {
+  background-color: #FDFFE6;
+  border: 2px solid #0D7A5F;
+  outline: none;
+  text-align: start;
 }
 
 .btn {
@@ -640,6 +648,10 @@ body {
 }
 .beer-btns {
   flex-basis: 20%;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

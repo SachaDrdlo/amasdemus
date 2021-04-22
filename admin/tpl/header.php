@@ -26,24 +26,17 @@
                     </a>
                     <nav>
                         <ul>
-                            <li >
-                                <a class="btn" href="<?= HOST ?>/logout.php">Se déconnecter</a>
+                            <li>
+                                <a class="btn  <?= isset($page) && $page === "home" ? "hidden" : "" ?>" href="<?= HOST ?>">Accueil Bière</a>
                             </li>
                             <li>
-                                <a class="btn  <?= isset($page) && $page === "home" ? "hidden": "" ?>" 
-                                href="<?= HOST ?>">Accueil Bière</a>
+                                <a class="btn <?= isset($page) && $page === "brewery" || $page === "beer" || $page === "breweries" ? "hidden" : "" ?>" href="<?= HOST ?>/beer">Ajouter une bière</a>
                             </li>
                             <li>
-                                <a class="btn <?= isset($page) && $page === "brewery" || $page === "beer" || $page === "breweries" ? "hidden": "" ?>" 
-                                href="<?= HOST ?>/beer">Ajouter une bière</a>
+                                <a class="btn <?= isset($page) && $page === "breweries" ? "hidden" : "" ?>" href="<?= HOST ?>/breweries">Accueil Brasserie</a>
                             </li>
                             <li>
-                                <a class="btn <?= isset($page) && $page === "breweries" ? "hidden": "" ?>" 
-                                href="<?= HOST ?>/breweries">Accueil Brasserie</a>
-                            </li>
-                            <li>
-                                <a class="btn <?= isset($page) && $page === "home" || $page === "beer" ? "hidden": "" ?>  " 
-                                href="<?= HOST ?>/brewery">Ajouter une brasserie</a>
+                                <a class="btn <?= isset($page) && $page === "home" || $page === "beer" ? "hidden" : "" ?>  " href="<?= HOST ?>/brewery">Ajouter une brasserie</a>
                             </li>
                             <li>
                                 <a class="btn" href="<?= HOST ?>/logout.php">Se déconnecter</a>
