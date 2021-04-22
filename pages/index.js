@@ -106,7 +106,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
                 <h2 className="sectionblock-title">Amas Demus: un projet à la découverte du local</h2>
               </div>
               <div className={styles.discover_container_content_btn}>
-                <Link href="/">
+                <Link href="/beers">
                   <a className={`greenButton ${styles.greenButton}`}>Découvrir les bières du terroir</a>
                 </Link>
               </div>
