@@ -63,7 +63,6 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	useEffect(() => {
 		document.body.classList.add('filters');
 		// a enlever
-		document.body.classList.add('filters__active');
 	}, []);
 
 	useEffect(
@@ -128,35 +127,11 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	// });
 
 
-	const [checked, setChecked] = useState()
+	// const [checked, setChecked] = useState()
 
-	const handleBeersFilterReset = (e) => {
-		setChecked(false)
-		e.stopPropagation()
-		// if(beerFilters == 0){
-		// 	setChecked(true)
-		// }
-		// // console.log(checked)
-		// if (checked === false){
-		// 	setChecked(null)
-		// }
+	const handleBeersFilterReset = () => {
+
 		setBeerFilters([])
-
-
-		// console.log(typeFilteredBeers);
-		// const typeFiltered = array()
-		// const filter = document.querySelectorAll("data-filter")
-		// const filters = document.querySelectorAll(`input[type="checkbox"]`)
-		// const typeFilters = filters.forEach(filter => {
-		// 	filter.hasAttributes('data-filter');
-		// })
-
-
-		// }
-		// filter.foreach
-		// console.log(filters);
-
-		// const filters = beerFiltered;
 	};
 
 	const pageRender = (beerDataArray) => {
@@ -253,7 +228,8 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 					types={typesList}
 					// locations={locationsList}
 					// flavours={flavoursList}
-					isChecked = {checked}
+					beerFilters={beerFilters}
+					// isChecked = {checked}
 					handleBeersFilterCallback={handleBeersFilter}
 					handleFiltersReset={handleBeersFilterReset}
 				/>

@@ -2,32 +2,21 @@ import { Grid } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import styles from '../../styles/components/Filters.module.scss';
 
-export default function Filters({ types, handleBeersFilterCallback, handleFiltersReset, isChecked }) {
+export default function Filters({ types, handleBeersFilterCallback, handleFiltersReset, isChecked, beerFilters }) {
     const [opened, setOpened] = useState(false);
-    // const [beerFilters, setBeerFilters] = useState([]);
 
     const getFilters = (e) => {
         e.currentTarget.id === 'filtercross' ? setOpened(!opened) : null
     }
-    console.log(isChecked);
-
-<<<<<<< HEAD
-=======
-
-    const getTrueChecked = () => {
-        isChecked = true
-    }
->>>>>>> 5aa62045c87625433e55263baa232e76b0fa3ef6
 
     const typeFilterMap = types.map((type) => {
         return (
             <div className={styles.filter_box}>
-                <input data-filter="filter" type="checkbox" id={type.type} name={type.type} onClick={() => isChecked = true} onChange={() => handleBeersFilterCallback(type.type)} checked={isChecked} />
-                <label htmlFor={type.type}>{type.type}</label>
+                <input data-filter="filter" type="checkbox" id={type.id} name={type.type} onChange={() => handleBeersFilterCallback(type.type)} checked={beerFilters.includes(type.type)} />
+                <label htmlFor={type.id}>{type.type}</label>
             </div>
-
         )
-    })
+    })    
 
     // TODO - MAP DES DIFFERENTS FILTRES A REVOIR DANS UNE PROCHAINE VERSION
     // --------------------------------------------------------------------------------------------

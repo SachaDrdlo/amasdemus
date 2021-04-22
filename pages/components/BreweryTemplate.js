@@ -21,8 +21,8 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
     return (
         <div className={styles.beerPresentation_brewery}>
             <div className="container">
-                <Grid container className={styles.beerPresentation_brewery_container} alignItems="center">
-                    <Grid item xs={12} sm={5} className={styles.beerPresentation_brewery_container_logo}>
+                <Grid container className={styles.beerPresentation_brewery_container} alignItems="center" >
+                    <Grid item xs={12} md={5} lg={5} className={styles.beerPresentation_brewery_container_logo}>
                         <figure>
                             {router.pathname === '/beers/[id]'
                                 ?
@@ -35,7 +35,7 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
                             }
                         </figure>
                     </Grid>
-                    <Grid item xs={12} sm={7} className={styles.beerPresentation_brewery_container_text}>
+                    <Grid item xs={12} md={7} lg={7} className={styles.beerPresentation_brewery_container_text}>
                         <div className="sectionblock-infos sectionblock-infos__beige">
                             <p className="sectionblock-headtitle">Le lieu de brassage</p>
                             <hr className="sectionblock-underline" />
