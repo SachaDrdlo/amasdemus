@@ -4,22 +4,22 @@
 
 
 
-.filters{
+.filters {
     position: relative;
-    
-    &_list{
+
+    &_list {
         margin: 6.4rem 0 8.8rem;
         border-bottom: 2px solid $clr-beige;
-        
-        &_el{
+
+        &_el {
             color: $clr-beige;
             border-top: 2px solid $clr-beige;
-            
-            & .filter{
+
+            & .filter {
                 padding: 0 2.2rem;
                 margin-top: 3.2rem;
-                
-                & button{
+
+                & button {
                     display: flex;
                     position: relative;
                     color: $clr-beige;
@@ -27,9 +27,9 @@
                     font-size: 2.2rem;
                     width: 100%;
                     cursor: unset;
-                    
-                    &::after{
-                        position: absolute; 
+
+                    &::after {
+                        position: absolute;
                         display: block;
                         content: url("/img/icons/chevron-icon.svg");
                         height: 2.4rem;
@@ -41,26 +41,26 @@
                     }
                 }
 
-                & p{
+                & p {
                     margin-top: 0;
                     margin-bottom: 0;
                     height: 100%;
                     overflow: hidden;
-                    transition: all 200ms ease-out; 
+                    transition: all 200ms ease-out;
                 }
 
-                &_boxes{
+                &_boxes {
                     display: flex;
                     flex-flow: row wrap;
-                    
+
                 }
 
-                &_box{
-                    flex-basis: 25%;
+                &_box {
+                    flex-basis: 33%;
                     display: flex;
                     align-items: center;
                     margin-bottom: 1.6rem;
-                    
+
                     // & input{
                     //     margin-right: .8rem;
                     //     height: 1.6rem;
@@ -77,15 +77,16 @@
                         left: 0;
                         opacity: 0.01;
                     }
-                    [type="checkbox"]:not(:checked) + label,
-                    [type="checkbox"]:checked + label {
+
+                    [type="checkbox"]:not(:checked)+label,
+                    [type="checkbox"]:checked+label {
                         position: relative;
                         padding-left: 2.4rem;
                         cursor: pointer;
                     }
 
-                    [type="checkbox"]:not(:checked) + label:before,
-                    [type="checkbox"]:checked + label:before {
+                    [type="checkbox"]:not(:checked)+label:before,
+                    [type="checkbox"]:checked+label:before {
                         content: '';
                         position: absolute;
                         left: 0;
@@ -99,8 +100,8 @@
                         transition: all .4s;
                     }
 
-                    [type="checkbox"]:not(:checked) + label:after,
-                    [type="checkbox"]:checked + label:after {
+                    [type="checkbox"]:not(:checked)+label:after,
+                    [type="checkbox"]:checked+label:after {
                         content: '';
                         position: absolute;
                         top: 50%;
@@ -113,10 +114,11 @@
                         transition: all .4s;
                     }
 
-                    [type="checkbox"]:not(:checked) + label:after {
+                    [type="checkbox"]:not(:checked)+label:after {
                         opacity: 0;
                         transform: scale(0) rotate(45deg);
                     }
+
                     // input[type="checkbox"] {
                     //     margin-right: .8rem;
                     //     height: 1.6rem;
@@ -128,29 +130,30 @@
                     //     color: none;
                     // }
 
-                    & label{
+                    & label {
                         font-size: 1.8rem;
                         text-transform: capitalize;
-                    }  
+                    }
                 }
 
-                &_showfilters{
+                &_showfilters {
 
-                    & button{
-                        &::after{ 
+                    & button {
+                        &::after {
                             transform: translateY(-50%) rotate(-90deg);
                         }
                     }
-                    & p{
+
+                    & p {
                         height: 100%;
                         margin-bottom: 1.5rem;
                     }
                 }
             }
-        }        
+        }
     }
 
-    &_container{
+    &_container {
         box-sizing: content-box;
         position: relative;
         width: 100%;
@@ -158,31 +161,31 @@
 
     }
 
-    &_header{
+    &_header {
         display: flex;
         justify-content: space-between;
         width: 100%;
         margin: 0 auto;
         padding: 0 2.2rem;
 
-        &_resetbtn{
+        &_resetbtn {
             box-sizing: content-box;
             padding: 2.4rem 0;
             height: 2.4rem;
             display: flex;
             align-items: flex-end;
 
-            & p{
+            & p {
                 margin: 0 0 0 1.6rem;
                 font-size: 2rem;
-                color:$clr-beige;
+                color: $clr-beige;
             }
-            
-            & svg{
+
+            & svg {
                 width: 2.4rem;
                 height: 2.4rem;
-                
-                & path{
+
+                & path {
                     stroke: white;
                     stroke-width: 2;
                     stroke-linecap: round;
@@ -191,17 +194,17 @@
             }
         }
 
-        &_closebtn{
+        &_closebtn {
             box-sizing: content-box;
             padding: 2.4rem 0;
             width: 2.4rem;
             height: 2.4rem;
-            
-            & svg{
+
+            & svg {
                 width: 2.4rem;
                 height: 2.4rem;
-                
-                & path{
+
+                & path {
                     stroke: white;
                     stroke-width: 2;
                     stroke-linecap: round;
@@ -212,7 +215,7 @@
 
     }
 
-    &_applybtn{
+    &_applybtn {
         position: sticky;
         width: 100%;
         margin: 0 auto;
@@ -226,9 +229,9 @@
 }
 
 
-@media screen and(min-width: $md-bp){
-    .filters{
-        &_applybtn{
+@media screen and(min-width: $md-bp) {
+    .filters {
+        &_applybtn {
             position: absolute;
             width: initial;
             margin: 0 auto;
@@ -237,18 +240,10 @@
             padding: 1.6rem 2.4rem;
             transform: translateX(-50%)
         }
-        &_header{
+
+        &_header {
             padding: 1.5rem 2.2rem;
-        }
-        &_list{
-            &_el{
-                & .filter{
-                    &_box{
-                        flex-basis: 33%;
-                    }
-                }
-            }
         }
     }
 
-  }
+}

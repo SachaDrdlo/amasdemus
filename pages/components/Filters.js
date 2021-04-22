@@ -11,13 +11,6 @@ export default function Filters({ types, handleBeersFilterCallback, handleFilter
     }
     console.log(isChecked);
 
-<<<<<<< HEAD
-=======
-
-    const getTrueChecked = () => {
-        isChecked = true
-    }
->>>>>>> 5aa62045c87625433e55263baa232e76b0fa3ef6
 
     const typeFilterMap = types.map((type) => {
         return (
