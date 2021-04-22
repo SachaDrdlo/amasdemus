@@ -15,7 +15,7 @@ const Footer = () => {
                     <Grid item xs={12} md={3}>
                         <figure className={styles.footer_container_logo}>
 
-                            { path === `/breweries/beers/[id]` ? <img src="../../img/logos/logo-vertical-green.svg" alt="" /> : <img src="../img/logos/logo-vertical-green.svg" alt="" />}
+                            { path === `/breweries/beers/[id]` || path === `/beers/type/[type]` ? <img src="../../img/logos/logo-vertical-green.svg" alt="" /> : <img src="../img/logos/logo-vertical-green.svg" alt="" />}
                         </figure>
                     </Grid>
                     <Grid item xs={12} md={4} className={styles.footer_container_text}>
