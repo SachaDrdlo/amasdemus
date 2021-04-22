@@ -15,7 +15,9 @@ include("header.php");
         
                     <div class="form-group">
                         <label for="inputDescription">Le texte de description</label>
-                        <input type="text" name="description" id="inputDescription" value="<?= isset($data["description"]) ? $data["description"] : "" ?>" />
+                        <textarea name="description" id="inputDescription" rows="15" cols="33" value="" >
+                        <?= isset($data["description"]) ? $data["description"] : "" ?>
+                        </textarea>
                     </div>
 
                     <div class="form-group">

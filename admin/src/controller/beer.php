@@ -55,17 +55,19 @@ class BeerController
     }
 
     public function get()
-    {
-        $query = $this->model->db->prepare("SELECT name, title, description, level, image,  id_type, id_brewery, id_location, id_glass, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+    {   
+        $id=intval($this->model->id);
+        // Debugger le prepare par la suite 
+        $query = $this->model->db->query("SELECT name, title, description, level, image,  id_type, id_brewery, id_location, id_glass, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
             FROM beers
             INNER JOIN beers_flavours
             ON beers.id = beers_flavours.id_beer
             INNER JOIN flavours
             ON beers_flavours.id_flavour = flavours.id
-            WHERE beers.id=:id
+            WHERE beers.id={$id};
             GROUP BY beers.name");
-        $query->bindParam(":id", $this->model->id);
-        $query->execute();
+        // $query->bindParam(":id", $id, PDO::PARAM_INT);
+        // var_dump($query->execute());
         $res = $query->fetch();
 
         return $res;
@@ -111,7 +113,7 @@ class BeerController
     }
 
     public function addFlavour($idBeer, $idFlavour) : bool
-    {
+     {   
         $query = $this->model->db->prepare("INSERT INTO beers_flavours
         (id_beer, id_flavour)
         VALUES
@@ -131,10 +133,13 @@ class BeerController
     {
         if(empty($this->model->image)) {
             $data = $this->get();
+            var_dump ($data);
             if (isset($data["image"])) {
                 $this->model->image = $data["image"];
+              
             }
         }
+        var_dump ($this->model);
         $query = $this->model->db->prepare("UPDATE beers 
             SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass
             WHERE id=:id;");

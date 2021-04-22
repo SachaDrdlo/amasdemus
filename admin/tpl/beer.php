@@ -43,7 +43,9 @@ include("header.php");
                     </div>
                     <div class="form-group">
                         <label for="inputDescription">Le premier texte de description</label>
-                        <input type="text" name="description" id="inputDescription" value="<?= isset($data["description"]) ? $data["description"] : "" ?>" />
+                        <textarea name="description" id="inputDescription" rows="10" cols="33" value="" >
+                        <?= isset($data["description"]) ? $data["description"] : "" ?>
+                        </textarea>
                     </div>
                     <div class="form-group">
                         <label for="inputLevel">Le degré d'alcool dans la bière</label>
@@ -104,7 +106,7 @@ include("header.php");
                                 <input type="file" name="image" id="inputImage" />
                             <?php
                             } else {
-                            ?>
+                            ?>  
                                 <input type="file" name="image" id="inputImage" />
                             <?php
                             }
