@@ -66,7 +66,7 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
             <div className={styles.discover_container_content}>
               <div className="sectionblock-infos sectionblock-infos__beige">
                   <p className="sectionblock-headtitle">Bières du terroir</p>
-                  <hr className="sectionblock-underline" />
+                  <hr className="sectionblock-underline sectionblock-underline__center" />
                   <h2 className="sectionblock-title">Un monde de découverte</h2>
               </div>
               <span><p>Un moment entre amis, au restaurant ou indécis devant l'innombrable choix de votre caviste, il n'y a ni lieu ni heure pour découvrir de nouvelles saveurs locales.</p></span>

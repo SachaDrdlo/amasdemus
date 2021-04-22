@@ -205,6 +205,12 @@ p {
 
       & .sectionblock-underline{
         background-color: $clr-beige;
+
+        @media screen and (min-width: 760px){
+          &__center{
+            margin: 1.6rem auto;
+          }
+        }
       }
     }
   }
