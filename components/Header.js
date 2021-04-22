@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
-import styles from '../../styles/components/Header.module.scss';
+import styles from '../styles/components/Header.module.scss';
 import Link from 'next/link'
 import zIndex from '@material-ui/core/styles/zIndex';
 

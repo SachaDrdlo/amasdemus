@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from '../../styles/components/BeerInfos.module.scss';
+import styles from '../styles/components/BeerInfos.module.scss';
 import Link from 'next/link'
 import { Grid } from '@material-ui/core';
 import { useRouter } from 'next/router';

@@ -1,11 +1,10 @@
 import React from 'react'
 import { Grid } from '@material-ui/core';
 import styles from '../../styles/components/Breweries.module.scss'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import GoBackButton from '../components/GoBackButton'
-import LogoTemplate from '../components/LogoTemplate';
-import Navbar from '../components/Navbar-bottom';
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import LogoTemplate from '../../components/LogoTemplate';
+import Navbar from '../../components/Navbar-bottom';
 // import BrewerySuggestion from '../components/BrewerySuggestion';
 
 export default function Breweries({ data }) {

@@ -1,11 +1,9 @@
 import React from 'react'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import LogoTemplate from './components/LogoTemplate'
-import Navbar from './components/Navbar-bottom'
-import BeerInfos from './components/BeerInfos'
-import BeerIllu from './components/BeerIllu'
-import BreweryTemplate from './components/BreweryTemplate'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Navbar from '../components/Navbar-bottom'
+import BeerInfos from '../components/BeerInfos'
+
 
 const About = () => {
     return (

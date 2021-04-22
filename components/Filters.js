@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import { useEffect, useState } from 'react';
-import styles from '../../styles/components/Filters.module.scss';
+import styles from '../styles/components/Filters.module.scss';
 
 export default function Filters({ types, handleBeersFilterCallback, handleFiltersReset, isChecked, beerFilters }) {
     const [opened, setOpened] = useState(false);
@@ -16,7 +16,7 @@ export default function Filters({ types, handleBeersFilterCallback, handleFilter
                 <label htmlFor={type.id}>{type.type}</label>
             </div>
         )
-    })    
+    })
 
     // TODO - MAP DES DIFFERENTS FILTRES A REVOIR DANS UNE PROCHAINE VERSION
     // --------------------------------------------------------------------------------------------

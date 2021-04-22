@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import BeerIllu from './components/BeerIllu'
-import Header from './components/Header'
-import Navbar from './components/Navbar-bottom';
-import Footer from './components/Footer'
-import LogoTemplate from './components/LogoTemplate';
+import BeerIllu from '../components/BeerIllu'
+import Header from '../components/Header'
+import Navbar from '../components/Navbar-bottom';
+import Footer from '../components/Footer'
+import LogoTemplate from '../components/LogoTemplate';
 import styles from '../styles/components/Homepage.module.scss';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'

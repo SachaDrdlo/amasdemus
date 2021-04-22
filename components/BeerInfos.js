@@ -1,10 +1,8 @@
 import React from 'react'
-import styles from '../../styles/components/BeerInfos.module.scss';
+import styles from '../styles/components/BeerInfos.module.scss';
 import { Grid } from '@material-ui/core';
 import BeerIllu from './BeerIllu'
 import BreweryTemplate from './BreweryTemplate'
-import BeerSuggestion from './BeerSuggestion';
-import Footer from './Footer'
 import { useRouter } from 'next/router';
 
 const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, desc_brewery, brewery_id, image, title, description }, props) => {
@@ -62,7 +60,7 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                             </ul>
                         </div>
                         {/* <div> */}
-                            {/* <div className={styles.beerPresentation_container_text_list_flex}>
+                        {/* <div className={styles.beerPresentation_container_text_list_flex}>
                                 <div className={styles.beerPresentation_container_text_list_flex_glass}>
                                     <ul >
                                         <h5>Verre</h5>
@@ -70,7 +68,7 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                                     </ul>
                                 </div>
                             </div> */}
-                        
+
                     </Grid>
                 </Grid>
             </div>
@@ -95,7 +93,6 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                 brewery={brewery}
                 desc_brewery={desc_brewery}
             />
-            {/* <BeerSuggestion/> */}
         </div>
     )
 }

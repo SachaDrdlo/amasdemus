@@ -1,13 +1,10 @@
-import { useRouter } from 'next/router'
 import { Grid } from '@material-ui/core';
-import Link from 'next/link'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import Navbar from '../../components/Navbar-bottom';
-import GoBackButton from '../../components/GoBackButton'
-import LogoTemplate from '../../components/LogoTemplate';
+import Header from '../../../components/Header'
+import Footer from '../../../components/Footer'
+import Navbar from '../../../components/Navbar-bottom';
+import GoBackButton from '../../../components/GoBackButton'
+import LogoTemplate from '../../../components/LogoTemplate';
 import styles from '../../../styles/components/Brewery.module.scss';
-import beer from '../../beers/[id]';
 
 const BreweryId = ({ breweryBeersData }) => {
 
