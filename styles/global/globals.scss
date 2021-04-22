@@ -195,7 +195,7 @@ p {
 }
 
 .sectionblock {
-  margin-top: 20rem;
+  margin-top: 12rem;
 
   &-infos {
     margin-bottom: 3.2rem;
@@ -270,35 +270,35 @@ p {
 .arrow-container {
   margin: 24px 0 0 48px;
   display: inline-flex;
-  
+
   &-button{
     display: flex;
-    
+
     & img {
       width: 28px;
       height: auto;
       transition: .3s transform .1s ease-out;
     }
-    
+
     & p{
       color: $clr-green;
       margin-left: .8rem;
       font-weight: bold;
       transition: .3s transform ease-out;
     }
-    
+
     &:hover {
       & img {
         transform: translateX(-8px);
         transition: .3s transform ease-out;
       }
-      
+
       & p{
-        
+
         transform: translateX(-8px);
         transition: .3s transform .1s ease-out;
       }
-      
+
     }
   }
 

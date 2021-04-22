@@ -35,7 +35,7 @@ class BeerController
         $newFileName = md5(time() . $fileName) . "." . $fileExtension;
         $fileDestPath = "./assets/img/beers/{$newFileName}";
 
-        $allowedTypes = array("image/jpeg", "image/png", "image/webp");
+        $allowedTypes = array("image/jpeg", "image/png", "image/webp", "image/svg+xml");
         if (in_array($fileType, $allowedTypes)) {
             move_uploaded_file($fileTmpPath, $fileDestPath);
             $this->model->image = $newFileName;
@@ -135,7 +135,7 @@ class BeerController
                 $this->model->image = $data["image"];
             }
         }
-        $query = $this->model->db->prepare("UPDATE beers 
+        $query = $this->model->db->prepare("UPDATE beers
             SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass
             WHERE id=:id;");
         $query->bindParam(":name", $this->model->name);
@@ -150,27 +150,27 @@ class BeerController
         $query->bindParam(":id", $this->model->id);
 
         if ($query->execute()) {
-            
+
             return true;
         } else {
-            
+
             return false;
-            
+
         }
     }
 
-    public function deleteFlavours(): bool { 
+    public function deleteFlavours(): bool {
 
         $query = $this->model->db->prepare("DELETE FROM beers_flavours WHERE id_beer=:id");
         $query->bindParam(":id", $this->model->id);
         if ($query->execute()) {
-            
+
             return true;
         } else {
 
             return false;
         }
-        
+
     }
 
     public function delete(): bool

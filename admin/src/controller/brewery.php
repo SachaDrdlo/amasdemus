@@ -31,7 +31,7 @@ class BreweryController
         $newFileName = md5(time() . $fileName) . "." . $fileExtension;
         $fileDestPath = "./assets/img/breweries/{$newFileName}";
 
-        $allowedTypes = array("image/jpeg", "image/png", "image/webp");
+        $allowedTypes = array("image/jpeg", "image/png", "image/webp", "image/svg+xml");
         if (in_array($fileType, $allowedTypes)) {
             move_uploaded_file($fileTmpPath, $fileDestPath);
             $this->model->logo = $newFileName;
