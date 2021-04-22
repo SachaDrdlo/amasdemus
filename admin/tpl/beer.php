@@ -36,23 +36,25 @@ include("header.php");
                         }
                         ?>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="inputTitle">Le slogan de la bière</label>
-                    <input type="text" name="title" id="inputTitle" value="<?= isset($data["title"]) ? $data["title"] : "" ?>" />
-                </div>
-                <div class="form-group">
-                    <label for="inputDescription">Le premier texte de description</label>
-                    <input type="text" name="description" id="inputDescription" value="<?= isset($data["description"]) ? $data["description"] : "" ?>" />
-                </div>
-                <div class="form-group">
-                    <label for="inputLevel">Le degré d'alcool dans la bière</label>
-                    <input type="number" step="any" name="level" id="inputLevel" value="<?= isset($data["level"]) ? $data["level"] : "" ?>" />
-                </div>
-                <div class="form-group">
-                    <fieldset>
-                        <legend>Veuillez sélectionner les saveurs associées a cette bière</legend>
-                        <?php
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTitle">Le slogan de la bière</label>
+                        <input type="text" name="title" id="inputTitle" value="<?= isset($data["title"]) ? $data["title"] : "" ?>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Le premier texte de description</label>
+                        <textarea name="description" id="inputDescription" rows="10" cols="33" value="" >
+                        <?= isset($data["description"]) ? $data["description"] : "" ?>
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLevel">Le degré d'alcool dans la bière</label>
+                        <input type="number" step="any" name="level" id="inputLevel" value="<?= isset($data["level"]) ? $data["level"] : "" ?>" />
+                    </div>
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Veuillez sélectionner les saveurs associées a cette bière</legend>
+                            <?php
 
                         if (isset($data['saveurs'])) {
                             $saveurs = explode(", ", $data['saveurs']);
@@ -102,7 +104,7 @@ include("header.php");
                                 <input type="file" name="image" id="inputImage" />
                             <?php
                             } else {
-                            ?>
+                            ?>  
                                 <input type="file" name="image" id="inputImage" />
                             <?php
                             }
