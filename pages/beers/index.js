@@ -47,7 +47,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const [beersFiltered, setBeersFiltered] = useState();
 
 	async function getSacha(filters) {
-		const letFilterBeers = await fetch(`http://sachadordolo.fr/amasdemus/admin/src/api/getBeersByTypeFilter.php`, {
+		const letFilterBeers = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getBeersByTypeFilter.php`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
