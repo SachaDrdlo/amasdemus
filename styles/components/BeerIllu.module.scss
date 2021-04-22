@@ -6,6 +6,11 @@
     &_illu {
         height: 100%;
         align-items: center;
+        margin-bottom: 4rem;
+
+        @media screen and (min-width: 600px){
+            margin-bottom: 0;
+        }
 
         figure {
             width: 100%;

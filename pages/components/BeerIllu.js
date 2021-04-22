@@ -23,19 +23,21 @@ const BeerIllu = ({ id, image, name, type, level, children }) => {
     return (
         <div className="container">
             <Grid container className={styles.container_grid} alignItems="center" justify="space-between" direction="row-reverse">
-                <Grid item xs={12} sm={6} className={styles.container_grid_illu}>
-                    <figure>
-                        {router.pathname === '/' || router.pathname === '/beers/[id]'
-                            ?
-                            <img className={styles.container_grid_illu_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
-                            : router.pathname === '/about'
+                <Grid item xs={12} sm={6}>
+                    <div className={styles.container_grid_illu}>
+                        <figure>
+                            {router.pathname === '/' || router.pathname === '/beers/[id]'
                                 ?
-                                <img className={styles.container_grid_illu_beer} src={image} alt="" />
-                                :
-                                null
-                        }
-                        <img className={styles.container_grid_illu_blob} src="../img/blob.svg" alt="" />
-                    </figure>
+                                <img className={styles.container_grid_illu_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
+                                : router.pathname === '/about'
+                                    ?
+                                    <img className={styles.container_grid_illu_beer} src={image} alt="" />
+                                    :
+                                    null
+                            }
+                            <img className={styles.container_grid_illu_blob} src="../img/blob.svg" alt="" />
+                        </figure>
+                    </div>
                 </Grid>
 
                 {/* CONDITION QUI PERMET DE CHECKER SI ON EST BIEN SUR LA HOME */}
