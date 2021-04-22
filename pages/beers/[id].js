@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 import { Grid } from '@material-ui/core';
-import GoBackButton from '../components/GoBackButton'
-import LogoTemplate from '../components/LogoTemplate'
-import Navbar from '../components/Navbar-bottom';
-import BeerInfos from '../components/BeerInfos'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import beers from '../../beers.json'
+import GoBackButton from '../../components/GoBackButton'
+import LogoTemplate from '../../components/LogoTemplate'
+import Navbar from '../../components/Navbar-bottom';
+import BeerInfos from '../../components/BeerInfos'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 const beer = ({ beerData, sameTypeBeers }) => {
 

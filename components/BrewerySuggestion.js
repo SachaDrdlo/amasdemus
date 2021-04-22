@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/components/BrewerySuggestion.module.scss';
+import styles from '../styles/components/BrewerySuggestion.module.scss';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
 

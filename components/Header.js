@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head'
-import styles from '../../styles/components/Header.module.scss';
+import styles from '../styles/components/Header.module.scss';
 import Link from 'next/link'
 
 const Header = ({ data, action = '/search' }) => {

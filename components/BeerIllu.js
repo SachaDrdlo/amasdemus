@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
-import styles from '../../styles/components/BeerIllu.module.scss';
+import styles from '../styles/components/BeerIllu.module.scss';
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 

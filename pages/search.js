@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Navbar from './components/Navbar-bottom';
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar-bottom';
+import LogoTemplate from '../components/LogoTemplate'
 import styles from '../styles/components/search.module.scss';
-import LogoTemplate from './components/LogoTemplate'
 import { Grid } from '@material-ui/core';
 
 const search = ({ data }) => {
