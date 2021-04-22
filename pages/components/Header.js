@@ -1,10 +1,9 @@
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image'
+import Head from 'next/head'
 import styles from '../../styles/components/Header.module.scss';
 import Link from 'next/link'
-import zIndex from '@material-ui/core/styles/zIndex';
 
 const Header = ({ data, action = '/search' }) => {
 
@@ -52,6 +51,31 @@ const Header = ({ data, action = '/search' }) => {
     // console.log(width);
 
     return (
+        <>
+        <Head>
+            <title>Amas Demus | Découvrez de nouvelles bières 🍺</title>
+            <meta name="title" content="Amas Demus | Découvrez de nouvelles bières 🍺" />
+            <meta name="description" content="Partez à la découverte de nouvelles bières avec l'application Web Amas Demus et vivez la passion du houblon!" />
+
+            <meta property="og:title" content="Amas Demus | Découvrez de nouvelles bières" />
+            <meta property="og:description" content="Partez à la découverte de nouvelles bières avec l'application Web Amas Demus et vivez la passion du houblon!" />
+            <meta property="og:url" content="https://amasdemus.vercel.app/" />
+            <meta property="og:image" content="https://ibb.co/Fw0FQVP" />
+            <meta property="og:type" content="website"/>
+
+            <meta name="twitter:title" content="Amas Demus | Découvrez de nouvelles bières" />
+            <meta name="twitter:description" content="Partez à la découverte de nouvelles bières avec l'application Web Amas Demus et vivez la passion du houblon!" />
+            <meta name="twitter:url" content="https://amasdemus.vercel.app/" />
+            <meta name="twitter:image" content="https://ibb.co/Fw0FQVP" />
+
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+            <link rel="manifest" href="/site.webmanifest" />
+            <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+            <meta name="msapplication-TileColor" content="#fdffe6" />
+            <meta name="theme-color" content="#fdffe6" />
+        </Head>
         <div className={styles.header_container}>
             <div className={styles.header_container_left}>
                 <div className={styles.header_container_left_logoContainer}>
@@ -114,6 +138,7 @@ const Header = ({ data, action = '/search' }) => {
                 }
             </div>
         </div>
+        </>
     )
 }
 
