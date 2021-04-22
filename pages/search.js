@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import Header from './components/Header'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar-bottom';
 import styles from '../styles/components/search.module.scss';
 import LogoTemplate from './components/LogoTemplate'
 import { Grid } from '@material-ui/core';
@@ -62,6 +64,8 @@ const search = ({ data }) => {
                     </div>
                 </div>
             </div>
+            <Footer />
+            <Navbar />
         </div>
     )
 }
@@ -70,11 +74,7 @@ export default search
 
 export async function getServerSideProps(context) {
     const query = context.query.value
-<<<<<<< HEAD
     const res = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/searchBeer.php?search=${query}`)
-=======
-    const res = await fetch(`https://sachadordolo\.fr/amasdemus/admin/src/api/searchBeer.php?search=${query}`)
->>>>>>> c2e331773b309b262acc797924a00d43227f690c
     const data = await res.json()
 
     return {

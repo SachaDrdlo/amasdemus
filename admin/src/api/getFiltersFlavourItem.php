@@ -13,8 +13,6 @@ $items = new Beer($db);
 $stmt = $items->getFiltersFlavourItem();
 $itemCount = $stmt->rowCount();
 
-// echo json_encode($itemCount);
-
 if ($itemCount > 0) {
     $beerArray = array();
     $beerArray["beers"] = array();

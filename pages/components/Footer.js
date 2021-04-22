@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../../styles/components/Footer.module.scss';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 const Footer = () => {
+    const router = useRouter()
+    const [path, setPath] = useState(router.pathname)
+
     return (
         <div className={styles.footer}>
             <div className="container">
                 <Grid container spacing={5} justify='space-between' className={styles.footer_container}>
                     <Grid item xs={12} md={3}>
                         <figure className={styles.footer_container_logo}>
-                            <img src="../img/logos/logo-vertical-green.svg" alt="" />
+
+                            { path === `/breweries/beers/[id]` ? <img src="../../img/logos/logo-vertical-green.svg" alt="" /> : <img src="../img/logos/logo-vertical-green.svg" alt="" />}
                         </figure>
                     </Grid>
                     <Grid item xs={12} md={4} className={styles.footer_container_text}>

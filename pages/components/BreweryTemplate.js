@@ -24,18 +24,24 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
                 <Grid container className={styles.beerPresentation_brewery_container} alignItems="center">
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_brewery_container_logo}>
                         <figure>
-<<<<<<< HEAD
-                            <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
-=======
-                            <img src={`https://sachadordolo\.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
->>>>>>> c2e331773b309b262acc797924a00d43227f690c
+                            {router.pathname === '/beers/[id]'
+                                ?
+                                <img src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                                : router.pathname === '/about'
+                                    ?
+                                    <img src={img_brewery} alt="" />
+                                    :
+                                    null
+                            }
                         </figure>
                     </Grid>
                     <Grid item xs={12} sm={7} className={styles.beerPresentation_brewery_container_text}>
-                        <p>Le lieu de brassage</p>
-                        <hr className="beige" />
-                        <h1>{brewery}</h1>
-                        <span><p>{desc_brewery}</p></span>
+                        <div className="sectionblock-infos sectionblock-infos__beige">
+                            <p className="sectionblock-headtitle">Le lieu de brassage</p>
+                            <hr className="sectionblock-underline" />
+                            <h3 className="sectionblock-title">{brewery}</h3>
+                            <span><p>{desc_brewery}</p></span>
+                        </div>
                         {isBeer ?
                             <div className={styles.beerPresentation_brewery_container_text_btn}>
                                 <Link href={`/breweries/${brewery_id}`}>
@@ -47,6 +53,9 @@ const BreweryTemplate = ({ img_brewery, brewery, desc_brewery, brewery_id }) => 
                         }
                     </Grid>
                 </Grid>
+            </div>
+            <div className={styles.beerPresentation_brewery_illu}>
+                <img className={styles.beerPresentation_brewery_illu_hop} src="../img/illus/hop-discover-illu.svg" alt="" />
             </div>
         </div>
     )

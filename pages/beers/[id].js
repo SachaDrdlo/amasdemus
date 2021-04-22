@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { Grid } from '@material-ui/core';
+import GoBackButton from '../components/GoBackButton'
 import LogoTemplate from '../components/LogoTemplate'
+import Navbar from '../components/Navbar-bottom';
 import BeerInfos from '../components/BeerInfos'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -8,12 +10,9 @@ import beers from '../../beers.json'
 
 const beer = ({ beerData, sameTypeBeers }) => {
 
-    // console.log(sameTypeBeers);
-
-    // console.log(beerData.id);
     sameTypeBeers = sameTypeBeers.beers
 
-    const sameTypeBeersSelection = sameTypeBeers.map( (beer) => {
+    const sameTypeBeersSelection = sameTypeBeers.map((beer) => {
 
         return (
             <LogoTemplate
@@ -26,24 +25,10 @@ const beer = ({ beerData, sameTypeBeers }) => {
 
     })
 
-    //
-
-    // ? console.log(`same id: ${beer.id} === ${beerData.id}`) : console.log(beer.id)
-
-    // const sameTypeBeersSelection = sameTypeBeers.map((beer) => {
-    //     return (
-    //       <LogoTemplate
-    //         key={beer.id}
-    //         id={beer.id}
-    //         name={beer.name}
-    //         img={beer.image}
-    //       />
-    //     )
-    // })
-
     return (
         <div>
             <Header />
+            <GoBackButton />
             <div>
                 <BeerInfos
                     key={beerData.id}
@@ -75,7 +60,7 @@ const beer = ({ beerData, sameTypeBeers }) => {
                 </Grid>
             </div>
             <Footer />
-
+            <Navbar />
         </div>
     )
 }

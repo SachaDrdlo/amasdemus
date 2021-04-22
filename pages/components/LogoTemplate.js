@@ -12,7 +12,6 @@ const LogoTemplate = ({ id, img, name }) => {
     const [path, setPath] = useState(router.pathname)
 
 
-    // BASE A MODIFIER PLUS TARD --> permet d'afficher soit l'image de la brasserie soit l'image de la bière selon la page sur laquelle on est
     const getPathImg = () => {
         if (path === '/' || path === '/breweries') {
             return <img className='container_content_breweryImg' src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img}`} alt="" />
@@ -32,10 +31,7 @@ const LogoTemplate = ({ id, img, name }) => {
         } else if (path === '/beers' || path === '/beers/type/[type]' || path === '/search' || path === `/breweries/[id]` || path === `/breweries/beers/[id]` || path === `/beers/[id]`) {
             return beer
         }
-        // return path === '/' || path === '/breweries' ? brewery : path === '/beers' || path === '/search' ? beer : null
     }
-
-    // const redirection = path === '/' || path === '/breweries' ? `/breweries/${id}` : path === '/beers' || path === '/search' ? `/beers/${id}` : null
 
     const redirection = (path) => {
         if (path === '/' || path === '/breweries') {
@@ -48,14 +44,14 @@ const LogoTemplate = ({ id, img, name }) => {
 
     return (
 
-        <Grid item xs={12} sm={6} md={4} className='container_content'>
-            <figure>
-                {getPathImg()}
-            </figure>
-            <h3>{name}</h3>
-            <div className='container_content_btn'>
+        <Grid item xs={12} sm={6} md={4}>
+            <div className="container_content">
+                <figure>
+                    {getPathImg()}
+                </figure>
+                <h3 className="container_content_title">{name}</h3>
                 <Link href={redirection(path)}>
-                    <a className={`greenButton`}>Découvrir cette {getNameBtn()}</a>
+                    <a className={` bouton greenButton`}>Découvrir cette {getNameBtn()}</a>
                 </Link>
             </div>
         </Grid>

@@ -35,7 +35,7 @@ class BeerController
         $newFileName = md5(time() . $fileName) . "." . $fileExtension;
         $fileDestPath = "./assets/img/beers/{$newFileName}";
 
-        $allowedTypes = array("image/jpeg", "image/png", "image/webp");
+        $allowedTypes = array("image/jpeg", "image/png", "image/webp", "image/svg+xml");
         if (in_array($fileType, $allowedTypes)) {
             move_uploaded_file($fileTmpPath, $fileDestPath);
             $this->model->image = $newFileName;
@@ -55,9 +55,9 @@ class BeerController
     }
 
     public function get()
-    {   
+    {
         $id=intval($this->model->id);
-        // Debugger le prepare par la suite 
+        // Debugger le prepare par la suite
         $query = $this->model->db->query("SELECT name, title, description, level, image,  id_type, id_brewery, id_location, id_glass, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
             FROM beers
             INNER JOIN beers_flavours
@@ -113,7 +113,7 @@ class BeerController
     }
 
     public function addFlavour($idBeer, $idFlavour) : bool
-     {   
+     {
         $query = $this->model->db->prepare("INSERT INTO beers_flavours
         (id_beer, id_flavour)
         VALUES
@@ -136,11 +136,10 @@ class BeerController
             var_dump ($data);
             if (isset($data["image"])) {
                 $this->model->image = $data["image"];
-              
+
             }
         }
-        var_dump ($this->model);
-        $query = $this->model->db->prepare("UPDATE beers 
+        $query = $this->model->db->prepare("UPDATE beers
             SET name=:name, image=:image, title=:title, description=:description, level=:level, id_type=:type, id_brewery=:brewery, id_location=:location, id_glass=:glass
             WHERE id=:id;");
         $query->bindParam(":name", $this->model->name);
@@ -155,27 +154,27 @@ class BeerController
         $query->bindParam(":id", $this->model->id);
 
         if ($query->execute()) {
-            
+
             return true;
         } else {
-            
+
             return false;
-            
+
         }
     }
 
-    public function deleteFlavours(): bool { 
+    public function deleteFlavours(): bool {
 
         $query = $this->model->db->prepare("DELETE FROM beers_flavours WHERE id_beer=:id");
         $query->bindParam(":id", $this->model->id);
         if ($query->execute()) {
-            
+
             return true;
         } else {
 
             return false;
         }
-        
+
     }
 
     public function delete(): bool

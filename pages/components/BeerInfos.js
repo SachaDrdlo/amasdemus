@@ -5,46 +5,72 @@ import BeerIllu from './BeerIllu'
 import BreweryTemplate from './BreweryTemplate'
 import BeerSuggestion from './BeerSuggestion';
 import Footer from './Footer'
+import { useRouter } from 'next/router';
 
 const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, desc_brewery, brewery_id, image, title, description }, props) => {
+
+    const router = useRouter()
+
     return (
         <div className={styles.beerPresentation}>
             <div className="container">
-                <Grid container justify="space-between" className={styles.beerPresentation_container}>
+                <Grid container alignItems="center" justify="space-between" className={styles.beerPresentation_container}>
                     <Grid item xs={12} sm={5} className={styles.beerPresentation_container_img}>
                         <figure>
-                            <img className={styles.beerPresentation_container_img_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
-                            <img className={styles.beerPresentation_container_img_brewery} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                            {router.pathname === '/beers/[id]'
+                                ?
+                                <>
+                                    <img className={styles.beerPresentation_container_img_beer} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/beers/${image}`} alt="" />
+                                    <img className={styles.beerPresentation_container_img_brewery} src={`https://sachadordolo.fr/amasdemus/admin/assets/img/breweries/${img_brewery}`} alt="" />
+                                </>
+                                : router.pathname === '/about'
+                                    ?
+                                    <>
+                                        <img className={styles.beerPresentation_container_img_beer} src={`${image}`} alt="" />
+                                        <img className={styles.beerPresentation_container_img_brewery} src={`${img_brewery}`} alt="" />
+                                    </>
+                                    :
+                                    null
+                            }
                         </figure>
                     </Grid>
-                    <Grid item xs={12} sm={5} className={styles.beerPresentation_container_text}>
-                        <p>Bière {type}</p>
-                        <hr className="green" />
-                        <h3>{name}</h3>
-                        <hr className="greenMaxWidth" />
-                        <div className={styles.beerPresentation_container_text_list}>
-                            <ul>
-                                <h5>Degré</h5>
-                                <li>{level}</li>
+                    <Grid item xs={12} sm={5}>
+                        <div className="sectionblock-infos">
+                            <p className="sectionblock-headtitle">Bière {type}</p>
+                            <hr className="sectionblock-underline" />
+                            <h1 className="sectionblock-title">{name}</h1>
+                        </div>
+                        {/* <hr className="greenMaxWidth" /> */}
+                        <div className={styles.beerPresentation_container_listcontainer}>
+                            <ul className={styles.beerPresentation_container_list}>
+                                <li>
+                                    <h2>Degré</h2>
+                                    <p>{level}°</p>
+                                </li>
+                                <li>
+                                    <h2>Provenance</h2>
+                                    <p>{brewery}</p>
+                                </li>
+                                <li>
+                                    <h2>Notes/ saveurs</h2>
+                                    <p>{flavours}</p>
+                                </li>
+                                <li>
+                                    <h2>Verre</h2>
+                                    <p>{glass}</p>
+                                </li>
                             </ul>
-                            <ul>
-                                <h5>Provenance</h5>
-                                <li>{brewery}</li>
-                            </ul>
-                            <ul>
-                                <h5>Notes</h5>
-                                <li>{flavours}</li>
-                            </ul>
-                            <div className={styles.beerPresentation_container_text_list_flex}>
+                        </div>
+                        {/* <div> */}
+                            {/* <div className={styles.beerPresentation_container_text_list_flex}>
                                 <div className={styles.beerPresentation_container_text_list_flex_glass}>
                                     <ul >
                                         <h5>Verre</h5>
                                         <li>{glass}</li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-                        <hr className="greenMaxWidth" />
+                            </div> */}
+                        
                     </Grid>
                 </Grid>
             </div>
@@ -53,9 +79,12 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                 image={image}
             >
                 <Grid item xs={12} sm={6} className={styles.beerPresentation_container_infos_content}>
-                    <p>{type}</p>
-                    <h1>{title}</h1>
-                    <span><p>{description}</p></span>
+                    <div className="sectionblock-infos">
+                        <p className="sectionblock-headtitle">Bière {type}</p>
+                        <hr className="sectionblock-underline" />
+                        <h2 className="sectionblock-title">{title}</h2>
+                        <span><p>{description}</p></span>
+                    </div>
                 </Grid>
                 {props.children}
             </BeerIllu>

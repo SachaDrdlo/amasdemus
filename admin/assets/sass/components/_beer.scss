@@ -1,27 +1,24 @@
-.beer{
+.beer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4rem;
     width: 100%;
+    border-bottom: 2px solid $clr-green;
+    padding: 3rem 0;
 
 
-    &-container{
+    &-container {
         display: flex;
         justify-content: space-between;
         flex-flow: row wrap;
         width: 100%;
-
-        & .beer:nth-child(even){
-            background-color: tan;
-        }
     }
 
-    &-infos{
+    &-infos {
         flex-basis: 20%;
     }
 
-    &-img{
+    &-img {
         width: 8rem;
         height: 8rem;
         display: flex;
@@ -29,15 +26,15 @@
         justify-content: center;
         position: relative;
         flex-basis: 20%;
-        
-        & img{
+
+        & img {
             position: absolute;
             width: auto;
             height: 100%;
         }
     }
 
-    &-btns{
+    &-btns {
         flex-basis: 20%;
     }
 }
