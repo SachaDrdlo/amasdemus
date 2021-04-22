@@ -89,17 +89,18 @@
             &_logo {
 
                 figure {
-                    @media screen and (max-width:992px) {
-                        display: flex;
-                        justify-content: center;
-                        margin-bottom: 40px;
-                    }
-
-                    margin: 0;
-
+                    display: flex;
+                    justify-content: center;
+                    margin: 0 auto 4rem;
+                    margin-bottom: 40px;
+                    width: 66%;
+                    height: auto;
+                    
                     img {
                         width: auto;
-                        height: 15rem;
+                        height: auto;
+                        max-height: 25rem;
+                        max-width: 100%;
                     }
                 }
             }

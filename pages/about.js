@@ -26,7 +26,7 @@ const About = () => {
             image={'../img/beer-about.png'}
             img_brewery={'../img/hauts-de-france.png'}
             title={"L'alliance parfaite"}
-            description={"Chacun des ingrédients que composent cette bière a été brassé avec amour pendant 9 mois. Sacha, un houblonné de provenance Picarde, Étienne, l'orge Dunkerquois et Julien, le malt Roubaisien forment à eux trois, l'Amas Demus. Cette bière, alliant de belles saveurs créatives, une technique affinée et beaucoup de caractère, saura vous emerveiller."}
+            description={"Chacun des ingrédients que composent cette bière a été brassé avec amour pendant 9 mois. Sacha, le houblonné Picard, Étienne, l'orge Dunkerquois et Julien, le malt Roubaisien forment à eux trois, l'Amas Demus. Cette bière, alliant de belles saveurs créatives, une technique affinée et beaucoup de caractère, saura vous emerveiller."}
             />
             <Footer />
             <Navbar />

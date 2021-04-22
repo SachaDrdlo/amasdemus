@@ -20,7 +20,7 @@ const Footer = () => {
                     </Grid>
                     <Grid item xs={12} md={4} className={styles.footer_container_text}>
                         <h3>Amas Demus</h3>
-                        <p>Amas Demus est un projet proté par la convivialité, la passion de la boisson et l'amour de la découverte. Nous espérons que cette expérience vous plaira</p>
+                        <p>Amas Demus est un projet proté par la convivialité, la passion de la boisson et l'amour de la découverte. Nous espérons que cette expérience vous plaira!</p>
                         <span>
                             <p>Etienne, Sacha et Julien</p>
                         </span>

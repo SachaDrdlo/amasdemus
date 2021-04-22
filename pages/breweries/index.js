@@ -13,7 +13,6 @@ export default function Breweries({ data }) {
     return (
         <div>
             <Header />
-            <GoBackButton />
             <main className="container">
                 <section className="sectionblock">
                     <div className="sectionblock-infos">
