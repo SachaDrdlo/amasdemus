@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       {pageLoading
         ?
         <div className='loading-container'>
-          <img className='loading-container-logo' src='../img/logos/logo-picto-green.svg' alt="" />
+          {router.pathname === '/breweries/beers/[id]' || router.pathname === '/beers/type/[type]' ? <img className='loading-container-logo' src='../../img/logos/logo-picto-green.svg' alt="" /> : <img className='loading-container-logo' src='../img/logos/logo-picto-green.svg' alt="" />}
           <h1>Chargement</h1>
         </div>
         :
