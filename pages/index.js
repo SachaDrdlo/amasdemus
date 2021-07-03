@@ -65,9 +65,9 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
           <div className={styles.discover_container}>
             <div className={styles.discover_container_content}>
               <div className="sectionblock-infos sectionblock-infos__beige">
-                  <p className="sectionblock-headtitle">Bières du terroir</p>
-                  <hr className="sectionblock-underline sectionblock-underline__center" />
-                  <h2 className="sectionblock-title">Un monde de découverte</h2>
+                <p className="sectionblock-headtitle">Bières du terroir</p>
+                <hr className="sectionblock-underline sectionblock-underline__center" />
+                <h2 className="sectionblock-title">Un monde de découverte</h2>
               </div>
               <span><p>Un moment entre amis, au restaurant ou indécis devant l'innombrable choix de votre caviste, il n'y a ni lieu ni heure pour découvrir de nouvelles saveurs locales.</p></span>
               <div className={styles.discover_container_content_btn}>
@@ -86,9 +86,9 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
       <div className={styles.breweries}>
         <div className="container">
           <div className="sectionblock-infos">
-              <p className="sectionblock-headtitle">De l'artisanal</p>
-              <hr className="sectionblock-underline" />
-              <h2 className="sectionblock-title">Des brasseries locales</h2>
+            <p className="sectionblock-headtitle">De l'artisanal</p>
+            <hr className="sectionblock-underline" />
+            <h2 className="sectionblock-title">Des brasseries locales</h2>
           </div>
           <Grid container item className={styles.breweries_container}>
             {breweriesDisplay}
@@ -122,26 +122,20 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
       <Navbar />
       <Footer />
     </div>
-
-
-
-
-
   )
 }
 
 export default HomePage
 
 export async function getServerSideProps() {
+  console.log(process.env.NEXT_PUBLIC_PATH);
   // Fetch de la bière aléatoire en page d'accueil
-  const res = await fetch(`${process.env.DB_PATH}/randomBeer.php`)
+  const res = await fetch(`${process.env.API_PATH}randomBeer.php`)
   const beerFetch = await res.json()
-  // .then(text => console.log(text))
 
   // Fetch des brasseries affichées après l'encart vert
-  const response = await fetch(`${process.env.DB_PATH}/RandomBreweries.php`)
+  const response = await fetch(`${process.env.API_PATH}randomBreweries.php`)
   const breweriesFetch = await response.json()
-  // .then(text => console.log(text))
 
   return {
     props: {

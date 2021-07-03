@@ -9,7 +9,6 @@ const About = () => {
     return (
         <div>
             <Header />
-
             <BeerInfos
             // key={beerData.id}
             name={'La Zytholoteam'}

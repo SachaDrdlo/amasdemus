@@ -38,7 +38,6 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                             <hr className="sectionblock-underline" />
                             <h1 className="sectionblock-title">{name}</h1>
                         </div>
-                        {/* <hr className="greenMaxWidth" /> */}
                         <div className={styles.beerPresentation_container_listcontainer}>
                             <ul className={styles.beerPresentation_container_list}>
                                 <li>
@@ -59,16 +58,6 @@ const BeerInfos = ({ name, type, level, brewery, flavours, glass, img_brewery, d
                                 </li>
                             </ul>
                         </div>
-                        {/* <div> */}
-                        {/* <div className={styles.beerPresentation_container_text_list_flex}>
-                                <div className={styles.beerPresentation_container_text_list_flex_glass}>
-                                    <ul >
-                                        <h5>Verre</h5>
-                                        <li>{glass}</li>
-                                    </ul>
-                                </div>
-                            </div> */}
-
                     </Grid>
                 </Grid>
             </div>

@@ -18,27 +18,6 @@ export default function Filters({ types, handleBeersFilterCallback, handleFilter
         )
     })
 
-    // TODO - MAP DES DIFFERENTS FILTRES A REVOIR DANS UNE PROCHAINE VERSION
-    // --------------------------------------------------------------------------------------------
-
-    // const locationFilterMap = locations.map((location) => {
-    //     return(
-    //         <div>
-    //             <input type="checkbox" id={location.location} name={location.location}/>
-    //             <label htmlFor={location.location}>{location.location}</label>
-    //         </div>
-    //     )
-    // })
-
-    // const flavourFilterMap = flavours.map((flavour) => {
-    //     return(
-    //         <div>
-    //             <input type="checkbox" id={flavour.flavour} name={flavour.flavour}/>
-    //             <label htmlFor={flavour.flavour}>{flavour.flavour}</label>
-    //         </div>
-    //     )
-    // })
-
     useEffect(() => {
         document.body.classList.remove("filters__active", opened);
     }, [opened])
@@ -65,26 +44,8 @@ export default function Filters({ types, handleBeersFilterCallback, handleFilter
                                 </div>
                             </div>
                         </li>
-
-                        {/* TODO - MAP DES DIFFERENTS FILTRES A REVOIR DANS UNE PROCHAINE VERSION
-                        -------------------------------------------------------------------------------------------- */}
-
-                        {/* <li className={styles.filters_list_el}>
-                            <div className={styles.filter}>
-                                <button>Région</button>
-                                    {locationFilterMap}
-                            </div>
-                        </li> */}
-
-                        {/* <li className={styles.filters_list_el}>
-                            <div className={styles.filter}>
-                                <button>Notes / saveurs</button>
-                                    {flavourFilterMap}
-                            </div>
-                        </li> */}
                     </ul>
                 </div>
-                {/* <button className={styles.filters_applybtn}>Appliquer les filtres</button> */}
             </div>
         </div>
     )

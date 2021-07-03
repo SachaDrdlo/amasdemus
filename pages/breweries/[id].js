@@ -77,10 +77,10 @@ export default Brewery
 export async function getServerSideProps(context) {
     const query = context.query.id;
 
-    const breweryRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBrewery.php?id=${query}`)
+    const breweryRes = await fetch(`${process.env.API_PATH}singleBrewery.php?id=${query}`)
     const brewery = await breweryRes.json()
 
-    const breweryBeersRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/singleBreweryThreeBeers.php?id=${query}`)
+    const breweryBeersRes = await fetch(`${process.env.API_PATH}singleBreweryThreeBeers.php?id=${query}`)
     const breweryBeersData = await breweryBeersRes.json()
 
     return {
