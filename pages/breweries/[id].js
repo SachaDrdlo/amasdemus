@@ -77,10 +77,10 @@ export default Brewery
 export async function getServerSideProps(context) {
     const query = context.query.id;
 
-    const breweryRes = await fetch(`${process.env.DB_PATH}/singleBrewery.php?id=${query}`)
+    const breweryRes = await fetch(`${process.env.API_PATH}singleBrewery.php?id=${query}`)
     const brewery = await breweryRes.json()
 
-    const breweryBeersRes = await fetch(`${process.env.DB_PATH}/singleBreweryThreeBeers.php?id=${query}`)
+    const breweryBeersRes = await fetch(`${process.env.API_PATH}singleBreweryThreeBeers.php?id=${query}`)
     const breweryBeersData = await breweryBeersRes.json()
 
     return {

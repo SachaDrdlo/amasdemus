@@ -10,7 +10,6 @@ import Filters from '../../components/Filters';
 import LogoTemplate from '../../components/LogoTemplate';
 
 export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilters }) {
-	// locationsFilters, flavoursFilters
 
 	blondBeers = blondBeers.beers;
 	tripleBeers = tripleBeers.beers;
@@ -29,7 +28,6 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const [beerFilters, setBeerFilters] = useState([]);
 
 	const handleBeersFilter = (filterResponse) => {
-		// Bravo à Sacha le grand
 		const beerState = [...beerFilters];
 
 		const filterIn = beerState.find((filter) => {
@@ -47,7 +45,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const [beersFiltered, setBeersFiltered] = useState();
 
 	async function getSacha(filters) {
-		const letFilterBeers = await fetch(`${process.env.DB_PATH}/getBeersByTypeFilter.php`, {
+		const letFilterBeers = await fetch(`${process.env.API_PATH}getBeersByTypeFilter.php`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
@@ -247,18 +245,18 @@ export async function getServerSideProps() {
 	const triple = encodeURI('triple');
 	const amber = encodeURI('ambrée');
 
-	const blondRes = await fetch(`${process.env.DB_PATH}/selectBeersByType.php?selection="${blonde}"`);
+	const blondRes = await fetch(`${process.env.API_PATH}selectBeersByType.php?selection="${blonde}"`);
 	const blondBeers = await blondRes.json();
 
-	const tripleRes = await fetch(`${process.env.DB_PATH}/selectBeersByType.php?selection="${triple}"`);
+	const tripleRes = await fetch(`${process.env.API_PATH}selectBeersByType.php?selection="${triple}"`);
 	const tripleBeers = await tripleRes.json();
 
-	const amberRes = await fetch(`${process.env.DB_PATH}/selectBeersByType.php?selection="${amber}"`);
+	const amberRes = await fetch(`${process.env.API_PATH}selectBeersByType.php?selection="${amber}"`);
 	const amberBeers = await amberRes.json();
 
 	// APPEL FILTERS ITEMS
 
-	const typeRes = await fetch(`${process.env.DB_PATH}/getFilterTypeItem.php`);
+	const typeRes = await fetch(`${process.env.API_PATH}getFiltersTypeItem.php`);
 	const typesFilters = await typeRes.json();
 
 	// TODO - AUTRES APPELS FILTRES A REVOIR POUR UNE PROCHAINE VERSION

@@ -48,8 +48,6 @@ const Header = ({ data, action = '/search' }) => {
         }
     }, [])
 
-    // console.log(width);
-
     return (
         <>
         <Head>

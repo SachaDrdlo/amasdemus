@@ -117,16 +117,16 @@ class Beer
         return $stmt;
     }
 
-    public function count()
-    {
-        $query = "SELECT COUNT(*) as total_rows FROM beers";
+    // public function count()
+    // {
+    //     $query = "SELECT COUNT(*) as total_rows FROM beers";
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    //     $stmt = $this->conn->prepare($query);
+    //     $stmt->execute();
+    //     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $row['total_rows'];
-    }
+    //     return $row['total_rows'];
+    // }
 
     public function getFiltersTypeItem()
     {
@@ -137,7 +137,7 @@ class Beer
         $stmt->execute();
         return $stmt;
     }
-    
+
     public function getFiltersLocationItem()
     {
         $sqlQuery = "SELECT locations.id, locations.location
@@ -147,7 +147,7 @@ class Beer
         $stmt->execute();
         return $stmt;
     }
-    
+
     public function getFiltersFlavourItem()
     {
         $sqlQuery = "SELECT flavours.id, flavours.flavour
@@ -244,7 +244,7 @@ class Beer
 
         return $stmt;
     }
-    
+
     public function selectBeersBySameTypeOfOneBeer($beerId, $selection)
     {
         $sqlQuery = "SELECT beers.id AS id_biere, beers.name AS nom_biere, beers.image, types.type AS type

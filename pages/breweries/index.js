@@ -5,7 +5,6 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import LogoTemplate from '../../components/LogoTemplate';
 import Navbar from '../../components/Navbar-bottom';
-// import BrewerySuggestion from '../components/BrewerySuggestion';
 
 export default function Breweries({ data }) {
     const breweries = data.breweries;
@@ -39,7 +38,7 @@ export default function Breweries({ data }) {
 
 async function getBreweries() {
 
-    const res = await fetch('https://sachadordolo.fr/amasdemus/admin/src/api/allBreweries.php')
+    const res = await fetch(`${process.env.API_PATH}allBreweries.php`)
     const data = await res.json()
     return data;
 }

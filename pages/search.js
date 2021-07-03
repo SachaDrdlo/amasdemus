@@ -74,7 +74,7 @@ export default search
 
 export async function getServerSideProps(context) {
     const query = context.query.value
-    const res = await fetch(`${process.env.DB_PATH}/searchBeer.php?search=${query}`)
+    const res = await fetch(`${process.env.API_PATH}searchBeer.php?search=${query}`)
     const data = await res.json()
 
     return {
