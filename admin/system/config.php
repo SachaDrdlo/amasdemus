@@ -1,8 +1,7 @@
 <?php
 // define("HOST", "https://sachadordolo.fr/amasdemus/admin");
 // define('HOST', "http://localhost:8888/amasdemus/amasdemus_interface/admin");
-//  define('HOST', "http://localhost/amasdemus/admin");
- define('HOST', "http://localhost:8888/php-m2i/amasdemus/admin");
+ define('HOST', "http://localhost:8888/amasdemus/admin");
 
 // DIR
 define('DIR_APPLICATION', 'src/');
@@ -11,7 +10,7 @@ define('DIR_VIEW', DIR_APPLICATION.'view/');
 define('DIR_CONTROLLER', DIR_APPLICATION.'controller/');
 define('DIR_TEMPLATE', 'tpl/');
 
-// DB
+// // DB
 // define('DB_HOSTNAME', 'db5002236283.hosting-data.io');
 // define('DB_USERNAME', 'dbu1488325');
 // define('DB_PASSWORD', 'Amasdemus59.');
