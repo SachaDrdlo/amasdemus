@@ -17,7 +17,7 @@ $item->id = isset($_GET["id"]) ? trim(strip_tags($_GET['id'])) : die();
 $item->getBreweryInfos();
 
 if ($item->name != null) {
-    $beerArray = array(
+    $breweryArray = array(
         "id" => $item->id,
         "name" => $item->name,
         "description" => $item->description,
@@ -29,7 +29,7 @@ if ($item->name != null) {
     );
 
     http_response_code(200);
-    echo json_encode($beerArray);
+    echo json_encode($breweryArray);
 } else {
     http_response_code(404);
     echo json_encode(

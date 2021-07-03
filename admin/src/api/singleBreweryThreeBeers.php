@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 include_once '../../system/config.php';
 include_once '../../system/db.php';
-include_once '../class/brewery.php';
+include_once '../class/beer.php';
 
 $db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 $items = new Beer($db);

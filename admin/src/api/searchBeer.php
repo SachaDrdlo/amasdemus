@@ -1,58 +1,62 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
 
 include_once '../../system/config.php';
 include_once '../../system/db.php';
 include_once '../class/beer.php';
 
-$db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-$items = new Beer($db);
+header("Access-Control-Allow-Origin: " . HEADER_ORIGIN);
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$beer_name = isset($_GET["search"]) ? trim(strip_tags($_GET["search"])) : "";
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-$stmt = $items->searchBeer($beer_name);
-$itemCount = $stmt->rowCount();
+    $db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+    $items = new Beer($db);
 
-if ($itemCount > 0) {
-    $beerArray = array();
-    $beerArray["beers"] = array();
-    // $beerArray["paging"]=array();
-    $beerArray["itemCount"] = $itemCount;
+    $beer_name = isset($_GET["search"]) ? trim(strip_tags($_GET["search"])) : "";
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        extract($row);
+    $stmt = $items->searchBeer($beer_name);
+    $itemCount = $stmt->rowCount();
 
-        $beer = array(
-            "id" => $row["id_biere"],
-            "name" => $row["nom_biere"],
-            "breweries" => $row["nom_brasserie"],
-            "title" => $row["title"],
-            "description" => $row["description"],
-            "level" => $row["level"],
-            "glass" => $row["glass"],
-            "flavours" => $row["flavours"],
-            "location" => $row["location"],
-            "image" => $row["image"],
-            "type" => $row["type"],
-            "img_brewery" => $row["img_brewery"],
-            "desc_brewery" => $row["desc_brewery"]
+    if ($itemCount > 0) {
+        $beerArray = array();
+        $beerArray["beers"] = array();
+        $beerArray["itemCount"] = $itemCount;
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+
+            $beer = array(
+                "id" => $row["id_biere"],
+                "name" => $row["nom_biere"],
+                "breweries" => $row["nom_brasserie"],
+                "title" => $row["title"],
+                "description" => $row["description"],
+                "level" => $row["level"],
+                "glass" => $row["glass"],
+                // "flavours" => $row["flavours"],
+                "location" => $row["location"],
+                "image" => $row["image"],
+                "type" => $row["type"],
+                // "img_brewery" => $row["img_brewery"],
+                // "desc_brewery" => $row["desc_brewery"]
+            );
+
+            array_push($beerArray["beers"], $beer);
+        }
+
+        http_response_code(200);
+        echo json_encode($beerArray);
+    } else {
+        http_response_code(404);
+
+        echo json_encode(
+            array("message" => "No products found.")
         );
-
-        array_push($beerArray["beers"], $beer);
     }
-
-    // $total_rows=$product->count();
-    // $page_url="{$home_url}searchBeer.php?";
-    // $paging=$utilities->getPaging($page, $total_rows, $records_per_page, $page_url);
-    // $beerArray["paging"]=$paging;
-
-    http_response_code(200);
-    echo json_encode($beerArray);
-} else {
-    http_response_code(404);
-
-    echo json_encode(
-        array("message" => "No products found.")
-    );
+}else{
+    http_response_code(405);
+    echo json_encode(["message" => "Unauthorized method"]);
 }

@@ -24,4 +24,7 @@ define('DIR_TEMPLATE', 'tpl/');
  define('DB_DATABASE', 'amasdemus');
  define('DB_PORT', '8889');
 
+ // HEADERS VARIABLES
+ define('HEADER_ORIGIN', 'http://localhost:3000');
+
 ?>

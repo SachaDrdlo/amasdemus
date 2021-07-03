@@ -1,46 +1,53 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 include_once '../../system/config.php';
 include_once '../../system/db.php';
 include_once '../class/beer.php';
 
-$db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-$items = new Beer($db);
+header("Access-Control-Allow-Origin: " . HEADER_ORIGIN);
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$idBrewery = isset($_GET["id"]) ? trim(strip_tags($_GET['id'])) : "";
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-$stmt = $items->getBreweryBeers($idBrewery);
-$itemCount = $stmt->rowCount();
+    $db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+    $items = new Beer($db);
 
-if ($itemCount > 0) {
-    $beerArray = array();
-    $beerArray["beers"] = array();
-    $beerArray["itemCount"] = $itemCount;
+    $idBrewery = isset($_GET["id"]) ? trim(strip_tags($_GET['id'])) : "";
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        extract($row);
+    $stmt = $items->getBreweryBeers($idBrewery);
+    $itemCount = $stmt->rowCount();
 
-        $beer = array(
-            "id" => $row["id_biere"],
-            "name" => $row["nom_biere"],
-            "brewery_name" => $row["nom_brasserie"],
-            "image" => $row["image"]
+    if ($itemCount > 0) {
+        $beerArray = array();
+        $beerArray["beers"] = array();
+        $beerArray["itemCount"] = $itemCount;
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+
+            $beer = array(
+                "id" => $row["id_biere"],
+                "name" => $row["nom_biere"],
+                "brewery_name" => $row["nom_brasserie"],
+                "image" => $row["image"]
+            );
+
+            array_push($beerArray["beers"], $beer);
+        }
+
+        http_response_code(200);
+        echo json_encode($beerArray);
+    } else {
+        http_response_code(404);
+
+        echo json_encode(
+            array("message" => "No beer found.")
         );
-
-        array_push($beerArray["beers"], $beer);
     }
-
-    http_response_code(200);
-    echo json_encode($beerArray);
-} else {
-    http_response_code(404);
-
-    echo json_encode(
-        array("message" => "No beer found.")
-    );
+}else{
+    http_response_code(405);
+    echo json_encode(["message" => "Unauthorized method"]);
 }

@@ -49,17 +49,14 @@ class Brewery
         $stmt->bindParam(':id', $this->id);
         $stmt->execute();
 
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $query = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->name = $row["name"];
-        $this->description = $row["description"];
-        $this->logo = $row["logo"];
-        $this->address = $row["address"];
-        $this->url = $row["url"];
-        $this->locations = $row["region"];
-        $stmt = $this->connection->prepare($sqlQuery);
-        $stmt->execute();
-        return $stmt;
+        $this->name = $query["name"];
+        $this->description = $query["description"];
+        $this->logo = $query["logo"];
+        $this->address = $query["address"];
+        $this->url = $query["url"];
+        $this->locations = $query["region"];
     }
 
 }
