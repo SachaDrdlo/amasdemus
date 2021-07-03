@@ -19,10 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit;
 }
 
+include_once '../../system/config.php';
 include_once '../../system/db.php';
 include_once '../class/beer.php';
 
-$db = new DB('db5002236283.hosting-data.io', 'dbu1488325', 'Amasdemus59.', 'dbs1804734');
+$db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 $items = new Beer($db);
 
 $data = json_decode(file_get_contents('php://input'), true);

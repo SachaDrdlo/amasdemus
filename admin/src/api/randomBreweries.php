@@ -3,10 +3,11 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
+include_once '../../system/config.php';
 include_once '../../system/db.php';
 include_once '../class/brewery.php';
 
-$db = new DB('db5002236283.hosting-data.io', 'dbu1488325', 'Amasdemus59.', 'dbs1804734');
+$db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 $items = new Brewery($db);
 $stmt = $items->getRandomBreweries();
 $itemCount = $stmt->rowCount();

@@ -2,15 +2,12 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
+include_once '../../system/config.php';
 include_once '../../system/db.php';
 include_once '../class/beer.php';
-// include_once './shared/utilities.php';
-// include_once './config/core.php';
 
-$db = new DB('db5002236283.hosting-data.io', 'dbu1488325', 'Amasdemus59.', 'dbs1804734');
+$db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 $items = new Beer($db);
-
-// $utilities = new Utilities();
 
 $beer_name = isset($_GET["search"]) ? trim(strip_tags($_GET["search"])) : "";
 
