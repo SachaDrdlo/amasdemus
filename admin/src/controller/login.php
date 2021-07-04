@@ -20,15 +20,12 @@ class LoginController
     {
         $result = $this->getUser($this->model->email);
 
-
-        //    if (!empty($result) && password_verify($this->model->password, $result["password"])) {
-        if (!empty($result) && $this->model->password == $result["password"]) {
+        if (!empty($result) && password_verify($this->model->password, $result["password"])) {
             $_SESSION["session_id"] = md5($result["email"]);
             $_SESSION["user_ip"] = $_SERVER["REMOTE_ADDR"];
 
             return true;
         }
-
         return false;
     }
 }
