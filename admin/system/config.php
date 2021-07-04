@@ -1,7 +1,7 @@
 <?php
-// define("HOST", "https://sachadordolo.fr/amasdemus/admin");
+define("HOST", "https://sachadordolo.fr/amasdemus/admin");
 // define('HOST', "http://localhost:8888/amasdemus/amasdemus_interface/admin");
- define('HOST', "http://localhost:8888/amasdemus/admin");
+//  define('HOST', "http://localhost:8888/amasdemus/admin");
 
 // DIR
 define('DIR_APPLICATION', 'src/');
@@ -25,6 +25,11 @@ define('DIR_TEMPLATE', 'tpl/');
  define('DB_PORT', '8889');
 
  // HEADERS VARIABLES
- define('HEADER_ORIGIN', 'http://localhost:3000');
+
+//  LOCAL
+//  define('HEADER_ORIGIN', 'http://localhost:3000');
+
+// ONLINE
+ define('HEADER_ORIGIN', 'https://amasdemus-psi.vercel.app/');
 
 ?>

@@ -44,12 +44,12 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 	const [beersFiltered, setBeersFiltered] = useState();
 
-	async function getSacha(filters) {
-		const letFilterBeers = await fetch(`${process.env.API_PATH}getBeersByTypeFilter.php`, {
+	async function getFiltersByType(filters) {
+		const letFilterBeers = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}getBeersByTypeFilter.php`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
-				Origin: 'http://localhost:3000'
+				Origin: 'https://amasdemus-psi.vercel.app/'
 			},
 			body: JSON.stringify({ filters })
 		}).then((response) => response.json());
@@ -64,7 +64,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 	useEffect(
 		() => {
-			getSacha(beerFilters);
+			getFiltersByType(beerFilters);
 		},
 		[beerFilters]
 	);
@@ -113,18 +113,6 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const typesList = typesFilters.beers.map((type) => {
 		return type;
 	});
-
-	// TODO - AUTRES FILTRES A ACTIVER DAS UNE PROCHAINE VERSION
-	// --------------------------------------------------------------------------------------------
-	// const locationsList = locationsFilters.beers.map((location) => {
-	// 	return location;
-	// });
-	// const flavoursList = flavoursFilters.beers.map((flavour) => {
-	// 	return flavour;
-	// });
-
-
-	// const [checked, setChecked] = useState()
 
 	const handleBeersFilterReset = () => {
 
@@ -223,10 +211,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 				</div>
 				<Filters
 					types={typesList}
-					// locations={locationsList}
-					// flavours={flavoursList}
 					beerFilters={beerFilters}
-					// isChecked = {checked}
 					handleBeersFilterCallback={handleBeersFilter}
 					handleFiltersReset={handleBeersFilterReset}
 				/>
@@ -258,15 +243,6 @@ export async function getServerSideProps() {
 
 	const typeRes = await fetch(`${process.env.API_PATH}getFiltersTypeItem.php`);
 	const typesFilters = await typeRes.json();
-
-	// TODO - AUTRES APPELS FILTRES A REVOIR POUR UNE PROCHAINE VERSION
-	// --------------------------------------------------------------------------------------------
-
-	// const locationRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterLocationItem.php`);
-	// const locationsFilters = await locationRes.json();
-
-	// const flavourRes = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getFilterFlavourItem.php`);
-	// const flavoursFilters = await flavourRes.json();
 
 	return {
 		props: {
