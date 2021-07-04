@@ -56,18 +56,16 @@ class BeerController
 
     public function get()
     {
-        $id=intval($this->model->id);
-        // Debugger le prepare par la suite
-        $query = $this->model->db->query("SELECT name, title, description, level, image,  id_type, id_brewery, id_location, id_glass, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+        $query = $this->model->db->prepare("SELECT name, title, description, level, image,  id_type, id_brewery, id_location, id_glass, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
             FROM beers
             INNER JOIN beers_flavours
             ON beers.id = beers_flavours.id_beer
             INNER JOIN flavours
             ON beers_flavours.id_flavour = flavours.id
-            WHERE beers.id={$id};
+            WHERE beers.id = :id
             GROUP BY beers.name");
-        // $query->bindParam(":id", $id, PDO::PARAM_INT);
-        // var_dump($query->execute());
+        $query->bindParam(":id", $this->model->id, PDO::PARAM_INT);
+        $query->execute();
         $res = $query->fetch();
 
         return $res;
@@ -97,23 +95,23 @@ class BeerController
     }
 
 
-    public function addFlavours($idBeer) : bool
+    public function addFlavours($idBeer): bool
     {
         $flavourCount = 0;
         foreach ($this->model->flavours as $flavour => $value) {
-                $this->addFlavour($idBeer, $flavour);
-                $flavourCount++;
+            $this->addFlavour($idBeer, $flavour);
+            $flavourCount++;
         }
 
-        if ($flavourCount === count($this->model->flavours)){
+        if ($flavourCount === count($this->model->flavours)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public function addFlavour($idBeer, $idFlavour) : bool
-     {
+    public function addFlavour($idBeer, $idFlavour): bool
+    {
         $query = $this->model->db->prepare("INSERT INTO beers_flavours
         (id_beer, id_flavour)
         VALUES
@@ -131,11 +129,10 @@ class BeerController
 
     public function edit(): bool
     {
-        if(empty($this->model->image)) {
+        if (empty($this->model->image)) {
             $data = $this->get();
             if (isset($data["image"])) {
                 $this->model->image = $data["image"];
-
             }
         }
         $query = $this->model->db->prepare("UPDATE beers
@@ -158,11 +155,11 @@ class BeerController
         } else {
 
             return false;
-
         }
     }
 
-    public function deleteFlavours(): bool {
+    public function deleteFlavours(): bool
+    {
 
         $query = $this->model->db->prepare("DELETE FROM beers_flavours WHERE id_beer=:id");
         $query->bindParam(":id", $this->model->id);
@@ -173,7 +170,6 @@ class BeerController
 
             return false;
         }
-
     }
 
     public function delete(): bool
@@ -224,5 +220,4 @@ class BeerController
         $res = $this->model->db->query("SELECT * FROM flavours;");
         return $res;
     }
-
 }

@@ -52,16 +52,12 @@ class BreweryController
 
     public function get()
     {
-        $id=intval($this->model->id);
-        // Changer en prepare plus tard
-        $query = $this->model->db->query("SELECT name,description, logo, address, url
+        $query = $this->model->db->prepare("SELECT name,description, logo, address, url
         FROM breweries
-        WHERE breweries.id={$id}");
-        // $query->bindParam(":id", $this->model->id);
-        // $query->execute();
-        // var_dump($query->execute());
+        WHERE breweries.id = :id");
+        $query->bindParam(":id", $this->model->id, PDO::PARAM_INT);
+        $query->execute();
         $res = $query->fetch();
-        // var_dump($res);
 
         return $res;
     }
@@ -88,7 +84,7 @@ class BreweryController
 
     public function edit(): bool
     {
-        if(empty($this->model->logo)) {
+        if (empty($this->model->logo)) {
             $data = $this->get();
             if (isset($data["logo"])) {
                 $this->model->logo = $data["logo"];
@@ -110,7 +106,6 @@ class BreweryController
         } else {
 
             return false;
-
         }
     }
 
@@ -132,6 +127,4 @@ class BreweryController
         $breweryId = $this->model->db->lastInsertId();
         return $breweryId;
     }
-
-
 }
