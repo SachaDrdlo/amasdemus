@@ -45,7 +45,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const [beersFiltered, setBeersFiltered] = useState();
 
 	async function getFiltersByType(filters) {
-		const letFilterBeers = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}getBeersByTypeFilter.php`, {
+		const letFilterBeers = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getBeersByTypeFilter.php`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
