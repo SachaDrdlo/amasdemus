@@ -1,19 +1,14 @@
 <?php
 
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Headers: *");
-
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    // var_dump($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']);
 
     if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']) &&
          $_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'] == 'POST') {
-             // header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin");
-            header('Access-Control-Allow-Origin: *');
-            header("Access-Control-Allow-Headers: Origin, Content-Type");
+            header("Access-Control-Allow-Origin: http://localhost:3000");
             header("Content-Type: application/json; charset=UTF-8");
             header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
             header("Access-Control-Max-Age: 3600");
+            header("Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     }
     exit;
@@ -27,15 +22,9 @@ $db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 $items = new Beer($db);
 
 $data = json_decode(file_get_contents('php://input'), true);
-// && isset($_SERVER['HTTP_ORIGIN']) &&
-//          is_approved($_SERVER['HTTP_ORIGIN'])
-
 
 $stmt = $items->selectBeersByTypeFilter($data["filters"]);
 $itemCount = $stmt->rowCount();
-
-
-// echo json_encode($itemCount);
 
 if ($itemCount > 0) {
     $beerArray = array();
@@ -50,24 +39,15 @@ if ($itemCount > 0) {
             "image" => $row["image"],
             "type" => $row["type"]
 
-            // "id_brewery" => $row["id_brewery"],
-            // "breweries" => $row["nom_brasserie"],
-            // "title" => $row["title"],
-            // "description" => $row["description"],
-            // "level" => $row["level"],
-            // "flavours" => $row["saveurs"],
-            // "glass" => $row["glass"],
-            // "location" => $row["location"],
-            // "img_brewery" => $row["image_brasserie"],
-            // "desc_brewery" => $row["description_brasserie"]
         );
 
         array_push($beerArray["beers"], $beer);
     }
+    http_response_code(200);
     echo json_encode($beerArray);
 } else {
     http_response_code(404);
-    // echo json_encode(
-    //     array("message" => "No record found.")
-    // );
+    echo json_encode(
+        array("message" => "No record found.")
+    );
 }

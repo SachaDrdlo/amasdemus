@@ -22,16 +22,14 @@ class Brewery
     public function getBreweries()
     {
         $sqlQuery = "SELECT id, name, description, logo, address, url FROM " . $this->db_table . "";
-        $stmt = $this->connection->prepare($sqlQuery);
-        $stmt->execute();
+        $stmt = $this->connection->query($sqlQuery);
         return $stmt;
     }
 
     public function getRandomBreweries()
     {
         $sqlQuery = "SELECT id, name, description, logo, address, url FROM " . $this->db_table . " ORDER BY RAND() LIMIT 3";
-        $stmt = $this->connection->prepare($sqlQuery);
-        $stmt->execute();
+        $stmt = $this->connection->query($sqlQuery);
         return $stmt;
     }
 

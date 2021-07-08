@@ -86,7 +86,6 @@ class BeerController
         $query->bindParam(":glass", $this->model->glass);
 
         if ($query->execute()) {
-            $this->getBeerId();
             return true;
         } else {
             var_dump($query->errorinfo());

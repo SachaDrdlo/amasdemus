@@ -1,14 +1,14 @@
 <?php
 
-include_once '../../system/config.php';
-include_once '../../system/db.php';
-include_once '../class/beer.php';
-
-header("Access-Control-Allow-Origin: " . HEADER_ORIGIN);
+header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+include_once '../../system/config.php';
+include_once '../../system/db.php';
+include_once '../class/beer.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
