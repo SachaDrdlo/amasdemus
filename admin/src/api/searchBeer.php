@@ -30,14 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             $beer = array(
                 "id" => $row["id_biere"],
                 "name" => $row["nom_biere"],
-                "breweries" => $row["nom_brasserie"],
-                "title" => $row["title"],
-                "description" => $row["description"],
-                "level" => $row["level"],
-                "glass" => $row["glass"],
-                "location" => $row["location"],
                 "image" => $row["image"],
-                "type" => $row["type"]
             );
 
             array_push($beerArray["beers"], $beer);

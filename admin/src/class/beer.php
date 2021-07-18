@@ -90,20 +90,8 @@ class Beer
 
     public function searchBeer($beer_name)
     {
-        $sqlQuery = "SELECT beers.id as id_biere, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.name as nom_brasserie, breweries.description as image_description, breweries.logo as image_brewery, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+        $sqlQuery = "SELECT beers.id as id_biere, beers.name as nom_biere, beers.image
         FROM beers
-        INNER JOIN breweries
-        ON beers.id_brewery = breweries.id
-        INNER JOIN types
-        ON beers.id_type = types.id
-        INNER JOIN beers_flavours
-        ON beers.id = beers_flavours.id_beer
-        INNER JOIN flavours
-        ON beers_flavours.id_flavour = flavours.id
-        INNER JOIN glasses
-        ON beers.id_glass = glasses.id
-        INNER JOIN locations
-        ON beers.id_location = locations.id
         WHERE beers.name LIKE :beer_name
         GROUP BY beers.id";
 
@@ -160,20 +148,10 @@ class Beer
 
     public function getRandomBeer()
     {
-        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type, beers.description, glasses.glass, locations.location, breweries.id as id_brewery, breweries.name as nom_brasserie, GROUP_CONCAT(flavours.flavour SEPARATOR \", \") AS \"saveurs\"
+        $sqlQuery = "SELECT beers.id, beers.name as nom_biere, beers.title, beers.level, beers.image, types.type
             FROM beers
-            INNER JOIN breweries
-            ON beers.id_brewery = breweries.id
             INNER JOIN types
             ON beers.id_type = types.id
-            INNER JOIN beers_flavours
-            ON beers.id = beers_flavours.id_beer
-            INNER JOIN flavours
-            ON beers_flavours.id_flavour = flavours.id
-            INNER JOIN glasses
-            ON beers.id_glass = glasses.id
-            INNER JOIN locations
-            ON beers.id_location = locations.id
             GROUP BY beers.id
             ORDER BY RAND()
             LIMIT 1";

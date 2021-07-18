@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     include_once '../../system/config.php';
     include_once '../../system/db.php';
     include_once '../class/brewery.php';
-    
+
     $db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     $items = new Brewery($db);
     $stmt = $items->getRandomBreweries();

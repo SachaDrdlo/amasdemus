@@ -23,17 +23,12 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $beerArray["itemCount"] = $itemCount;
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            extract($row);
+
             $beer = array(
                 "id" => $row["id"],
                 "name" => $row["nom_biere"],
-                "id_brewery" => $row["id_brewery"],
-                "breweries" => $row["nom_brasserie"],
                 "title" => $row["title"],
-                "description" => $row["description"],
                 "level" => $row["level"],
-                "glass" => $row["glass"],
-                "location" => $row["location"],
                 "image" => $row["image"],
                 "type" => $row["type"]
             );
