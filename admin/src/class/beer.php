@@ -271,9 +271,7 @@ class Beer
         WHERE types.type IN (\"{$typeString}\")
         ORDER BY beers.name";
 
-        $stmt = $this->connection->prepare($sqlQuery);
-        $stmt->execute();
-
+        $stmt = $this->connection->query($sqlQuery);        
         return $stmt;
     }
 }

@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import styles from '../styles/components/Filters.module.scss';
 
-export default function Filters({ types, handleBeersFilterCallback, handleFiltersReset, isChecked, beerFilters }) {
+export default function Filters({ types, handleTypeFilterCallback, handleTypeFiltersReset, beerFiltersArray }) {
     const [opened, setOpened] = useState(false);
 
     const getFilters = (e) => {
@@ -11,8 +11,8 @@ export default function Filters({ types, handleBeersFilterCallback, handleFilter
 
     const typeFilterMap = types.map((type) => {
         return (
-            <div className={styles.filter_box}>
-                <input data-filter="filter" type="checkbox" id={type.id} name={type.type} onChange={() => handleBeersFilterCallback(type.type)} checked={beerFilters.includes(type.type)} />
+            <div key={type.id} className={styles.filter_box}>
+                <input data-filter="filter" type="checkbox" id={type.id} name={type.type} onChange={() => handleTypeFilterCallback(type.type)} checked={beerFiltersArray.includes(type.type)} />
                 <label htmlFor={type.id}>{type.type}</label>
             </div>
         )
@@ -26,7 +26,7 @@ export default function Filters({ types, handleBeersFilterCallback, handleFilter
         <div className="filters-lateralblock">
             <div className={styles.filters_container}>
                 <div className={styles.filters_header}>
-                    <button className={styles.filters_header_resetbtn} id="filterreset" onClick={(e) => handleFiltersReset(e)}>
+                    <button className={styles.filters_header_resetbtn} id="filterreset" onClick={(e) => handleTypeFiltersReset(e)}>
                         <img id="search" src="/img/icons/reset-icon.svg" alt="" />
                         <p>Réinitialiser</p>
                     </button>
