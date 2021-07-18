@@ -8,8 +8,7 @@ import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar-bottom';
 import Filters from '../../components/Filters';
 import LogoTemplate from '../../components/LogoTemplate';
-
-export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilters }) {
+export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilters, API_PATH }) {
 
 	blondBeers = blondBeers.beers;
 	tripleBeers = tripleBeers.beers;
@@ -18,38 +17,56 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const blondType = blondBeers[0].type;
 	const tripleType = tripleBeers[0].type;
 	const amberType = amberBeers[0].type;
-
+	
+	// Filters pannel opener
 	const [opened, setOpened] = useState(false);
 	const getFilters = (e) => {
 		e.currentTarget.id === 'filter' ? setOpened(!opened) : null;
 		document.body.classList.add('filters__active');
 	};
 
-	const [beerFilters, setBeerFilters] = useState([]);
+	// Beer type filters array
+	const [beerFiltersArray, setBeerFiltersArray] = useState([]);
+	
 
-	const handleBeersFilter = (filterResponse) => {
-		const beerState = [...beerFilters];
+	const handleTypeFilter = (typeFilter) => {
+		// Copie du tableau de filtres
+		const beerState = [...beerFiltersArray];
 
+		// on check la correspondance entre le filtre envoyé par le click sur une des checkboxes
+		// et la copie du tableau de filtres existant
 		const filterIn = beerState.find((filter) => {
-			return filterResponse == filter;
+			return typeFilter == filter;
 		});
 
 		if (filterIn) {
 			const remainingFilters = beerState.filter((item) => item !== filterIn);
-			setBeerFilters(remainingFilters);
+			setBeerFiltersArray(remainingFilters);
 		} else {
-			setBeerFilters([...beerFilters, filterResponse]);
+			setBeerFiltersArray([...beerFiltersArray, typeFilter]);
 		}
 	};
 
+	// console.log(beerFiltersArray);
+
+	// State contenant les bières
 	const [beersFiltered, setBeersFiltered] = useState();
 
+<<<<<<< .merge_file_49wYp8
 	async function getFiltersByType(filters) {
 		const letFilterBeers = await fetch(`https://sachadordolo.fr/amasdemus/admin/src/api/getBeersByTypeFilter.php`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
 				Origin: 'https://amasdemus-psi.vercel.app/'
+=======
+	async function getBeersByTypeFilter(filters) {
+		const letFilterBeers = await fetch(`http://localhost:8888/php-m2i/amasdemus/admin/src/api/getBeersByTypeFilter.php`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json; charset=UTF-8',
+				'Origin': 'http://localhost:3000'
+>>>>>>> .merge_file_EcqGlo
 			},
 			body: JSON.stringify({ filters })
 		}).then((response) => response.json());
@@ -59,18 +76,21 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 	useEffect(() => {
 		document.body.classList.add('filters');
-		// a enlever
 	}, []);
 
 	useEffect(
 		() => {
+<<<<<<< .merge_file_49wYp8
 			getFiltersByType(beerFilters);
+=======
+			getBeersByTypeFilter(beerFiltersArray);
+>>>>>>> .merge_file_EcqGlo
 		},
-		[beerFilters]
+		[beerFiltersArray]
 	);
 
 	const filterBeers = (beerDataArray) => {
-		if (beerFilters.length > 0 && beerDataArray != undefined) {
+		if (beerFiltersArray.length > 0 && beerDataArray != undefined) {
 			const beersFilteredList = beerDataArray.beers.map((beer) => {
 				return <LogoTemplate
 					key={beer.id}
@@ -114,13 +134,20 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 		return type;
 	});
 
+<<<<<<< .merge_file_49wYp8
 	const handleBeersFilterReset = () => {
 
 		setBeerFilters([])
+=======
+	// const [checked, setChecked] = useState()
+
+	const handleTypeFiltersReset = () => {
+		setBeerFiltersArray([])
+>>>>>>> .merge_file_EcqGlo
 	};
 
 	const pageRender = (beerDataArray) => {
-		if (beerFilters.length > 0 && beerDataArray != undefined) {
+		if (beerFiltersArray.length > 0 && beerDataArray != undefined) {
 
 			return (
 				<section className={styles.beers_section}>
@@ -201,7 +228,6 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 			<Header />
 			<main>
 				<div className={`${styles.filters_container} ${opened ? styles.filters_container_active : null}`}>
-					{/* <GoBackButton /> */}
 					<div className="container">
 						<button id="filter" className={styles.filters_btn} onClick={(e) => getFilters(e)}>
 							<img src="/img/icons/filter-icon.svg" alt="" />
@@ -211,9 +237,16 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 				</div>
 				<Filters
 					types={typesList}
+<<<<<<< .merge_file_49wYp8
 					beerFilters={beerFilters}
 					handleBeersFilterCallback={handleBeersFilter}
 					handleFiltersReset={handleBeersFilterReset}
+=======
+					beerFiltersArray={beerFiltersArray}
+					// isChecked = {checked}
+					handleTypeFilterCallback={handleTypeFilter}
+					handleTypeFiltersReset={handleTypeFiltersReset}
+>>>>>>> .merge_file_EcqGlo
 				/>
 				<div className="container">
 					{pageRender(beersFiltered)}
@@ -243,7 +276,10 @@ export async function getServerSideProps() {
 
 	const typeRes = await fetch(`${process.env.API_PATH}getFiltersTypeItem.php`);
 	const typesFilters = await typeRes.json();
+<<<<<<< .merge_file_49wYp8
 
+=======
+>>>>>>> .merge_file_EcqGlo
 	return {
 		props: {
 			blondBeers,

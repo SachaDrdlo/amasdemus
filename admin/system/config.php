@@ -2,6 +2,7 @@
 define("HOST", "https://sachadordolo.fr/amasdemus/admin");
 // define('HOST', "http://localhost:8888/amasdemus/amasdemus_interface/admin");
 //  define('HOST', "http://localhost:8888/amasdemus/admin");
+//  define('HOST', "http://localhost:8888/php-m2i/amasdemus/admin");
 
 // DIR
 define('DIR_APPLICATION', 'src/');

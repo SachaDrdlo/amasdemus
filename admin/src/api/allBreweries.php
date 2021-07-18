@@ -1,16 +1,17 @@
 <?php
 
-include_once '../../system/config.php';
-include_once '../../system/db.php';
-include_once '../class/brewery.php';
-
-header("Access-Control-Allow-Origin: " . HEADER_ORIGIN);
+header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    
+    include_once '../../system/config.php';
+    include_once '../../system/db.php';
+    include_once '../class/brewery.php';
 
     $db = new DB(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     $items = new Brewery($db);
@@ -35,6 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             array_push($breweriesArray["breweries"], $brewery);
         }
+        http_response_code(200);
         echo json_encode($breweriesArray);
     } else {
         http_response_code(404);
