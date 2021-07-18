@@ -3,7 +3,7 @@
 .footer {
     color: $clr-grey;
     margin: 12rem 0 12.2rem 0;
-    
+
 
     &_container {
 
@@ -12,10 +12,10 @@
             width: 8.2rem;
             display: block;
 
-            @media screen and (min-width: 992px) {
+            @media screen and (min-width: $lg-bp) {
                 width: 16.4rem;
             }
-            
+
         }
 
         &_text {

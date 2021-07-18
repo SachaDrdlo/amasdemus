@@ -1,8 +1,13 @@
 <?php
 define("HOST", "https://sachadordolo.fr/amasdemus/admin");
 // define('HOST', "http://localhost:8888/amasdemus/amasdemus_interface/admin");
+<<<<<<< HEAD
 //  define('HOST', "http://localhost:8888/amasdemus/admin");
 //  define('HOST', "http://localhost:8888/php-m2i/amasdemus/admin");
+=======
+//  define('HOST', "http://localhost:8888/php-m2i/amasdemus/admin");
+ define('HOST', "http://localhost:8888/amasdemus/admin");
+>>>>>>> codefix
 
 // DIR
 define('DIR_APPLICATION', 'src/');
