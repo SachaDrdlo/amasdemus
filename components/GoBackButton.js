@@ -5,7 +5,6 @@ const GoBackButton = () => {
 
 
     const router = useRouter();
-    console.log(router);
 
     return (
         <div className="arrow-container">

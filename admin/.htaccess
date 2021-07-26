@@ -1,28 +1,28 @@
 # Activation du module de réécriture d'URL :
 RewriteEngine on
-#RewriteBase /
+RewriteBase /
 
 # Règles de réécriture d'URL :
 
 # LOCAL CONNECTION
-RewriteRule ^beer$   ./index.php?page=beer
-RewriteRule ^edit/([0-9]+)$   ./index.php?page=beer&id=$1
-RewriteRule ^delete/([0-9]+)$   ./index.php?page=beer&operation=delete&id=$1
-RewriteRule ^edit_brewery/([0-9]+)$   ./index.php?page=brewery&id=$1
-RewriteRule ^delete_brewery/([0-9]+)$   ./index.php?page=brewery&operation=delete&id=$1
-RewriteRule ^login$   ./index.php?page=login
-RewriteRule ^breweries$   ./index.php?page=breweries
-RewriteRule ^brewery$   ./index.php?page=brewery
+#RewriteRule ^beer$   ./index.php?page=beer
+#RewriteRule ^edit/([0-9]+)$   ./index.php?page=beer&id=$1
+#RewriteRule ^delete/([0-9]+)$   ./index.php?page=beer&operation=delete&id=$1
+#RewriteRule ^edit_brewery/([0-9]+)$   ./index.php?page=brewery&id=$1
+#RewriteRule ^delete_brewery/([0-9]+)$   ./index.php?page=brewery&operation=delete&id=$1
+#RewriteRule ^login$   ./index.php?page=login
+#RewriteRule ^breweries$   ./index.php?page=breweries
+#RewriteRule ^brewery$   ./index.php?page=brewery
 
 
 #ONLINE CONNECTION
-#RewriteRule ^amasdemus/admin/beer$   amasdemus/admin/index.php?page=beer
-#RewriteRule ^amasdemus/admin/edit/([0-9]+)$   amasdemus/admin/index.php?page=beer&id=$1
-#RewriteRule ^amasdemus/admin/delete/([0-9]+)$   amasdemus/admin/index.php?page=beer&operation=delete&id=$1
-#RewriteRule ^amasdemus/admin/login$   amasdemus/admin/index.php?page=login
+RewriteRule ^amasdemus/admin/beer$   amasdemus/admin/index.php?page=beer
+RewriteRule ^amasdemus/admin/edit/([0-9]+)$   amasdemus/admin/index.php?page=beer&id=$1
+RewriteRule ^amasdemus/admin/delete/([0-9]+)$   amasdemus/admin/index.php?page=beer&operation=delete&id=$1
+RewriteRule ^amasdemus/admin/login$   amasdemus/admin/index.php?page=login
 
 # PAGES BREWERIES ONLINE CONNECTION
-#RewriteRule ^amasdemus/admin/breweries$   amasdemus/admin/index.php?page=breweries
-#RewriteRule ^amasdemus/admin/brewery$   amasdemus/admin/index.php?page=brewery
-#RewriteRule ^amasdemus/admin/edit_brewery/([0-9]+)$   amasdemus/admin/index.php?page=brewery&id=$1
-#RewriteRule ^amasdemus/admin/delete_brewery/([0-9]+)$   amasdemus/admin/index.php?page=brewery&operation=delete&id=$1
+RewriteRule ^amasdemus/admin/breweries$   amasdemus/admin/index.php?page=breweries
+RewriteRule ^amasdemus/admin/brewery$   amasdemus/admin/index.php?page=brewery
+RewriteRule ^amasdemus/admin/edit_brewery/([0-9]+)$   amasdemus/admin/index.php?page=brewery&id=$1
+RewriteRule ^amasdemus/admin/delete_brewery/([0-9]+)$   amasdemus/admin/index.php?page=brewery&operation=delete&id=$1

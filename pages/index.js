@@ -128,7 +128,6 @@ const HomePage = ({ beerFetch, breweriesFetch }) => {
 export default HomePage
 
 export async function getServerSideProps() {
-  console.log(process.env.NEXT_PUBLIC_PATH);
   // Fetch de la bière aléatoire en page d'accueil
   const res = await fetch(`${process.env.API_PATH}randomBeer.php`)
   const beerFetch = await res.json()

@@ -9,8 +9,6 @@ import styles from '../../../styles/components/Brewery.module.scss';
 const BreweryId = ({ breweryBeersData }) => {
 
     const breweryBeers = breweryBeersData.beers;
-
-    console.log(breweryBeers);
     const breweryNameObject = breweryBeers.find(beer => beer.brewery_name)
     const breweryName = breweryNameObject.brewery_name
 
