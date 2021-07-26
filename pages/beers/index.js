@@ -67,12 +67,12 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 		document.body.classList.add('filters');
 	}, []);
 
-	useEffect(
-		() => {
-			getBeersByTypeFilter(beerFiltersArray);
-		},
-		[beerFiltersArray]
-	);
+	// useEffect(
+	// 	() => {
+	// 		getBeersByTypeFilter(beerFiltersArray);
+	// 	},
+	// 	[beerFiltersArray]
+	// );
 
 	const filterBeers = (beerDataArray) => {
 		if (beerFiltersArray.length > 0 && beerDataArray != undefined) {
@@ -128,18 +128,18 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const pageRender = (beerDataArray) => {
 		if (beerFiltersArray.length > 0 && beerDataArray != undefined) {
 
-			return (
-				<section className={styles.beers_section}>
-					<div className="sectionblock-infos">
-						<p className="sectionblock-headtitle">Filtres</p>
-						<hr className="sectionblock-underline" />
-						<h2 className="sectionblock-title">{beerDataArray.itemCount} Bières trouvées</h2>
-					</div>
-					<Grid container item className={styles.breweries_container}>
-						{filterBeers(beersFiltered)}
-					</Grid>
-				</section>
-			);
+			// return (
+			// 	<section className={styles.beers_section}>
+			// 		<div className="sectionblock-infos">
+			// 			<p className="sectionblock-headtitle">Filtres</p>
+			// 			<hr className="sectionblock-underline" />
+			// 			<h2 className="sectionblock-title">{beerDataArray.itemCount} Bières trouvées</h2>
+			// 		</div>
+			// 		<Grid container item className={styles.breweries_container}>
+			// 			{filterBeers(beersFiltered)}
+			// 		</Grid>
+			// 	</section>
+			// );
 		} else {
 			return (
 				<div>
