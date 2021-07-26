@@ -17,7 +17,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 	const blondType = blondBeers[0].type;
 	const tripleType = tripleBeers[0].type;
 	const amberType = amberBeers[0].type;
-	
+
 	// Filters pannel opener
 	const [opened, setOpened] = useState(false);
 	const getFilters = (e) => {
@@ -27,7 +27,7 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 	// Beer type filters array
 	const [beerFiltersArray, setBeerFiltersArray] = useState([]);
-	
+
 
 	const handleTypeFilter = (typeFilter) => {
 		// Copie du tableau de filtres
@@ -76,15 +76,15 @@ export default function Beers({ blondBeers, tripleBeers, amberBeers, typesFilter
 
 	const filterBeers = (beerDataArray) => {
 		if (beerFiltersArray.length > 0 && beerDataArray != undefined) {
-			// const beersFilteredList = beerDataArray.beers.map((beer) => {
-			// 	return <LogoTemplate
-			// 		key={beer.id}
-			// 		id={beer.id}
-			// 		img={beer.image}
-			// 		name={beer.name}
-			// 	/>;
-			// });
-			// return beersFilteredList;
+			const beersFilteredList = beerDataArray.beers.map((beer) => {
+				return <LogoTemplate
+					key={beer.id}
+					id={beer.id}
+					img={beer.image}
+					name={beer.name}
+				/>;
+			});
+			return beersFilteredList;
 		}
 	};
 
